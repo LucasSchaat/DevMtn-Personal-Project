@@ -1,4 +1,4 @@
-INSERT INTO users (username, password, employee_id)
-VALUES ($1, $2, $3)
+INSERT INTO users (username, password)
+VALUES ($1, $2)
 
 RETURNING *;
