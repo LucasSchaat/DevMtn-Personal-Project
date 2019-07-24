@@ -23,7 +23,7 @@ class Home extends Component {
         return (
             <div>
                 <div className='home-nav-bar'>
-                    <div className='logo'>Qwalified</div>
+                    <div className='logo'>DevShop.js</div>
                     <div className='button-container'>
                         <button onClick={this.gotoLogin} className='home-button'>Login</button>
                         <button onClick={this.gotoSignup} className='home-button'>Signup</button>
@@ -31,7 +31,7 @@ class Home extends Component {
                 </div>
                 <div className='home-main'>
                     <div>
-                        Welcome to the Qwalified Lead Management Platform
+                        Train Your Own Machine Learning Model with Tensorflow.js
                     </div>
                     <div>Please log in or sign up to begin</div>
                 </div>

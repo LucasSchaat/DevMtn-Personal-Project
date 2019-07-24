@@ -19,11 +19,10 @@ app.use(session({
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db',db)
+    app.listen(SERVER_PORT, () => console.log(`Server listening on Port: ${SERVER_PORT}`))
     console.log('db connected')
 })
 
 app.post('/api/login', uc.login)
 app.post('/api/signup', uc.signup)
 app.delete('/api/logout', uc.logout)
-
-app.listen(SERVER_PORT, () => console.log(`Server listening on Port: ${SERVER_PORT}`))

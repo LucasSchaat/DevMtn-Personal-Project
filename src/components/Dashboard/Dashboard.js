@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUser } from '../../redux/userReducer'
 
@@ -17,6 +17,8 @@ class Dashboard extends Component {
                 <div className='Dashboard'>
                     <div>
                         Dashboard
+                        <Link to='/dashboard/trainingData'>Train the Model</Link>
+                        <Link to='/dashboard/testModel'>Test Your Model</Link>
                     </div>
                 </div>
             )

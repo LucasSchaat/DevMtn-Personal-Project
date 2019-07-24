@@ -12,7 +12,8 @@ module.exports = {
             req.session.user = {
                 username: existingUser.username,
                 id: existingUser.id,
-                loggedIn: true
+                loggedIn: true,
+                trainingCategories: 1
             }
             res.send(req.session.user)
         } else res.status(401).send('Incorrect Username or Password')
@@ -25,7 +26,12 @@ module.exports = {
         let salt = await bcrypt.genSalt(saltRounds)
         let hash = await bcrypt.hash(password, salt)
         let [user] = await db.create_user([username, hash])
-        req.session.user = { username: user.username, id: user.id, loggedIn: true }
+        req.session.user = {
+            username: user.username,
+            id: user.id,
+            loggedIn: true,
+            trainingCategories: 1
+        }
         res.send(req.session.user)
     },
     logout(req, res) {
