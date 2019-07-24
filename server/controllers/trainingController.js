@@ -25,12 +25,11 @@ module.exports = {
         res.send(data)
     },
     async saveData(req, res) {
-        let { table, title, content } = req.body
+        let { categoryValue, outcomeValue } = req.body
         const db = req.app.get('db')
-        let data = await db.save_data([
-            table,
-            // title,
-            // content,
+        let data = await db.save_data_1var([
+            categoryValue,
+            outcomeValue
         ])
         res.send(data)
     }

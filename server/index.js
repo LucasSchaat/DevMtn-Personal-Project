@@ -3,6 +3,7 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const uc = require('./controllers/userController')
+const tc = require('./controllers/trainingController')
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 const app = express()
@@ -26,3 +27,4 @@ massive(CONNECTION_STRING).then(db => {
 app.post('/api/login', uc.login)
 app.post('/api/signup', uc.signup)
 app.delete('/api/logout', uc.logout)
+app.post('/api/training_data', tc.saveData)
