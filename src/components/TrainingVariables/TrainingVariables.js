@@ -12,6 +12,7 @@ class TrainingVariables extends Component {
             fourthCategory: '',
             fifthCategory: '',
             sixthCategory: '',
+            outcome: '',
             editing: true
         }
     }
@@ -55,12 +56,14 @@ class TrainingVariables extends Component {
             fourthCategory,
             fifthCategory,
             sixthCategory,
+            outcome,
             editing
         } = this.state
         
         if (trainingCategories === 1 && editing === true) {
             return (
                 <div>
+                    <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
                     <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                     <button onClick={this.save}>Save</button>
                     <button onClick={this.addCategory} >Add Category</button>
@@ -68,6 +71,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 1 && editing === false) {
                 return (
                     <div>
+                        <div>{outcome}</div>
                         <div>{firstCategory}</div>
                         <button onClick={this.flipEdit}>Edit</button>
                         <button onClick={this.delete}>Delete</button>
@@ -76,6 +80,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 2 && editing === true) {
                 return (
                     <div>
+                        <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <button onClick={this.save}>Save</button>
@@ -84,6 +89,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 2 && editing === false) {
                 return (
                     <div>
+                        <div>{outcome}</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <button onClick={this.flipEdit}>Edit</button>
@@ -93,6 +99,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 3 && editing === true) {
                 return (
                     <div>
+                        <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
@@ -102,6 +109,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 3 && editing === false) {
                 return (
                     <div>
+                        <div>{outcome}</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
@@ -112,6 +120,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 4 && editing === true) {
                 return (
                     <div>
+                        <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
@@ -122,6 +131,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 4 && editing === false) {
                 return (
                     <div>
+                        <div>{outcome}</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
@@ -133,6 +143,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 5 && editing === true) {
                 return (
                     <div>
+                        <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
@@ -144,6 +155,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 5 && editing === false) {
                 return (
                     <div>
+                        <div>{outcome}</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
@@ -156,6 +168,7 @@ class TrainingVariables extends Component {
             )} else if (trainingCategories === 6 && editing === true) {
                 return (
                     <div>
+                        <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
@@ -167,6 +180,7 @@ class TrainingVariables extends Component {
             )} else {
                 return (
                     <div>
+                        <div>{outcome}</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
