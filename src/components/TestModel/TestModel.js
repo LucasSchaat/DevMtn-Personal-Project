@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-class TrainingData extends Component {
+class TestModel extends Component {
     render() {
         return(
             <div>
-                Training Data goes here
+                This is where you will test your model
             </div>
         )
     }
 }
 
-export default TrainingData
+export default TestModel

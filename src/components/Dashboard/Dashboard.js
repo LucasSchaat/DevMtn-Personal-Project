@@ -12,12 +12,13 @@ class Dashboard extends Component {
 
         render() {
             let { error, redirect } = this.props
-            if(error || redirect) return <Redirect to='/login' />
+            if(error || redirect) return <Redirect to='/' />
             return (
                 <div className='Dashboard'>
                     <div>
                         Dashboard
-                        <Link to='/dashboard/trainingData'>Train the Model</Link>
+                        <Link to='/dashboard/training_variables'>Choose Your Model Variables</Link>
+                        <Link to='/dashboard/import_data'>Import Your Data</Link>
                         <Link to='/dashboard/testModel'>Test Your Model</Link>
                     </div>
                 </div>
