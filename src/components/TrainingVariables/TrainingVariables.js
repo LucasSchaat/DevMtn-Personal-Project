@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { saveCategories } from '../../redux/trainingReducer'
 
 class TrainingVariables extends Component {
     constructor(props) {
         super(props)
         this.state = {
             trainingCategories: props.user.user.trainingCategories,
-            firstCategory: '',
-            secondCategory: '',
-            thirdCategory: '',
-            fourthCategory: '',
-            fifthCategory: '',
-            sixthCategory: '',
-            outcome: '',
+            firstCategory: props.training.categories.firstCategory,
+            secondCategory: props.training.categories.secondCategory,
+            thirdCategory: props.training.categories.thirdCategory,
+            fourthCategory: props.training.categories.fourthCategory,
+            fifthCategory: props.training.categories.fifthCategory,
+            sixthCategory: props.training.categories.sixthCategory,
+            outcome: props.training.categories.outcome,
             editing: true
         }
     }
@@ -37,7 +38,15 @@ class TrainingVariables extends Component {
     }
     
     save = () => {
-        console.log('Save Button Hit!')
+        this.props.saveCategories(
+            this.state.firstCategory,
+            this.state.secondCategory,
+            this.state.thirdCategory,
+            this.state.fourthCategory,
+            this.state.fifthCategory,
+            this.state.sixthCategory,
+            this.state.outcome
+        )
         this.flipEdit()
     }
     
@@ -198,4 +207,4 @@ function mapStateToProps (state) {
     return state
 }
 
-export default connect(mapStateToProps, null)(TrainingVariables)
+export default connect(mapStateToProps, { saveCategories })(TrainingVariables)
