@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import Home from './components/Home/Home'
 import TrainingVariables from './components/TrainingVariables/TrainingVariables'
 import TestModel from './components/TestModel/TestModel'
-import ImportData from './components/ImportData/ImportData'
+import UploadData from './components/UploadData/UploadData'
 
 class routes extends Component {
     render(){
@@ -20,7 +20,7 @@ class routes extends Component {
                             <Switch>
                                 <Route path='/dashboard/training_variables' component={TrainingVariables} />
                                 <Route path='/dashboard/testModel' component={TestModel} />
-                                <Route path='/dashboard/import_data' component={ImportData} />
+                                <Route path='/dashboard/import_data' component={UploadData} />
                             </Switch>
                         </div>
                     )

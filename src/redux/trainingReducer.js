@@ -1,31 +1,73 @@
 import axios from 'axios'
-import { SAVE_CATEGORIES } from './actionTypes'
+import { SAVE_CATEGORIES, GET_DATA, SAVE_DATA } from './actionTypes'
 
 const initialState = {
-    categories: {}
+    categories: {},
+    trainingData: [],
+    error: false
 }
 
 export const saveCategories = (
+    dataImports,
+    outcome,
     firstCategory,
     secondCategory,
     thirdCategory,
     fourthCategory,
     fifthCategory,
-    sixthCategory,
-    outcome
+    sixthCategory
 ) => {
     let categories = {
+        dataImports,
+        outcome,
         firstCategory,
         secondCategory,
         thirdCategory,
         fourthCategory,
         fifthCategory,
         sixthCategory,
-        outcome
     }
     return {
         type: SAVE_CATEGORIES,
         payload: categories 
+    }
+}
+
+export function getData() {
+    let data = axios.get('/api/training_data').then(res => res.data)
+    return {
+        type: GET_DATA,
+        payload: data
+    }
+}
+
+export function saveData(
+    dataImports,
+    trainingCategories,
+    outcomeValue,
+    firstCategoryValue,
+    secondCategoryValue,
+    thirdCategoryValue,
+    fourthCategoryValue,
+    fifthCategoryValue,
+    sixthCategoryValue
+) {
+    let data = axios
+        .post('/api/save_data',{
+            dataImports,
+            trainingCategories,
+            outcomeValue,
+            firstCategoryValue,
+            secondCategoryValue,
+            thirdCategoryValue,
+            fourthCategoryValue,
+            fifthCategoryValue,
+            sixthCategoryValue
+        })
+        .then(res => res.data)
+    return {
+        type: SAVE_DATA,
+        payload: data
     }
 }
 
@@ -34,6 +76,17 @@ export default function (state = initialState, action) {
     switch (type) {
         case SAVE_CATEGORIES:
             return { ...state, categories: payload}
+        case GET_DATA + '_PENDING':
+            console.log('getData request pending on reducer')
+            return { ...state}
+        case GET_DATA + '_FULFILLED':
+            return { ...state, trainingData: payload, error: false }
+        case GET_DATA + '_REJECTED':
+            return { ...state, error: payload}
+        case SAVE_DATA + '_FULFILLED':
+            return { ...state, trainingData: payload, error: false }
+        case SAVE_DATA + '_REJECTED':
+            return { ...state, error: payload }
         default:
             return state
     }

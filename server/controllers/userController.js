@@ -13,7 +13,8 @@ module.exports = {
                 username: existingUser.username,
                 id: existingUser.id,
                 loggedIn: true,
-                trainingCategories: 1
+                trainingCategories: 1,
+                dataImports: 1,
             }
             res.send(req.session.user)
         } else res.status(401).send('Incorrect Username or Password')

@@ -24,7 +24,11 @@ massive(CONNECTION_STRING).then(db => {
     console.log('db connected')
 })
 
+// USER LOGIN ENDPOINTS
 app.post('/api/login', uc.login)
 app.post('/api/signup', uc.signup)
 app.delete('/api/logout', uc.logout)
-app.post('/api/training_data', tc.saveData)
+
+// DATA TRAINING ENDPOINTS
+app.post('/api/save_data', tc.saveData)
+app.get('/api/training_data', tc.getData)
