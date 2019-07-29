@@ -15,8 +15,7 @@ class UploadData extends Component {
             fourthCategoryValue: '',
             fifthCategoryValue: '',
             sixthCategoryValue: '',
-            outcomeValue: '',
-            editing: true,
+            outcomeValue: ''
         }
     }
 
@@ -25,8 +24,6 @@ class UploadData extends Component {
         this.setState ({ [name]: value })
     }
 
-    flipEdit = () => this.setState ({ editing: !this.state.editing })    
-    
     save = () => {
         this.props.saveData(
             this.state.dataImports,
@@ -41,7 +38,16 @@ class UploadData extends Component {
             )
         console.log(this.state.dataImports)
         this.props.user.user.dataImports += 1
-        this.setState({ dataImports: this.props.user.user.dataImports })
+        this.setState({
+            dataImports: this.props.user.user.dataImports,
+            firstCategoryValue: '',
+            secondCategoryValue: '',
+            thirdCategoryValue: '',
+            fourthCategoryValue: '',
+            fifthCategoryValue: '',
+            sixthCategoryValue: '',
+            outcomeValue: '',
+        })
         console.log('Import Data Button Hit!')
     }
 

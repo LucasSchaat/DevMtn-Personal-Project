@@ -31,9 +31,9 @@ class ImportData extends Component {
                         <div>{outcome}</div>
                         <div>{firstCategory}</div>
                     </div>
-                    {/* {trainingData.map(data => (
+                    {trainingData.map(data => (
                         <Data key={data.id} {...data} />
-                    ))} */}
+                    ))}
                 </div>
             )
         } else if( trainingCategories === 2) {
@@ -45,9 +45,9 @@ class ImportData extends Component {
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                     </div>
-                    {/* {trainingData.map(data => (
+                    {trainingData.map(data => (
                         <Data key={data.id} {...data} />
-                    ))} */}
+                    ))}
                 </div>
             )
         } else if( trainingCategories === 3) {
@@ -60,9 +60,9 @@ class ImportData extends Component {
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
                     </div>
-                    {/* {trainingData.map(data => (
+                    {trainingData.map(data => (
                         <Data key={data.id} {...data} />
-                    ))} */}
+                    ))}
                 </div>
             )
         } else if( trainingCategories === 4) {
@@ -76,9 +76,9 @@ class ImportData extends Component {
                         <div>{thirdCategory}</div>
                         <div>{fourthCategory}</div>
                     </div>
-                    {/* {trainingData.map(data => (
+                    {trainingData.map(data => (
                         <Data key={data.id} {...data} />
-                    ))} */}
+                    ))}
                 </div>
             )
         } else if( trainingCategories === 5) {
@@ -93,9 +93,9 @@ class ImportData extends Component {
                         <div>{fourthCategory}</div>
                         <div>{fifthCategory}</div>
                     </div>
-                    {/* {trainingData.map(data => (
+                    {trainingData.map(data => (
                         <Data key={data.id} {...data} />
-                    ))} */}
+                    ))}
                 </div>
             )
         } else {
@@ -111,9 +111,9 @@ class ImportData extends Component {
                         <div>{fifthCategory}</div>
                         <div>{sixthCategory}</div>
                     </div>
-                    {/* {trainingData.map(data => (
+                    {trainingData.map(data => (
                         <Data key={data.id} {...data} />
-                    ))} */}
+                    ))}
                 </div>
             )
         } 

@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS training_data (
 
 ALTER TABLE training_data
 ADD COLUMN IF NOT EXISTS second_category TEXT REFERENCES second_category_values(property),
-ADD COLUMN IF NOT EXISTS third_category TEXT REFERENCES third_category_values(property);
-ADD COLUMN IF NOT EXISTS fourth_category TEXT REFERENCES fourth_category_values(property);
+ADD COLUMN IF NOT EXISTS third_category TEXT REFERENCES third_category_values(property),
+ADD COLUMN IF NOT EXISTS fourth_category TEXT REFERENCES fourth_category_values(property),
 ADD COLUMN IF NOT EXISTS fifth_category TEXT REFERENCES fifth_category_values(property);
 
 INSERT INTO first_category_values (reference_id, property)
