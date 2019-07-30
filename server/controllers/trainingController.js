@@ -107,8 +107,13 @@ module.exports = {
                 await db.add_third_category_value([reference_id, newThirdCategoryValue])
                 res.send(data)
             }
+
         } else if (trainingCategories === 4) {
             console.log('trainingCategory 4')
+            let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
+            let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
+            let thirdUniqueCheck = await db.check_unique_2var(newThirdCategoryValue)
+            let fourthUniqueCheck = await db.check_unique_2var(newFourthCategoryValue)
             let data = await db.edit_data_4var([
                 +id,
                 reference_id,
@@ -118,7 +123,71 @@ module.exports = {
                 newThirdCategoryValue,
                 newFourthCategoryValue
             ])
-            res.send(data)
+            if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            }
         } else if (trainingCategories === 5) {
             console.log('trainingCategory 5')
             let data = await db.edit_data_5var([
