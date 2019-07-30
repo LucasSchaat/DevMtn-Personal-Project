@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS first_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
@@ -19,8 +19,8 @@ DROP TABLE IF EXISTS sixth_category_values;
 
 CREATE TABLE IF NOT EXISTS training_data (
     id SERIAL PRIMARY KEY,
-    outcome TEXT NOT NULL,
-    first_category TEXT REFERENCES first_category_values(property),
+    outcome TEXT,
+    first_category TEXT,
     reference_id INTEGER
 );
 
@@ -36,7 +36,8 @@ SET first_category = $3
 WHERE reference_id = $1;
 
 SELECT *
-FROM training_data;
+FROM training_data
+ORDER BY id ASC;
 
 
 -- Incoming data will look like (reference_id, outcomeValue, firstCategoryValue)

@@ -1,5 +1,10 @@
 import axios from 'axios'
-import { SAVE_CATEGORIES, GET_DATA, SAVE_DATA } from './actionTypes'
+import {
+    SAVE_CATEGORIES,
+    GET_DATA,
+    SAVE_DATA,
+    EDIT_DATA
+} from './actionTypes'
 
 const initialState = {
     categories: {},
@@ -71,6 +76,37 @@ export function saveData(
     }
 }
 
+export function editData (
+    reference_id,
+    id,
+    trainingCategories,
+    newOutcomeValue,
+    newFirstCategoryValue,
+    newSecondCategoryValue,
+    newThirdCategoryValue,
+    newFourthCategoryValue,
+    newFifthCategoryValue,
+    newSixthCategoryValue
+) {
+    let data = axios
+        .put(`/api/edit_data/${id}`, {
+            reference_id,
+            trainingCategories,
+            newOutcomeValue,
+            newFirstCategoryValue,
+            newSecondCategoryValue,
+            newThirdCategoryValue,
+            newFourthCategoryValue,
+            newFifthCategoryValue,
+            newSixthCategoryValue
+        })
+        .then(res => res.data)
+    return {
+        type: EDIT_DATA,
+        payload: data
+    }
+}
+
 export default function (state = initialState, action) {
     let { type, payload } = action
     switch (type) {
@@ -86,6 +122,10 @@ export default function (state = initialState, action) {
         case SAVE_DATA + '_FULFILLED':
             return { ...state, trainingData: payload, error: false }
         case SAVE_DATA + '_REJECTED':
+            return { ...state, error: payload }
+        case EDIT_DATA + '_FULFILLED':
+            return { ...state, trainingData: payload, error: false }
+        case EDIT_DATA + '_REJECTED':
             return { ...state, error: payload }
         default:
             return state

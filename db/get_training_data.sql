@@ -1,2 +1,3 @@
 SELECT *
-FROM training_data;
+FROM training_data
+ORDER BY id ASC;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { deleteData, editData } from '../../redux/trainingReducer'
+import { editData } from '../../redux/trainingReducer'
 
 class Data extends Component {
     constructor(props) {
@@ -27,18 +27,19 @@ class Data extends Component {
     flipEdit = () => this.setState({ editing: !this.state.editing })
 
     saveUpdate = () => {
-        // let { id, editData } = this.props
-        // let {
-            // newOutcomeValue,
-            // newFirstCategoryValue,
-            // newSecondCategoryValue,
-            // newThirdCategoryValue,
-            // newFourthCategoryValue,
-            // newFifthCategoryValue,
-            // newSixthCategoryValue
-        // } = this.state
-        // editData()
-        console.log('Save edited data')
+        let { reference_id, id } = this.props
+        this.props.editData(
+            reference_id,
+            id,
+            this.state.trainingCategories,
+            this.state.newOutcomeValue,
+            this.state.newFirstCategoryValue,
+            this.state.newSecondCategoryValue,
+            this.state.newThirdCategoryValue,
+            this.state.newFourthCategoryValue,
+            this.state.newFifthCategoryValue,
+            this.state.newSixthCategoryValue
+        )
         this.flipEdit()
     }
 
@@ -49,41 +50,9 @@ class Data extends Component {
         this.flipEdit()
     }
 
-    componentDidUpdate(prevProps) {
-        let { 
-            outcome,
-            first_category,
-            second_category,
-            third_category,
-            fourth_category,
-            fifth_category,
-            sixth_category
-         } = prevProps
-         if (
-             outcome !== this.props.outcome ||
-             first_category !== this.props.first_category ||
-             second_category !== this.props.second_category ||
-             third_category !== this.props.third_category ||
-             fourth_category !== this.props.fourth_category ||
-             fifth_category !== this.props.fifth_category ||
-             sixth_category !== this.props.sixth_category
-         ) {
-             this.setState({
-                newOutcomeValue: outcome,
-                newFirstCategoryValue: first_category,
-                newSecondCategoryValue: second_category,
-                newThirdCategoryValue: third_category,
-                newFourthCategoryValue: fourth_category,
-                newFifthCategoryValue: fifth_category,
-                newSixthCategoryValue: sixth_category,
-                editing: false  
-             })
-         }
-    }
-
     render() {
+        console.log(this.state)
         let { 
-            id,
             reference_id,
             outcome,
             first_category,
@@ -118,7 +87,7 @@ class Data extends Component {
             return(
                 <div>
                     <div>{reference_id}</div>
-                    <input value={newOutcomeValue} name='NewOutcomeValue' onChange={this.handleChange} />
+                    <input value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
                     <input value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     <button onClick={this.saveUpdate}>Save Changes</button>
                     <button onClick={this.delete}>Delete</button>
@@ -138,7 +107,7 @@ class Data extends Component {
             return(
                 <div>
                     <div>{reference_id}</div>
-                    <input value={newOutcomeValue} name='NewOutcomeValue' onChange={this.handleChange} />
+                    <input value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
                     <input value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     <input value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                     <button onClick={this.saveUpdate}>Save Changes</button>
@@ -160,7 +129,7 @@ class Data extends Component {
             return(
                 <div>
                     <div>{reference_id}</div>
-                    <input value={newOutcomeValue} name='NewOutcomeValue' onChange={this.handleChange} />
+                    <input value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
                     <input value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     <input value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                     <input value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
@@ -184,7 +153,7 @@ class Data extends Component {
             return(
                 <div>
                     <div>{reference_id}</div>
-                    <input value={newOutcomeValue} name='NewOutcomeValue' onChange={this.handleChange} />
+                    <input value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
                     <input value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     <input value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                     <input value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
@@ -210,7 +179,7 @@ class Data extends Component {
             return(
                 <div>
                     <div>{reference_id}</div>
-                    <input value={newOutcomeValue} name='NewOutcomeValue' onChange={this.handleChange} />
+                    <input value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
                     <input value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     <input value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                     <input value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
@@ -238,7 +207,7 @@ class Data extends Component {
             return(
                 <div>
                     <div>{reference_id}</div>
-                    <input value={newOutcomeValue} name='NewOutcomeValue' onChange={this.handleChange} />
+                    <input value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
                     <input value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     <input value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                     <input value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
@@ -257,4 +226,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, null)(Data)
+export default connect(mapStateToProps, { editData })(Data)

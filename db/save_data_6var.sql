@@ -1,52 +1,52 @@
 CREATE TABLE IF NOT EXISTS first_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS second_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS third_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS fourth_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS fifth_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS sixth_category_values (
-    property TEXT PRIMARY KEY,
-    id SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY,
+    property TEXT UNIQUE,
     reference_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS training_data (
     id SERIAL PRIMARY KEY,
     outcome TEXT NOT NULL,
-    first_category TEXT REFERENCES first_category_values(property),
+    first_category TEXT,
     reference_id INTEGER
 );
 
 ALTER TABLE training_data
-ADD COLUMN IF NOT EXISTS second_category TEXT REFERENCES second_category_values(property),
-ADD COLUMN IF NOT EXISTS third_category TEXT REFERENCES third_category_values(property),
-ADD COLUMN IF NOT EXISTS fourth_category TEXT REFERENCES fourth_category_values(property),
-ADD COLUMN IF NOT EXISTS fifth_category TEXT REFERENCES fifth_category_values(property),
-ADD COLUMN IF NOT EXISTS sixth_category TEXT REFERENCES sixth_category_values(property);
+ADD COLUMN IF NOT EXISTS second_category TEXT,
+ADD COLUMN IF NOT EXISTS third_category TEXT,
+ADD COLUMN IF NOT EXISTS fourth_category TEXT,
+ADD COLUMN IF NOT EXISTS fifth_category TEXT,
+ADD COLUMN IF NOT EXISTS sixth_category TEXT;
 
 INSERT INTO first_category_values (reference_id, property)
 VALUES ($1, $3)
@@ -100,7 +100,8 @@ SET sixth_category = $8
 WHERE reference_id = $1;
 
 SELECT *
-FROM training_data;
+FROM training_data
+ORDER BY id ASC;
 
 
 -- Incoming data will look like (outcomeValue, firstCategoryValue, secondCategoryValue, thirdCategoryValue, fourthCategoryValue, fifthCategoryValue, sixthCategory)

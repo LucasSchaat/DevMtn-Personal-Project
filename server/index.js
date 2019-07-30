@@ -32,3 +32,4 @@ app.delete('/api/logout', uc.logout)
 // DATA TRAINING ENDPOINTS
 app.post('/api/save_data', tc.saveData)
 app.get('/api/training_data', tc.getData)
+app.put('/api/edit_data/:id', tc.editData)
