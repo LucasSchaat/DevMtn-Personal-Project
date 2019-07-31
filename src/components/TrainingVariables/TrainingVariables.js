@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveCategories } from '../../redux/trainingReducer'
+// import Select from 'react-dropdown-select'
 
 class TrainingVariables extends Component {
     constructor(props) {
@@ -15,6 +16,8 @@ class TrainingVariables extends Component {
             fifthCategory: props.training.categories.fifthCategory,
             sixthCategory: props.training.categories.sixthCategory,
             outcome: props.training.categories.outcome,
+            firstOutcome: 'something',
+            secondOutcome: 'something',
             editingCategories: true,
             editingOutcome: true
         }
@@ -119,15 +122,22 @@ class TrainingVariables extends Component {
             fifthCategory,
             sixthCategory,
             outcome,
+            firstOutcome,
+            secondOutcome,
             editingCategories
         } = this.state
+        let searchNames = [this.state.firstOutcome, this.state.secondOutcome]
         
         if (trainingCategories === 1 && editingCategories === true) {
             return (
                 <div>
                     <div>
-                        <div>Outcome:</div>
+                        <div>Binary Outcome Description:</div>
                         <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
+                        {/* <div>Desired Outcome:</div>
+                        <Select options={searchNames} value={firstOutcome} name='firstOutcome' onChange={this.handleChange} />
+                        <div>Alternative Outcome:</div>
+                        <Select options={searchNames} value={secondOutcome} name='secondOutcome' onChange={this.handleChange} /> */}
                     </div>
                     <div>Variables</div>
                     <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
