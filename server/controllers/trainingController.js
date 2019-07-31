@@ -69,10 +69,9 @@ module.exports = {
             console.log('trainingCategory 3')
             let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
             let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
-            let thirdUniqueCheck = await db.check_unique_2var(newThirdCategoryValue)
+            let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
             let data = await db.edit_data_3var([
                 +id,
-                reference_id,
                 newOutcomeValue,
                 newFirstCategoryValue,
                 newSecondCategoryValue,
@@ -93,15 +92,15 @@ module.exports = {
                 await db.add_first_category_value([reference_id, newFirstCategoryValue])
                 await db.add_second_category_value([reference_id, newSecondCategoryValue])
                 res.send(data)
-            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0]) {
-                await db.add_second_category_value([reference_id, newSecondCategoryValue])
-                await db.add_third_category_value([reference_id, newThirdCategoryValue])
-                res.send(data)
             } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0]) {
                 await db.add_first_category_value([reference_id, newFirstCategoryValue])
                 await db.add_third_category_value([reference_id, newThirdCategoryValue])
                 res.send(data)
-            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0]) {
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else {
                 await db.add_first_category_value([reference_id, newFirstCategoryValue])
                 await db.add_second_category_value([reference_id, newSecondCategoryValue])
                 await db.add_third_category_value([reference_id, newThirdCategoryValue])
@@ -112,11 +111,10 @@ module.exports = {
             console.log('trainingCategory 4')
             let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
             let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
-            let thirdUniqueCheck = await db.check_unique_2var(newThirdCategoryValue)
-            let fourthUniqueCheck = await db.check_unique_2var(newFourthCategoryValue)
+            let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
+            let fourthUniqueCheck = await db.check_unique_4var(newFourthCategoryValue)
             let data = await db.edit_data_4var([
                 +id,
-                reference_id,
                 newOutcomeValue,
                 newFirstCategoryValue,
                 newSecondCategoryValue,
@@ -188,11 +186,16 @@ module.exports = {
                 await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
                 res.send(data)
             }
+
         } else if (trainingCategories === 5) {
             console.log('trainingCategory 5')
+            let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
+            let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
+            let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
+            let fourthUniqueCheck = await db.check_unique_4var(newFourthCategoryValue)
+            let fifthUniqueCheck = await db.check_unique_5var(newFifthCategoryValue)
             let data = await db.edit_data_5var([
                 +id,
-                reference_id,
                 newOutcomeValue,
                 newFirstCategoryValue,
                 newSecondCategoryValue,
@@ -200,15 +203,162 @@ module.exports = {
                 newFourthCategoryValue,
                 newFifthCategoryValue
             ])
-            res.send(data)
+            if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            }
+
         } else {
-            console.log('trainingCategory 6', trainingCategories)
-            console.log(newOutcomeValue)
-            console.log(newFirstCategoryValue)
-            console.log(newSecondCategoryValue)
+            console.log('trainingCategory 6')
+            let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
+            let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
+            let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
+            let fourthUniqueCheck = await db.check_unique_4var(newFourthCategoryValue)
+            let fifthUniqueCheck = await db.check_unique_5var(newFifthCategoryValue)
+            let sixthUniqueCheck = await db.check_unique_6var(newSixthCategoryValue)
             let data = await db.edit_data_6var([
                 +id,
-                reference_id,
                 newOutcomeValue,
                 newFirstCategoryValue,
                 newSecondCategoryValue,
@@ -217,7 +367,327 @@ module.exports = {
                 newFifthCategoryValue,
                 newSixthCategoryValue
             ])
-            res.send(data)
+            if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && !secondUniqueCheck[0] && thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (!firstUniqueCheck[0] && secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else if (firstUniqueCheck[0] && !secondUniqueCheck[0] && !thirdUniqueCheck[0] && !fourthUniqueCheck[0] && !fifthUniqueCheck[0] && !sixthUniqueCheck[0]) {
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            } else {
+                await db.add_first_category_value([reference_id, newFirstCategoryValue])
+                await db.add_second_category_value([reference_id, newSecondCategoryValue])
+                await db.add_third_category_value([reference_id, newThirdCategoryValue])
+                await db.add_fourth_category_value([reference_id, newFourthCategoryValue])
+                await db.add_fifth_category_value([reference_id, newFifthCategoryValue])
+                await db.add_sixth_category_value([reference_id, newSixthCategoryValue])
+                res.send(data)
+            }
         }
     },
 

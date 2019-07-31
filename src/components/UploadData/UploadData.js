@@ -76,8 +76,6 @@ class UploadData extends Component {
             sixthCategory,
             outcome
         } = this.props.training.categories
-        
-        console.log('this.props in upload', this.props)
 
         if (trainingCategories === 1) {
             return (

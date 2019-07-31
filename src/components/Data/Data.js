@@ -51,7 +51,6 @@ class Data extends Component {
     }
 
     render() {
-        console.log(this.state)
         let { 
             reference_id,
             outcome,
