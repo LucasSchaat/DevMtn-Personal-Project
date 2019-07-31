@@ -16,8 +16,8 @@ class TrainingVariables extends Component {
             fifthCategory: props.training.categories.fifthCategory,
             sixthCategory: props.training.categories.sixthCategory,
             outcome: props.training.categories.outcome,
-            firstOutcome: 'something',
-            secondOutcome: 'something',
+            firstOutcome: props.training.categories.firstOutcome,
+            secondOutcome: props.training.categories.secondOutcome,
             editingCategories: true,
             editingOutcome: true
         }
@@ -102,7 +102,9 @@ class TrainingVariables extends Component {
             this.state.thirdCategory,
             this.state.fourthCategory,
             this.state.fifthCategory,
-            this.state.sixthCategory
+            this.state.sixthCategory,
+            this.state.firstOutcome,
+            this.state.secondOutcome
         )
         this.flipEditCategories()
         this.flipEditOutcome()
@@ -126,7 +128,6 @@ class TrainingVariables extends Component {
             secondOutcome,
             editingCategories
         } = this.state
-        let searchNames = [this.state.firstOutcome, this.state.secondOutcome]
         
         if (trainingCategories === 1 && editingCategories === true) {
             return (
@@ -134,10 +135,10 @@ class TrainingVariables extends Component {
                     <div>
                         <div>Binary Outcome Description:</div>
                         <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                        {/* <div>Desired Outcome:</div>
-                        <Select options={searchNames} value={firstOutcome} name='firstOutcome' onChange={this.handleChange} />
+                        <div>Desired Outcome:</div>
+                        <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
                         <div>Alternative Outcome:</div>
-                        <Select options={searchNames} value={secondOutcome} name='secondOutcome' onChange={this.handleChange} /> */}
+                        <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
                     </div>
                     <div>Variables</div>
                     <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
@@ -148,8 +149,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <div>{outcome}</div>
+                            <div>Desired Outcome:</div>
+                            <div>{firstOutcome}</div>
+                            <div>Alternative Outcome:</div>
+                            <div>{secondOutcome}</div>
                         </div>
                         <div>Variables</div>
                         <div>{firstCategory}</div>
@@ -160,8 +165,12 @@ class TrainingVariables extends Component {
                  return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
+                            <div>Desired Outcome:</div>
+                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
+                            <div>Alternative Outcome:</div>
+                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
                         </div>
                         <div>Variables</div>
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
@@ -173,8 +182,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <div>{outcome}</div>
+                            <div>Desired Outcome:</div>
+                            <div>{firstOutcome}</div>
+                            <div>Alternative Outcome:</div>
+                            <div>{secondOutcome}</div>
                         </div>
                         <div>Variables</div>
                         <div>{firstCategory}</div>
@@ -187,8 +200,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
+                            <div>Desired Outcome:</div>
+                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
+                            <div>Alternative Outcome:</div>
+                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
                         </div>
                         <div>Variables</div>
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
@@ -201,8 +218,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <div>{outcome}</div>
+                            <div>Desired Outcome:</div>
+                            <div>{firstOutcome}</div>
+                            <div>Alternative Outcome:</div>
+                            <div>{secondOutcome}</div>
                         </div>
                         <div>Variables</div>
                         <div>{firstCategory}</div>
@@ -216,8 +237,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
+                            <div>Desired Outcome:</div>
+                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
+                            <div>Alternative Outcome:</div>
+                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
                         </div>
                         <div>Variables</div>
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
@@ -231,8 +256,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <div>{outcome}</div>
+                            <div>Desired Outcome:</div>
+                            <div>{firstOutcome}</div>
+                            <div>Alternative Outcome:</div>
+                            <div>{secondOutcome}</div>
                         </div>
                         <div>Variables</div>
                         <div>{firstCategory}</div>
@@ -247,8 +276,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
+                            <div>Desired Outcome:</div>
+                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
+                            <div>Alternative Outcome:</div>
+                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
                         </div>
                         <div>Variables</div>
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
@@ -263,8 +296,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <div>{outcome}</div>
+                            <div>Desired Outcome:</div>
+                            <div>{firstOutcome}</div>
+                            <div>Alternative Outcome:</div>
+                            <div>{secondOutcome}</div>
                         </div>
                         <div>Variables</div>
                         <div>{firstCategory}</div>
@@ -280,8 +317,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
+                            <div>Desired Outcome:</div>
+                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
+                            <div>Alternative Outcome:</div>
+                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
                         </div>
                         <div>Variables</div>
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
@@ -296,8 +337,12 @@ class TrainingVariables extends Component {
                 return (
                     <div>
                         <div>
-                            <div>Outcome:</div>
+                            <div>Binary Outcome Description:</div>
                             <div>{outcome}</div>
+                            <div>Desired Outcome:</div>
+                            <div>{firstOutcome}</div>
+                            <div>Alternative Outcome:</div>
+                            <div>{secondOutcome}</div>
                         </div>
                         <div>Variables</div>
                         <div>{firstCategory}</div>

@@ -7,12 +7,18 @@ class TestModel extends Component {
         super(props)
         this.state = {
             trainingCategories: props.user.user.trainingCategories,
-            firstCategoryValue: props.testing.testingData.firstCategoryValue,
-            secondCategoryValue: props.testing.testingData.secondCategoryValue,
-            thirdCategoryValue: props.testing.testingData.thirdCategoryValue,
-            fourthCategoryValue: props.testing.testingData.fourthCategoryValue,
-            fifthCategoryValue: props.testing.testingData.fifthCategoryValue,
-            sixthCategoryValue: props.testing.testingData.sixthCategoryValue
+            firstCategoryValue: props.testing.testingData[0].first_category,
+            secondCategoryValue: props.testing.testingData[0].second_category,
+            thirdCategoryValue: props.testing.testingData[0].third_category,
+            fourthCategoryValue: props.testing.testingData[0].fourth_category,
+            fifthCategoryValue: props.testing.testingData[0].fifth_category,
+            sixthCategoryValue: props.testing.testingData[0].sixth_category
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            this.render()
         }
     }
     
@@ -23,6 +29,7 @@ class TestModel extends Component {
 
     saveAndTest = async () => {
         await this.props.saveTestingData(
+            this.props.user.user.trainingCategories,
             this.state.firstCategoryValue,
             this.state.secondCategoryValue,
             this.state.thirdCategoryValue,
@@ -58,7 +65,7 @@ class TestModel extends Component {
                 <div>
                     <div>{firstCategory}</div>
                     <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Test the Model</button>
+                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
                 </div>
             )
         } else if (trainingCategories === 2) {
@@ -68,7 +75,7 @@ class TestModel extends Component {
                     <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
                     <div>{secondCategory}</div>
                     <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Test the Model</button>
+                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
                 </div>
             )
         } else if (trainingCategories === 3) {
@@ -80,7 +87,7 @@ class TestModel extends Component {
                     <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
                     <div>{thirdCategory}</div>
                     <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Test the Model</button>
+                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
                 </div>
             )
         } else if (trainingCategories === 4) {
@@ -94,7 +101,7 @@ class TestModel extends Component {
                     <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} />
                     <div>{fourthCategory}</div>
                     <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Test the Model</button>
+                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
                 </div>
             )
         } else if (trainingCategories === 5) {
@@ -110,7 +117,7 @@ class TestModel extends Component {
                     <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} />
                     <div>{fifthCategory}</div>
                     <input value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Test the Model</button>
+                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
                 </div>
             )
         } else {
@@ -128,7 +135,7 @@ class TestModel extends Component {
                     <input value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} />
                     <div>{sixthCategory}</div>
                     <input value={sixthCategoryValue} name='sixthCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Test the Model</button>
+                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
                 </div>
             )
         }

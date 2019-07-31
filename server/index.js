@@ -4,6 +4,7 @@ const massive = require('massive')
 const session = require('express-session')
 const uc = require('./controllers/userController')
 const tc = require('./controllers/trainingController')
+const testc = require('./controllers/testingController')
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 const app = express()
@@ -33,3 +34,6 @@ app.delete('/api/logout', uc.logout)
 app.post('/api/save_data', tc.saveData)
 app.get('/api/training_data', tc.getData)
 app.put('/api/edit_data/:id', tc.editData)
+
+// DATA TESTING ENDPOINTS
+app.post('/api/save_testing_data', testc.saveTestData)

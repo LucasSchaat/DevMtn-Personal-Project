@@ -1,36 +1,61 @@
-import { SAVE_TESTING_DATA } from './actionTypes'
+import { SAVE_TESTING_DATA, RUN_MODEL } from './actionTypes'
+import axios from 'axios';
 
 const initialState = {
-    testingData: []
+    testingData: [{}],
+    result: [],
+    error: false
 }
 
-export const saveTestingData = (
+export function runModel (
+    trainingCategories
+) {
+    let data = axios
+        .post('/api/run', {trainingCategories})
+        .then(res => res.data)
+    return {
+        type: RUN_MODEL,
+        payload: data
+    }
+}
+
+export function saveTestingData (
+    trainingCategories,
     firstCategoryValue,
     secondCategoryValue,
     thirdCategoryValue,
     fourthCategoryValue,
     fifthCategoryValue,
     sixthCategoryValue
-) => {
-    let testingData = {
-        firstCategoryValue,
-        secondCategoryValue,
-        thirdCategoryValue,
-        fourthCategoryValue,
-        fifthCategoryValue,
-        sixthCategoryValue
-    }
+) {
+    let data = axios
+        .post('/api/save_testing_data', {
+            trainingCategories,
+            firstCategoryValue,
+            secondCategoryValue,
+            thirdCategoryValue,
+            fourthCategoryValue,
+            fifthCategoryValue,
+            sixthCategoryValue
+        })
+        .then(res => res.data)
     return {
         type: SAVE_TESTING_DATA,
-        payload: testingData
+        payload: data
     }
 }
 
 export default function (state = initialState, action) {
     let { type, payload } = action
     switch (type) {
-        case SAVE_TESTING_DATA:
-            return { ...state, testingData: payload}
+        case SAVE_TESTING_DATA + '_FULFILLED':
+            return { ...state, testingData: payload, error: false }
+        case SAVE_TESTING_DATA + '_REJECTED':
+            return { ...state, error: payload }
+        case RUN_MODEL + '_FULFILLED':
+            return { ...state, result: payload, error: false }
+        case RUN_MODEL + '_REJECTED':
+            return { ...state, error: payload }
         default:
             return state
     }

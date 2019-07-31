@@ -26,7 +26,7 @@ module.exports = {
             // BUILD NEURAL NETWORK
             const model = tf.sequential()
 
-            model.add(tf.layers.({
+            model.add(tf.layers.dense({
                 inputShape: [1],
                 activation: "sigmoid",
                 units: 5
@@ -70,7 +70,7 @@ module.exports = {
             // BUILD NEURAL NETWORK
             const model = tf.sequential()
 
-            model.add(tf.layers.({
+            model.add(tf.layers.dense({
                 inputShape: [2],
                 activation: "sigmoid",
                 units: 5
@@ -116,7 +116,7 @@ module.exports = {
             // BUILD NEURAL NETWORK
             const model = tf.sequential()
 
-            model.add(tf.layers.({
+            model.add(tf.layers.dense({
                 inputShape: [3],
                 activation: "sigmoid",
                 units: 5
@@ -164,7 +164,7 @@ module.exports = {
             // BUILD NEURAL NETWORK
             const model = tf.sequential()
 
-            model.add(tf.layers.({
+            model.add(tf.layers.dense({
                 inputShape: [4],
                 activation: "sigmoid",
                 units: 5
@@ -214,7 +214,7 @@ module.exports = {
             // BUILD NEURAL NETWORK
             const model = tf.sequential()
 
-            model.add(tf.layers.({
+            model.add(tf.layers.dense({
                 inputShape: [5],
                 activation: "sigmoid",
                 units: 5
@@ -267,7 +267,7 @@ module.exports = {
             // BUILD NEURAL NETWORK
             const model = tf.sequential()
 
-            model.add(tf.layers.({
+            model.add(tf.layers.dense({
                 inputShape: [6],
                 activation: "sigmoid",
                 units: 5

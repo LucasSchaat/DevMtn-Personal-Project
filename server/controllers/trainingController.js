@@ -703,11 +703,15 @@ module.exports = {
             thirdCategoryValue,
             fourthCategoryValue,
             fifthCategoryValue,
-            sixthCategoryValue
+            sixthCategoryValue,
+            firstOutcome,
+            secondOutcome
         } = req.body
         if (trainingCategories === 1) {
             let data = await db.save_data_1var([
                 dataImports,
+                firstOutcome,
+                secondOutcome,
                 outcomeValue,
                 firstCategoryValue
             ])
@@ -715,6 +719,8 @@ module.exports = {
         } else if (trainingCategories === 2) {
             let data = await db.save_data_2var([
                 dataImports,
+                firstOutcome,
+                secondOutcome,
                 outcomeValue,
                 firstCategoryValue,
                 secondCategoryValue
@@ -723,6 +729,8 @@ module.exports = {
         } else if (trainingCategories === 3) {
             let data = await db.save_data_3var([
                 dataImports,
+                firstOutcome,
+                secondOutcome,
                 outcomeValue,
                 firstCategoryValue,
                 secondCategoryValue,
@@ -732,6 +740,8 @@ module.exports = {
         } else if (trainingCategories === 4) {
             let data = await db.save_data_4var([
                 dataImports,
+                firstOutcome,
+                secondOutcome,
                 outcomeValue,
                 firstCategoryValue,
                 secondCategoryValue,
@@ -742,6 +752,8 @@ module.exports = {
         } else if (trainingCategories === 5) {
             let data = await db.save_data_5var([
                 dataImports,
+                firstOutcome,
+                secondOutcome,
                 outcomeValue,
                 firstCategoryValue,
                 secondCategoryValue,
@@ -753,6 +765,8 @@ module.exports = {
         } else {
             let data = await db.save_data_6var([
                 dataImports,
+                firstOutcome,
+                secondOutcome,
                 outcomeValue,
                 firstCategoryValue,
                 secondCategoryValue,

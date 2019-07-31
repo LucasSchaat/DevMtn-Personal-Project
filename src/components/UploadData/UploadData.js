@@ -34,7 +34,9 @@ class UploadData extends Component {
             this.state.thirdCategoryValue,
             this.state.fourthCategoryValue,
             this.state.fifthCategoryValue,
-            this.state.sixthCategoryValue
+            this.state.sixthCategoryValue,
+            this.props.training.categories.firstOutcome,
+            this.props.training.categories.secondOutcome
             )
         console.log(this.state.dataImports)
         this.props.user.user.dataImports += 1

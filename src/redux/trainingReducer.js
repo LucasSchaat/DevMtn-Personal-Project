@@ -20,7 +20,9 @@ export const saveCategories = (
     thirdCategory,
     fourthCategory,
     fifthCategory,
-    sixthCategory
+    sixthCategory,
+    firstOutcome,
+    secondOutcome
 ) => {
     let categories = {
         dataImports,
@@ -31,6 +33,8 @@ export const saveCategories = (
         fourthCategory,
         fifthCategory,
         sixthCategory,
+        firstOutcome,
+        secondOutcome
     }
     return {
         type: SAVE_CATEGORIES,
@@ -55,7 +59,9 @@ export function saveData(
     thirdCategoryValue,
     fourthCategoryValue,
     fifthCategoryValue,
-    sixthCategoryValue
+    sixthCategoryValue,
+    firstOutcome,
+    secondOutcome
 ) {
     let data = axios
         .post('/api/save_data',{
@@ -67,7 +73,9 @@ export function saveData(
             thirdCategoryValue,
             fourthCategoryValue,
             fifthCategoryValue,
-            sixthCategoryValue
+            sixthCategoryValue,
+            firstOutcome,
+            secondOutcome
         })
         .then(res => res.data)
     return {
