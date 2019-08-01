@@ -5,6 +5,7 @@ const session = require('express-session')
 const uc = require('./controllers/userController')
 const tc = require('./controllers/trainingController')
 const testc = require('./controllers/testingController')
+const model = require('./tensorflowModel')
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 const app = express()
@@ -37,3 +38,4 @@ app.put('/api/edit_data/:id', tc.editData)
 
 // DATA TESTING ENDPOINTS
 app.post('/api/save_testing_data', testc.saveTestData)
+app.post('/api/run', model.runModel)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveTestingData } from '../../redux/testingReducer'
+import { saveTestingData, runModel } from '../../redux/testingReducer'
 
 class TestModel extends Component {
     constructor(props) {
@@ -37,8 +37,7 @@ class TestModel extends Component {
             this.state.fifthCategoryValue,
             this.state.sixthCategoryValue
         )
-        console.log('This is where the testing functionality will occur!')
-
+        await this.props.runModel(this.props.user.user.trainingCategories)
     }
 
     render() {
@@ -146,4 +145,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, { saveTestingData })(TestModel)
+export default connect(mapStateToProps, { saveTestingData, runModel })(TestModel)

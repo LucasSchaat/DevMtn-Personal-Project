@@ -14,7 +14,7 @@ INSERT INTO testing_data (first_category, second_category, third_category, fourt
 VALUES ($1, $2, $3, $4, $5, $6);
 
 DELETE FROM testing_data
-WHERE id > 1
+WHERE id > 1;
 
 UPDATE testing_data
 SET first_category = $1,

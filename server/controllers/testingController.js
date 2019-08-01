@@ -1,6 +1,5 @@
 module.exports = {
     async saveTestData(req, res) {
-        console.log(req.body)
         const db = req.app.get('db')
         let { 
             trainingCategories,

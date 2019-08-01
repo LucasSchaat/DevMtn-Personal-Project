@@ -7,7 +7,7 @@ import testingReducer from './testingReducer';
 const rootReducer = combineReducers({
     user: userReducer,
     training: trainingReducer,
-    testing: testingReducer
+    testing: testingReducer,
 })
 
 export default createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(applyMiddleware(promiseMiddleware)))

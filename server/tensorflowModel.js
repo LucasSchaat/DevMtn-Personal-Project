@@ -5,12 +5,16 @@ module.exports = {
     async runModel(req, res) {
         let { trainingCategories } = req.body
         const db = req.app.get('db')
+        let training = []
+        let testing = []
         if (trainingCategories === 1) {
             let trainingDataFromDB = await db.get_training_data_for_model_1var()
-            let testingDataFromDB = await db.get_testing_data_from_model_1var()
-            let training = JSON.stringify({trainingDataFromDB})
-            let testing = JSON.stringify({testingDataFromDB})
-    
+            let testingDataFromDB = await db.get_testing_data_for_model_1var()
+            training = JSON.parse([JSON.stringify(trainingDataFromDB)])
+            testing = JSON.parse([JSON.stringify(testingDataFromDB)])
+            console.log(training)
+            console.log(testing)
+
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
                 data.first_id
@@ -43,13 +47,15 @@ module.exports = {
 
             // TRAIN / FIT NETWORK
             model.fit(trainingData, outcomeData, {epochs: 100})
-                .then(() => {
-                    let result = model.predict(testingData)
+                .then(async () => {
+                    let result = await model.predict(testingData).data()
+                    model.predict(testingData).print()
                     res.send(result)
+                    console.log(result)
                 })
         } else if (trainingCategories === 2) {
             let trainingDataFromDB = await db.get_training_data_for_model_2var()
-            let testingDataFromDB = await db.get_testing_data_from_model_2var()
+            let testingDataFromDB = await db.get_testing_data_for_model_2var()
             let training = JSON.stringify({trainingDataFromDB})
             let testing = JSON.stringify({testingDataFromDB})
     
@@ -89,11 +95,12 @@ module.exports = {
             model.fit(trainingData, outcomeData, {epochs: 100})
                 .then(() => {
                     let result = model.predict(testingData)
+                    model.predict(testingData).print()
                     res.send(result)
                 })
         } else if (trainingCategories === 3) {
             let trainingDataFromDB = await db.get_training_data_for_model_3var()
-            let testingDataFromDB = await db.get_testing_data_from_model_3var()
+            let testingDataFromDB = await db.get_testing_data_for_model_3var()
             let training = JSON.stringify({trainingDataFromDB})
             let testing = JSON.stringify({testingDataFromDB})
     
@@ -135,11 +142,12 @@ module.exports = {
             model.fit(trainingData, outcomeData, {epochs: 100})
                 .then(() => {
                     let result = model.predict(testingData)
+                    model.predict(testingData).print()
                     res.send(result)
                 })
         } else if (trainingCategories === 4) {
             let trainingDataFromDB = await db.get_training_data_for_model_4var()
-            let testingDataFromDB = await db.get_testing_data_from_model_4var()
+            let testingDataFromDB = await db.get_testing_data_for_model_4var()
             let training = JSON.stringify({trainingDataFromDB})
             let testing = JSON.stringify({testingDataFromDB})
     
@@ -183,11 +191,12 @@ module.exports = {
             model.fit(trainingData, outcomeData, {epochs: 100})
                 .then(() => {
                     let result = model.predict(testingData)
+                    model.predict(testingData).print()
                     res.send(result)
                 })
         } else if (trainingCategories === 5) {
             let trainingDataFromDB = await db.get_training_data_for_model_5var()
-            let testingDataFromDB = await db.get_testing_data_from_model_5var()
+            let testingDataFromDB = await db.get_testing_data_for_model_5var()
             let training = JSON.stringify({trainingDataFromDB})
             let testing = JSON.stringify({testingDataFromDB})
     
@@ -233,11 +242,12 @@ module.exports = {
             model.fit(trainingData, outcomeData, {epochs: 100})
                 .then(() => {
                     let result = model.predict(testingData)
+                    model.predict(testingData).print()
                     res.send(result)
                 })
         } else {
             let trainingDataFromDB = await db.get_training_data_for_model_6var()
-            let testingDataFromDB = await db.get_testing_data_from_model_6var()
+            let testingDataFromDB = await db.get_testing_data_for_model_6var()
             let training = JSON.stringify({trainingDataFromDB})
             let testing = JSON.stringify({testingDataFromDB})
     
@@ -286,6 +296,7 @@ module.exports = {
             model.fit(trainingData, outcomeData, {epochs: 100})
                 .then(() => {
                     let result = model.predict(testingData)
+                    model.predict(testingData).print()
                     res.send(result)
                 })
         }
