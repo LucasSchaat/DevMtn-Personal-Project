@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveCategories } from '../../redux/trainingReducer'
-// import Select from 'react-dropdown-select'
 
 class TrainingVariables extends Component {
     constructor(props) {
@@ -88,26 +87,143 @@ class TrainingVariables extends Component {
                 trainingCategories: this.props.user.user.trainingCategories
             })
         }
-        if(this.state.editingCategories === true){
-            this.flipEditCategories()
-        }
     }
     
     save = () => {
-        this.props.saveCategories(
-            this.state.dataImports,
-            this.state.outcome,
-            this.state.firstCategory,
-            this.state.secondCategory,
-            this.state.thirdCategory,
-            this.state.fourthCategory,
-            this.state.fifthCategory,
-            this.state.sixthCategory,
-            this.state.firstOutcome,
-            this.state.secondOutcome
-        )
-        this.flipEditCategories()
-        this.flipEditOutcome()
+        let {
+            trainingCategories,
+            dataImports,
+            outcome,
+            firstCategory,
+            secondCategory,
+            thirdCategory,
+            fourthCategory,
+            fifthCategory,
+            sixthCategory,
+            firstOutcome,
+            secondOutcome
+        } = this.state
+        
+        if (trainingCategories === 1) {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory) {
+                return console.log('This is where the toast error would go!')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
+        } else if (trainingCategories === 2) {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory) {
+                return console.log('This is where the toast error would go!')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
+        
+        } else if (trainingCategories === 3) {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory) {
+                return console.log('This is where the toast error would go!')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
+        
+        } else if (trainingCategories === 4) {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory || !fourthCategory){
+                return console.log('This is where the toast error would go!')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
+        
+        } else if (trainingCategories === 5) {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory || !fourthCategory || !fifthCategory) {
+                return console.log('This is where the toast error would go!')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
+        
+        } else {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory || !fourthCategory || !fifthCategory || !sixthCategory){
+                return console.log('This is where the toast error would go!')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
+        
+        }
     }
     
     flipEditCategories = () => this.setState ({ editingCategories: !this.state.editingCategories })
@@ -176,6 +292,7 @@ class TrainingVariables extends Component {
                         <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.save}>Save</button>
                     </div>
             )} else if (trainingCategories === 2 && editingCategories === false) {
@@ -192,8 +309,8 @@ class TrainingVariables extends Component {
                         <div>Variables</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
-                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.flipEditCategories}>Edit</button>
                     </div>
             )} else if (trainingCategories === 3 && editingCategories === true) {
@@ -212,6 +329,7 @@ class TrainingVariables extends Component {
                         <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
                         <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.save}>Save</button>
                     </div>
             )} else if (trainingCategories === 3 && editingCategories === false) {
@@ -229,8 +347,8 @@ class TrainingVariables extends Component {
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
-                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.flipEditCategories}>Edit</button>
                     </div>
             )} else if (trainingCategories === 4 && editingCategories === true) {
@@ -250,6 +368,7 @@ class TrainingVariables extends Component {
                         <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
                         <input value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange}  />
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.save}>Save</button>
                     </div>
             )} else if (trainingCategories === 4 && editingCategories === false) {
@@ -268,8 +387,8 @@ class TrainingVariables extends Component {
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
                         <div>{fourthCategory}</div>
-                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.flipEditCategories}>Edit</button>
                     </div>
             )} else if (trainingCategories === 5 && editingCategories === true) {
@@ -290,6 +409,7 @@ class TrainingVariables extends Component {
                         <input value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange}  />
                         <input value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange}  />
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.save}>Save</button>
                     </div>
             )} else if (trainingCategories === 5 && editingCategories === false) {
@@ -309,8 +429,8 @@ class TrainingVariables extends Component {
                         <div>{thirdCategory}</div>
                         <div>{fourthCategory}</div>
                         <div>{fifthCategory}</div>
-                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.addCategory} >Add Variable</button>
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.flipEditCategories}>Edit</button>
                     </div>
             )} else if (trainingCategories === 6 && editingCategories === true) {
@@ -331,6 +451,7 @@ class TrainingVariables extends Component {
                         <input value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange}  />
                         <input value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange}  />
                         <input value={sixthCategory} name='sixthCategory' type='text' onChange={this.handleChange}  />
+                        <button onClick={this.delete}>Delete A Variable</button>
                         <button onClick={this.save}>Save</button>
                     </div>
             )} else {

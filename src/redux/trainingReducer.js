@@ -3,7 +3,8 @@ import {
     SAVE_CATEGORIES,
     GET_DATA,
     SAVE_DATA,
-    EDIT_DATA
+    EDIT_DATA,
+    DELETE_DATA
 } from './actionTypes'
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
     trainingData: [],
     error: false
 }
+
 
 export const saveCategories = (
     dataImports,
@@ -23,12 +25,12 @@ export const saveCategories = (
     sixthCategory,
     firstOutcome,
     secondOutcome
-) => {
-    let categories = {
-        dataImports,
-        outcome,
-        firstCategory,
-        secondCategory,
+    ) => {
+        let categories = {
+            dataImports,
+            outcome,
+            firstCategory,
+            secondCategory,
         thirdCategory,
         fourthCategory,
         fifthCategory,
@@ -46,6 +48,14 @@ export function getData() {
     let data = axios.get('/api/training_data').then(res => res.data)
     return {
         type: GET_DATA,
+        payload: data
+    }
+}
+
+export function deleteData (id) {
+    let data = axios.delete(`/api/delete/${id}`).then(res => res.data)
+    return {
+        type: DELETE_DATA,
         payload: data
     }
 }
@@ -134,6 +144,10 @@ export default function (state = initialState, action) {
         case EDIT_DATA + '_FULFILLED':
             return { ...state, trainingData: payload, error: false }
         case EDIT_DATA + '_REJECTED':
+            return { ...state, error: payload }
+        case DELETE_DATA + '_FULFILLED':
+            return { ...state, trainingData: payload, error: false }
+        case DELETE_DATA + '_REJECTED':
             return { ...state, error: payload }
         default:
             return state

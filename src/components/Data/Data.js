@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { editData } from '../../redux/trainingReducer'
+import { editData, deleteData } from '../../redux/trainingReducer'
 
 class Data extends Component {
     constructor(props) {
@@ -44,9 +44,8 @@ class Data extends Component {
     }
 
     delete = () => {
-        // let { id, deleteData } = this.props
-        // deleteData(id)
-        console.log('Delete button pressed')
+        let { id, deleteData } = this.props
+        deleteData(id)
         this.flipEdit()
     }
 
@@ -225,4 +224,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, { editData })(Data)
+export default connect(mapStateToProps, { editData, deleteData })(Data)

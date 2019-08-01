@@ -35,6 +35,7 @@ app.delete('/api/logout', uc.logout)
 app.post('/api/save_data', tc.saveData)
 app.get('/api/training_data', tc.getData)
 app.put('/api/edit_data/:id', tc.editData)
+app.delete('/api/delete/:id', tc.deleteData)
 
 // DATA TESTING ENDPOINTS
 app.post('/api/save_testing_data', testc.saveTestData)

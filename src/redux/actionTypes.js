@@ -7,6 +7,7 @@ export const SAVE_CATEGORIES = 'SAVE_CATEGORIES'
 export const GET_DATA = 'GET_DATA'
 export const SAVE_DATA = 'SAVE_DATA'
 export const EDIT_DATA = 'EDIT_DATA'
+export const DELETE_DATA = 'DELETE_DATA'
 
 export const SAVE_TESTING_DATA = 'SAVE_TESTING_DATA'
 export const RUN_MODEL = 'RUN_MODEL'

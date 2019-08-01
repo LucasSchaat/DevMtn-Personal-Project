@@ -6,12 +6,13 @@ module.exports = {
         res.send(data)
     },
 
-    // async deleteData(req, res) {
-    //     let { table, id } = req.params
-    //     const db = req.app.get('db')
-    //     let data = await db.delete_data([table, +id, req.session.user.id])
-    //     res.send(data)
-    // },
+    async deleteData(req, res) {
+        let { id } = req.params
+        console.log(id)
+        const db = req.app.get('db')
+        let data = await db.delete_data([+id])
+        res.send(data)
+    },
 
     async editData(req, res) {
         console.log('hit edit data')

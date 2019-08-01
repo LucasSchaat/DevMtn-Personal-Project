@@ -1,5 +1,5 @@
--- DELETE FROM $1
--- WHERE id = $2;
+DELETE FROM training_data
+WHERE id = $1;
 
--- SELECT * FROM $1
--- WHERE user_id = $3
+SELECT *
+FROM training_data;
