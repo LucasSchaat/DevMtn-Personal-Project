@@ -1,0 +1,31 @@
+.logout-button {
+    margin: 0 10px 0 20px;
+    font-family: 'Judson', serif;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.step-nav-box {
+    margin-top: 30px;
+    background-color: #455465e8;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.link-container {
+    margin: 0 5px 0 5px;
+    text-align: center;
+}
+
+.links {
+    color: white;
+    text-decoration: none;
+    font-family: 'Quando', serif;
+    font-size: 20px;
+}

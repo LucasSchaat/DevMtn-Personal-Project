@@ -28,22 +28,24 @@ class Login extends Component {
         if (user.loggedIn) return <Redirect to='/dashboard' />
         return (
            <div>
-               <div className='login-page'>
-                    <div className='login-page-overlay'>
+               <div className='background-container'>
+                    <div className='background-overlay'>
                         <div className='nav-bar'>
                             <div className='logo'>DevShop.js</div>
                             <div className='button-container'>
-                                <button className='login-button'>Login</button>
-                                <button onClick={() => this.props.history.push('/signup')} className='login-button'>Signup</button>
+                                <button className='nav-button'>Login</button>
+                                <button onClick={() => this.props.history.push('/signup')} className='nav-button'>Signup</button>
                             </div>
                         </div>
-                        <div className='login-main'>
-                            <div className='login-container'>
-                                <div className='login-box'>
-                                    <div className='login-title'>User Login</div>
-                                    <input className='login-input' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
-                                    <input className='login-input' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
-                                    <button className='submit-login-button' onClick={this.loginUser}>Login</button>
+                        <div className='main-block'>
+                            <div className='login-main'>
+                                <div className='login-container'>
+                                    <div className='login-box'>
+                                        <div className='login-title'>User Login</div>
+                                        <input className='login-input' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
+                                        <input className='login-input' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
+                                        <button className='submit-login-button' onClick={this.loginUser}>Login</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

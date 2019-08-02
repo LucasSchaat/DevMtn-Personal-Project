@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUser } from '../../redux/userReducer'
+import './Dashboard.css'
 
 class Dashboard extends Component {
     componentDidMount() {
@@ -10,20 +11,23 @@ class Dashboard extends Component {
         }
     }
 
-        render() {
-            let { error, redirect } = this.props
-            if(error || redirect) return <Redirect to='/' />
-            return (
-                <div className='Dashboard'>
-                    <div>
-                        Dashboard
-                        <Link to='/dashboard/training_variables'>Choose Your Model Variables</Link>
-                        <Link to='/dashboard/import_data'>Import Your Data</Link>
-                        <Link to='/dashboard/testModel'>Test Your Model</Link>
-                    </div>
+    render() {
+        let { error, redirect } = this.props
+        if(error || redirect) return <Redirect to='/' />
+        return (
+            <div className='step-nav-box'>
+                <div className='link-container'>
+                    <Link className='links' to='/dashboard/training_variables'>Create Model Variables</Link>
                 </div>
-            )
-        }
+                <div className='link-container'>
+                    <Link className='links' to='/dashboard/import_data'>Import Your Data</Link>
+                </div>
+                <div className='link-container'>
+                    <Link className='links' to='/dashboard/testModel'>Test Your Model</Link>
+                </div>
+            </div> 
+        )
+    }
 }
 
 function mapStateToProps(state) {

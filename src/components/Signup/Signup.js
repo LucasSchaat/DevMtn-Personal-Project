@@ -27,24 +27,26 @@ class Signup extends Component {
         let { user } = this.props
         if (user.loggedIn) return <Redirect to='/dashboard' />
         return(
-            <div className='signup-page'>
-                <div className='signup-page-overlay'>
+            <div className='background-container'>
+                <div className='background-overlay'>
                     <div className='nav-bar'>
                         <div className='logo'>DevShop.js</div>
                         <div className='button-container'>
-                            <button onClick={() => this.props.history.push('/login')} className='signup-button'>Login</button>
-                            <button className='signup-button'>Signup</button>
+                            <button onClick={() => this.props.history.push('/login')} className='nav-button'>Login</button>
+                            <button className='nav-button'>Signup</button>
                         </div>
                     </div>
-                    <div className='signup-main'>
-                        <div className='signup-container'>
-                            <div className='signup-box'>
-                                <div className='signup-title'>Create New User</div>
-                                <input className='signup-input' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
-                                <input className='signup-input' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
-                                <button className='submit-signup-button' onClick={this.signupUser}>Signup</button>
+                    <div className='main-block'> 
+                        <div className='signup-main'>
+                            <div className='signup-container'>
+                                <div className='signup-box'>
+                                    <div className='signup-title'>Create New User</div>
+                                    <input className='signup-input' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
+                                    <input className='signup-input' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
+                                    <button className='submit-signup-button' onClick={this.signupUser}>Signup</button>
+                                </div>
                             </div>
-                        </div>
+                    </div>
                     </div>
                     <div className='footer-container'>
                         <div>DevShop.js Copyright 2019</div>
