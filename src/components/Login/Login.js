@@ -25,7 +25,6 @@ class Login extends Component {
     render() {
         let { username, password } = this.state
         let { user } = this.props
-        console.log(this.props)
         if (user.loggedIn) return <Redirect to='/dashboard' />
         return (
            <div>
