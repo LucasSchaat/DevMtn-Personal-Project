@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveCategories } from '../../redux/trainingReducer'
 
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 class TrainingVariables extends Component {
     constructor(props) {
         super(props)
@@ -106,7 +109,7 @@ class TrainingVariables extends Component {
         
         if (trainingCategories === 1) {
             if(!outcome || !firstOutcome || !secondOutcome || !firstCategory) {
-                return console.log('This is where the toast error would go!')
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
             } else {
                 this.props.saveCategories(
                     dataImports,
@@ -125,7 +128,7 @@ class TrainingVariables extends Component {
             }
         } else if (trainingCategories === 2) {
             if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory) {
-                return console.log('This is where the toast error would go!')
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
             } else {
                 this.props.saveCategories(
                     dataImports,
@@ -145,7 +148,7 @@ class TrainingVariables extends Component {
         
         } else if (trainingCategories === 3) {
             if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory) {
-                return console.log('This is where the toast error would go!')
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
             } else {
                 this.props.saveCategories(
                     dataImports,
@@ -165,7 +168,7 @@ class TrainingVariables extends Component {
         
         } else if (trainingCategories === 4) {
             if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory || !fourthCategory){
-                return console.log('This is where the toast error would go!')
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
             } else {
                 this.props.saveCategories(
                     dataImports,
@@ -185,7 +188,7 @@ class TrainingVariables extends Component {
         
         } else if (trainingCategories === 5) {
             if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory || !fourthCategory || !fifthCategory) {
-                return console.log('This is where the toast error would go!')
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
             } else {
                 this.props.saveCategories(
                     dataImports,
@@ -203,9 +206,9 @@ class TrainingVariables extends Component {
                 this.flipEditOutcome()
             }
         
-        } else {
+        } else if (trainingCategories === 6) {
             if(!outcome || !firstOutcome || !secondOutcome || !firstCategory || !secondCategory || !thirdCategory || !fourthCategory || !fifthCategory || !sixthCategory){
-                return console.log('This is where the toast error would go!')
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
             } else {
                 this.props.saveCategories(
                     dataImports,
@@ -222,7 +225,25 @@ class TrainingVariables extends Component {
                 this.flipEditCategories()
                 this.flipEditOutcome()
             }
-        
+        } else {
+            if(!outcome || !firstOutcome || !secondOutcome || !firstCategory){
+                toast.error('Oops! Looks like you left something blank! Please update your entries and complete the form to continue.')
+            } else {
+                this.props.saveCategories(
+                    dataImports,
+                    outcome,
+                    firstCategory,
+                    secondCategory,
+                    thirdCategory,
+                    fourthCategory,
+                    fifthCategory,
+                    sixthCategory,
+                    firstOutcome,
+                    secondOutcome
+                )
+                this.flipEditCategories()
+                this.flipEditOutcome()
+            }
         }
     }
     

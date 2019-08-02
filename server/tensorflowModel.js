@@ -56,8 +56,8 @@ module.exports = {
         } else if (trainingCategories === 2) {
             let trainingDataFromDB = await db.get_training_data_for_model_2var()
             let testingDataFromDB = await db.get_testing_data_for_model_2var()
-            let training = JSON.stringify({trainingDataFromDB})
-            let testing = JSON.stringify({testingDataFromDB})
+            training = JSON.parse([JSON.stringify(trainingDataFromDB)])
+            testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
@@ -93,17 +93,17 @@ module.exports = {
 
             // TRAIN / FIT NETWORK
             model.fit(trainingData, outcomeData, {epochs: 100})
-                .then(() => {
-                    let result = model.predict(testingData)
+                .then(async () => {
+                    let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
+                    console.log(result)
                 })
         } else if (trainingCategories === 3) {
             let trainingDataFromDB = await db.get_training_data_for_model_3var()
             let testingDataFromDB = await db.get_testing_data_for_model_3var()
-            let training = JSON.stringify({trainingDataFromDB})
-            let testing = JSON.stringify({testingDataFromDB})
-    
+            training = JSON.parse([JSON.stringify(trainingDataFromDB)])
+            testing = JSON.parse([JSON.stringify(testingDataFromDB)])
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
                 data.first_id,
@@ -140,16 +140,17 @@ module.exports = {
 
             // TRAIN / FIT NETWORK
             model.fit(trainingData, outcomeData, {epochs: 100})
-                .then(() => {
-                    let result = model.predict(testingData)
+                .then(async () => {
+                    let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
+                    console.log(result)
                 })
         } else if (trainingCategories === 4) {
             let trainingDataFromDB = await db.get_training_data_for_model_4var()
             let testingDataFromDB = await db.get_testing_data_for_model_4var()
-            let training = JSON.stringify({trainingDataFromDB})
-            let testing = JSON.stringify({testingDataFromDB})
+            training = JSON.parse([JSON.stringify(trainingDataFromDB)])
+            testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
@@ -189,16 +190,17 @@ module.exports = {
 
             // TRAIN / FIT NETWORK
             model.fit(trainingData, outcomeData, {epochs: 100})
-                .then(() => {
-                    let result = model.predict(testingData)
+                .then(async () => {
+                    let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
+                    console.log(result)
                 })
         } else if (trainingCategories === 5) {
             let trainingDataFromDB = await db.get_training_data_for_model_5var()
             let testingDataFromDB = await db.get_testing_data_for_model_5var()
-            let training = JSON.stringify({trainingDataFromDB})
-            let testing = JSON.stringify({testingDataFromDB})
+            training = JSON.parse([JSON.stringify(trainingDataFromDB)])
+            testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
@@ -240,16 +242,17 @@ module.exports = {
 
             // TRAIN / FIT NETWORK
             model.fit(trainingData, outcomeData, {epochs: 100})
-                .then(() => {
-                    let result = model.predict(testingData)
+                .then(async () => {
+                    let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
+                    console.log(result)
                 })
         } else {
             let trainingDataFromDB = await db.get_training_data_for_model_6var()
             let testingDataFromDB = await db.get_testing_data_for_model_6var()
-            let training = JSON.stringify({trainingDataFromDB})
-            let testing = JSON.stringify({testingDataFromDB})
+            training = JSON.parse([JSON.stringify(trainingDataFromDB)])
+            testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
@@ -294,10 +297,11 @@ module.exports = {
 
             // TRAIN / FIT NETWORK
             model.fit(trainingData, outcomeData, {epochs: 100})
-                .then(() => {
-                    let result = model.predict(testingData)
+                .then(async () => {
+                    let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
+                    console.log(result)
                 })
         }
     }
