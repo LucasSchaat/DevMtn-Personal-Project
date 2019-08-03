@@ -1,0 +1,62 @@
+.import-divider {
+    width: 100%;
+}
+
+.import-title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-top: 1px dashed #727C8Dce;
+    padding-top: 20px;
+}
+
+.data-import-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 60px;
+}
+
+.training-data-titles {
+    border-bottom: 2px solid #FC8D0A;
+}
+
+.two-column-titles {
+    margin: 0 10px;
+    width: 40%;
+    text-align: center;
+}
+
+.three-column-titles {
+    margin: 0 10px;
+    width: 28%;
+    text-align: center;
+}
+
+.four-column-titles {
+    margin: 0 8px;
+    width: 23%;
+    text-align: center;
+}
+
+.five-column-titles {
+    margin: 0 6px;
+    width: 20%;
+    text-align: center;
+}
+
+.six-column-titles {
+    margin: 0 4px;
+    width: 18%;
+    text-align: center;
+}
+
+.seven-column-titles {
+    margin: 0 2px;
+    width: 17%;
+    text-align: center;
+}
