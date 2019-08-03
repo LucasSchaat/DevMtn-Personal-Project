@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { saveCategories } from '../../redux/trainingReducer'
-
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import './TrainingVariables.css'
 
 class TrainingVariables extends Component {
     constructor(props) {
@@ -269,233 +270,393 @@ class TrainingVariables extends Component {
         if (trainingCategories === 1 && editingCategories === true) {
             return (
                 <div>
-                    <div>
-                        <div>Binary Outcome Description:</div>
-                        <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                        <div>Desired Outcome:</div>
-                        <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
-                        <div>Alternative Outcome:</div>
-                        <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <input className='main-inputs outcome-description-input' value={outcome} name='outcome' type='text' onChange={this.handleChange} placeholder='Ex: Will this be a good date?' />
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                </div>
+                            </div>    
+                        </div>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <input className='main-inputs variable-inputs-one' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button two-buttons' onClick={this.save}>Save Data</button>
+                            </div>
+                        </div>
                     </div>
-                    <div>Variables</div>
-                    <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
-                    <button onClick={this.addCategory} >Add Variable</button>
-                    <button onClick={this.save}>Save</button>
+                    <div className='next-previous-button-box'>
+                        <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                    </div>
                 </div>
+
             )} else if (trainingCategories === 1 && editingCategories === false) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <div>{outcome}</div>
-                            <div>Desired Outcome:</div>
-                            <div>{firstOutcome}</div>
-                            <div>Alternative Outcome:</div>
-                            <div>{secondOutcome}</div>
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <div className='saved-inputs'>{outcome}</div>
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <div className='saved-inputs'>{firstOutcome}</div>
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <div className='saved-inputs'>{secondOutcome}</div>
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <div>{firstCategory}</div>
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.flipEditCategories}>Edit</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <div className='saved-inputs'>{firstCategory}</div>
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button two-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                            </div>
+                        </div>
                     </div>
+
             )} else if (trainingCategories === 2 && editingCategories === true) {
                  return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                            <div>Desired Outcome:</div>
-                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
-                            <div>Alternative Outcome:</div>
-                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <input className='main-inputs outcome-description-input' value={outcome} name='outcome' type='text' onChange={this.handleChange} placeholder='Ex: Will this be a good date?' />
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
-                        <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.save}>Save</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                            </div>
+                        </div>
                     </div>
+
             )} else if (trainingCategories === 2 && editingCategories === false) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <div>{outcome}</div>
-                            <div>Desired Outcome:</div>
-                            <div>{firstOutcome}</div>
-                            <div>Alternative Outcome:</div>
-                            <div>{secondOutcome}</div>
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <div className='saved-inputs'>{outcome}</div>
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <div className='saved-inputs'>{firstOutcome}</div>
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <div className='saved-inputs'>{secondOutcome}</div>
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <div>{firstCategory}</div>
-                        <div>{secondCategory}</div>
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.flipEditCategories}>Edit</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <div className='saved-inputs saved-variables'>{firstCategory}</div>
+                                <div className='saved-inputs saved-variables'>{secondCategory}</div>
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                            </div>
+                        </div>
                     </div>
+    
             )} else if (trainingCategories === 3 && editingCategories === true) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                            <div>Desired Outcome:</div>
-                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
-                            <div>Alternative Outcome:</div>
-                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <input className='main-inputs outcome-description-input' value={outcome} name='outcome' type='text' onChange={this.handleChange} placeholder='Ex: Will this be a good date?' />
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
-                        <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
-                        <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.save}>Save</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                            </div>
+                        </div>
                     </div>
+
             )} else if (trainingCategories === 3 && editingCategories === false) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <div>{outcome}</div>
-                            <div>Desired Outcome:</div>
-                            <div>{firstOutcome}</div>
-                            <div>Alternative Outcome:</div>
-                            <div>{secondOutcome}</div>
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <div className='saved-inputs'>{outcome}</div>
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <div className='saved-inputs'>{firstOutcome}</div>
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <div className='saved-inputs'>{secondOutcome}</div>
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <div>{firstCategory}</div>
-                        <div>{secondCategory}</div>
-                        <div>{thirdCategory}</div>
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.flipEditCategories}>Edit</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <div className='saved-inputs saved-variables'>{firstCategory}</div>
+                                <div className='saved-inputs saved-variables'>{secondCategory}</div>
+                                <div className='saved-inputs saved-variables'>{thirdCategory}</div>
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                            </div>
+                        </div>
                     </div>
+
             )} else if (trainingCategories === 4 && editingCategories === true) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                            <div>Desired Outcome:</div>
-                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
-                            <div>Alternative Outcome:</div>
-                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <input className='main-inputs outcome-description-input' value={outcome} name='outcome' type='text' onChange={this.handleChange} placeholder='Ex: Will this be a good date?' />
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
-                        <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
-                        <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
-                        <input value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.save}>Save</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                            </div>
+                        </div>
                     </div>
+
             )} else if (trainingCategories === 4 && editingCategories === false) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <div>{outcome}</div>
-                            <div>Desired Outcome:</div>
-                            <div>{firstOutcome}</div>
-                            <div>Alternative Outcome:</div>
-                            <div>{secondOutcome}</div>
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <div className='saved-inputs'>{outcome}</div>
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <div className='saved-inputs'>{firstOutcome}</div>
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <div className='saved-inputs'>{secondOutcome}</div>
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <div>{firstCategory}</div>
-                        <div>{secondCategory}</div>
-                        <div>{thirdCategory}</div>
-                        <div>{fourthCategory}</div>
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.flipEditCategories}>Edit</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <div className='saved-inputs saved-variables'>{firstCategory}</div>
+                                <div className='saved-inputs saved-variables'>{secondCategory}</div>
+                                <div className='saved-inputs saved-variables'>{thirdCategory}</div>
+                                <div className='saved-inputs saved-variables'>{fourthCategory}</div>
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                            </div>
+                        </div>
                     </div>
+
             )} else if (trainingCategories === 5 && editingCategories === true) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                            <div>Desired Outcome:</div>
-                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
-                            <div>Alternative Outcome:</div>
-                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <input className='main-inputs outcome-description-input' value={outcome} name='outcome' type='text' onChange={this.handleChange} placeholder='Ex: Will this be a good date?' />
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
-                        <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
-                        <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
-                        <input value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange}  />
-                        <input value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.save}>Save</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
+                                <input className='main-inputs variable-inputs' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                            </div>
+                        </div>
                     </div>
+                    
             )} else if (trainingCategories === 5 && editingCategories === false) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <div>{outcome}</div>
-                            <div>Desired Outcome:</div>
-                            <div>{firstOutcome}</div>
-                            <div>Alternative Outcome:</div>
-                            <div>{secondOutcome}</div>
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <div className='saved-inputs'>{outcome}</div>
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <div className='saved-inputs'>{firstOutcome}</div>
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <div className='saved-inputs'>{secondOutcome}</div>
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <div>{firstCategory}</div>
-                        <div>{secondCategory}</div>
-                        <div>{thirdCategory}</div>
-                        <div>{fourthCategory}</div>
-                        <div>{fifthCategory}</div>
-                        <button onClick={this.addCategory} >Add Variable</button>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.flipEditCategories}>Edit</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <div className='saved-inputs saved-variables'>{firstCategory}</div>
+                                <div className='saved-inputs saved-variables'>{secondCategory}</div>
+                                <div className='saved-inputs saved-variables'>{thirdCategory}</div>
+                                <div className='saved-inputs saved-variables'>{fourthCategory}</div>
+                                <div className='saved-inputs saved-variables'>{fifthCategory}</div>
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                            </div>
+                        </div>
                     </div>
+                    
             )} else if (trainingCategories === 6 && editingCategories === true) {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <input value={outcome} name='outcome' type='text' onChange={this.handleChange}  />
-                            <div>Desired Outcome:</div>
-                            <input value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} />
-                            <div>Alternative Outcome:</div>
-                            <input value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} />
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <input className='main-inputs outcome-description-input' value={outcome} name='outcome' type='text' onChange={this.handleChange} placeholder='Ex: Will this be a good date?' />
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <input value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange}  />
-                        <input value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange}  />
-                        <input value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange}  />
-                        <input value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange}  />
-                        <input value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange}  />
-                        <input value={sixthCategory} name='sixthCategory' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.save}>Save</button>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
+                                <input className='main-inputs variable-inputs' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
+                                <input className='main-inputs variable-inputs' value={sixthCategory} name='sixthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Nice Profile Pic' />
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button two-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button two-buttons' onClick={this.save}>Save Data</button>
+                            </div>
+                        </div>
                     </div>
+                    
             )} else {
                 return (
-                    <div>
-                        <div>
-                            <div>Binary Outcome Description:</div>
-                            <div>{outcome}</div>
-                            <div>Desired Outcome:</div>
-                            <div>{firstOutcome}</div>
-                            <div>Alternative Outcome:</div>
-                            <div>{secondOutcome}</div>
+                    <div className='main-content-container'>
+                        <div className='outcome-section'>
+                            <div className='outcome-description'>What Outcome Do You Want to Test?</div>
+                            <div className='saved-inputs'>{outcome}</div>
+                            <div className='outcome-container'>
+                                <div className='outcome-alternative'>
+                                    <div>Desired Outcome:</div>
+                                    <div className='saved-inputs'>{firstOutcome}</div>
+                                </div>
+                                <div className='outcome-alternative'>
+                                    <div>Alternative Outcome:</div>
+                                    <div className='saved-inputs'>{secondOutcome}</div>
+                                </div>
+                            </div>    
                         </div>
-                        <div>Variables</div>
-                        <div>{firstCategory}</div>
-                        <div>{secondCategory}</div>
-                        <div>{thirdCategory}</div>
-                        <div>{fourthCategory}</div>
-                        <div>{fifthCategory}</div>
-                        <div>{sixthCategory}</div>
-                        <button onClick={this.delete}>Delete A Variable</button>
-                        <button onClick={this.flipEditCategories}>Edit</button>
-                    </div>
+                        <div className='variables-display'>
+                            <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
+                            <div className='variables-container'>
+                                <div className='saved-inputs saved-variables'>{firstCategory}</div>
+                                <div className='saved-inputs saved-variables'>{secondCategory}</div>
+                                <div className='saved-inputs saved-variables'>{thirdCategory}</div>
+                                <div className='saved-inputs saved-variables'>{fourthCategory}</div>
+                                <div className='saved-inputs saved-variables'>{fifthCategory}</div>
+                                <div className='saved-inputs saved-variables'>{sixthCategory}</div>
+                            </div>
+                            <div className='button-container'>
+                                <button className='main-button two-buttons' onClick={this.delete}>Delete A Variable</button>
+                                <button className='main-button two-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                            </div>
+                        </div>
+                    </div>      
             )}
     }
 }
@@ -504,4 +665,4 @@ function mapStateToProps (state) {
     return state
 }
 
-export default connect(mapStateToProps, { saveCategories })(TrainingVariables)
+export default connect(mapStateToProps, { saveCategories })(withRouter(TrainingVariables))

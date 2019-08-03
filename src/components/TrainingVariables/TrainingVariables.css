@@ -1,0 +1,115 @@
+.main-content-container {
+    background-color: #FBFBFBce;
+}
+
+.outcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outcome-container {
+    display: flex;
+}
+
+.outcome-alternative {
+    margin: 20px 10px;
+    font-family: 'Judson', serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-inputs {
+    background-color: transparent;
+    margin: 5px 0;
+    border: none;
+    border-bottom: 2px solid #FC8D0A;
+    font-size: 12px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.outcome-inputs {
+    width: 90%;
+}
+
+.outcome-description {
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+    font-family: 'Judson', serif;
+}
+
+.variables-description {
+    margin-top: 20px;
+}
+
+.outcome-description-input {
+    width: 80%;
+}
+
+.variables-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.variables-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.main-button {
+    color: white;
+    background-color: #FC8D0A;
+    font-family: 'Judson', serif;
+    margin: 0 10px;
+}
+
+.two-buttons {
+    width: 35%;
+}
+
+.three-buttons {
+    width: 28%;
+}
+
+.variable-inputs {
+    width: 130px;
+    margin: 10px 17px 0 17px;
+}
+
+.saved-inputs {
+    font-family: 'Judson', serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.saved-variables {
+    width: 130px;
+    margin: 10px 20px 0 20px;
+}
+
+.next-previous-button-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}

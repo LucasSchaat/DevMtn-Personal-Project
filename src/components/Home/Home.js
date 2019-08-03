@@ -27,7 +27,7 @@ class Home extends Component {
                         <div className='logo'>DevShop.js</div>
                         <div className='button-container'>
                             <button onClick={this.gotoLogin} className='nav-button'>Login</button>
-                            <button onClick={this.gotoSignup} className='nav-button'>Signup</button>
+                            <button onClick={this.gotoSignup} className='nav-button'>Sign Up</button>
                         </div>
                     </div>
                     <div className='main-block'>

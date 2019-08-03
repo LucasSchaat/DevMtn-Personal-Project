@@ -34,7 +34,7 @@ class Login extends Component {
                             <div className='logo'>DevShop.js</div>
                             <div className='button-container'>
                                 <button className='nav-button'>Login</button>
-                                <button onClick={() => this.props.history.push('/signup')} className='nav-button'>Signup</button>
+                                <button onClick={() => this.props.history.push('/signup')} className='nav-button'>Sign Up</button>
                             </div>
                         </div>
                         <div className='main-block'>

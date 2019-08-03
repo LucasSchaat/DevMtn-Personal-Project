@@ -1,0 +1,40 @@
+.dashboardHome-main {
+    color: white;
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-family: 'Judson', serif
+}
+
+.intro-first {
+    font-size: 40px;
+    margin-top: 50px;
+    font-weight: 600;
+    width: 90%;
+    font-family: 'Quando', serif;
+}
+
+.intro-second {
+    font-size: 20px;
+    margin-top: 40px;
+    width: 80%;
+}
+
+.intro-third {
+    margin-top: 200px;
+    font-size: 20px;
+    width: 80%;
+}
+
+.create-variables-button {
+    color: white;
+    background-color: #455465;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Judson', serif;
+    width: 90%;
+}
+
