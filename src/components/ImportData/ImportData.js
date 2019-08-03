@@ -14,7 +14,6 @@ class ImportData extends Component {
     render() {
         const { trainingData } = this.props.training
         const {
-            outcome,
             firstCategory,
             secondCategory,
             thirdCategory,
@@ -27,8 +26,7 @@ class ImportData extends Component {
             return(
                 <div>
                     <div>
-                        <div>Import Number</div>
-                        <div>{outcome}</div>
+                        <div>Outcome</div>
                         <div>{firstCategory}</div>
                     </div>
                     {trainingData.map(data => (
@@ -40,8 +38,7 @@ class ImportData extends Component {
             return(
                 <div>
                     <div>
-                        <div>Import Number</div>
-                        <div>{outcome}</div>
+                        <div>Outcome</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                     </div>
@@ -54,8 +51,7 @@ class ImportData extends Component {
             return(
                 <div>
                     <div>
-                        <div>Import Number</div>
-                        <div>{outcome}</div>
+                        <div>Outcome</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
@@ -69,8 +65,7 @@ class ImportData extends Component {
             return(
                 <div>
                     <div>
-                        <div>Import Number</div>
-                        <div>{outcome}</div>
+                        <div>Outcome</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
@@ -85,8 +80,7 @@ class ImportData extends Component {
             return(
                 <div>
                     <div>
-                        <div>Import Number</div>
-                        <div>{outcome}</div>
+                        <div>Outcome</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>
@@ -102,8 +96,7 @@ class ImportData extends Component {
             return(
                 <div>
                     <div>
-                        <div>Import Number</div>
-                        <div>{outcome}</div>
+                        <div>Outcome</div>
                         <div>{firstCategory}</div>
                         <div>{secondCategory}</div>
                         <div>{thirdCategory}</div>

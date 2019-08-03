@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ImportData from '../ImportData/ImportData'
 import { saveData } from '../../redux/trainingReducer'
+import './UploadData.css'
 
 class UploadData extends Component {
     constructor(props) {
@@ -75,126 +76,178 @@ class UploadData extends Component {
             thirdCategory,
             fourthCategory,
             fifthCategory,
-            sixthCategory,
-            outcome
+            sixthCategory
         } = this.props.training.categories
 
         if (trainingCategories === 1) {
-            return (
-                <div>
-                    <div>
-                        <div>Outcome:</div>
-                        <div>{outcome}</div>
-                        <input value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange}  />
+        return (
+            <div className='import-page-display'>
+                <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                <div className='upload-outcome-container'>
+                    <div className='upload-data-categories'>Outcome</div>
+                    <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                </div>
+                <div className='upload-data-container'>
+                    <div className='upload-category-input-box'>
+                        <div className='upload-data-categories'>{firstCategory}</div>
+                        <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                     </div>
-                    <div>Variables:</div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange}  />
-                    <button onClick={this.save}>Import Data</button>
+                </div>
+                <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                <ImportData />
+            </div>
+            )
+        } else if (trainingCategories === 2) {
+            return (
+                <div className='import-page-display'>
+                    <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                    <div className='upload-outcome-container'>
+                        <div className='upload-data-categories'>Outcome</div>
+                        <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                    </div>
+                    <div className='upload-data-container'>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{firstCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{secondCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                        </div>
+                    </div>
+                    <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
                     <ImportData />
                 </div>
-            )} else if (trainingCategories === 2) {
-                 return (
-                    <div>
-                        <div>
-                            <div>Outcome:</div>
-                            <div>{outcome}</div>
-                            <input value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange}  />
-                        </div>
-                        <div>Variables:</div>
-                        <div>{firstCategory}</div>
-                        <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{secondCategory}</div>
-                        <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.save}>Import Data</button>
-                        <ImportData />
+            )
+        } else if (trainingCategories === 3) {
+            return (
+                <div className='import-page-display'>
+                    <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                    <div className='upload-outcome-container'>
+                        <div className='upload-data-categories'>Outcome</div>
+                        <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                     </div>
-            )} else if (trainingCategories === 3) {
-                return (
-                    <div>
-                        <div>
-                            <div>Outcome:</div>
-                            <div>{outcome}</div>
-                            <input value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange}  />
+                    <div className='upload-data-container'>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{firstCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                         </div>
-                        <div>Variables:</div>
-                        <div>{firstCategory}</div>
-                        <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{secondCategory}</div>
-                        <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{thirdCategory}</div>
-                        <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.save}>Import Data</button>
-                        <ImportData />
-                    </div>
-            )} else if (trainingCategories === 4) {
-                return (
-                    <div>
-                        <div>
-                            <div>Outcome:</div>
-                            <div>{outcome}</div>
-                            <input value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange}  />
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{secondCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
                         </div>
-                        <div>Variables:</div>
-                        <div>{firstCategory}</div>
-                        <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{secondCategory}</div>
-                        <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{thirdCategory}</div>
-                        <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{fourthCategory}</div>
-                        <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.save}>Import Data</button>
-                        <ImportData />
-                    </div>
-            )} else if (trainingCategories === 5) {
-                return (
-                    <div>
-                        <div>
-                            <div>Outcome:</div>
-                            <div>{outcome}</div>
-                            <input value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange}  />
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{thirdCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
                         </div>
-                        <div>Variables:</div>
-                        <div>{firstCategory}</div>
-                        <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{secondCategory}</div>
-                        <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{thirdCategory}</div>
-                        <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{fourthCategory}</div>
-                        <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{fifthCategory}</div>
-                        <input value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.save}>Import Data</button>
-                        <ImportData />
                     </div>
-            )} else {
-                return (
-                    <div>
-                        <div>
-                            <div>Outcome:</div>
-                            <div>{outcome}</div>
-                            <input value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange}  />
+                    <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                    <ImportData />
+                </div>
+            )
+        } else if (trainingCategories === 4) {
+            return (
+                <div className='import-page-display'>
+                    <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                    <div className='upload-outcome-container'>
+                        <div className='upload-data-categories'>Outcome</div>
+                        <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                    </div>
+                    <div className='upload-data-container'>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{firstCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                         </div>
-                        <div>Variables:</div>
-                        <div>{firstCategory}</div>
-                        <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{secondCategory}</div>
-                        <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{thirdCategory}</div>
-                        <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{fourthCategory}</div>
-                        <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{fifthCategory}</div>
-                        <input value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange}  />
-                        <div>{sixthCategory}</div>
-                        <input value={sixthCategoryValue} name='sixthCategoryValue' type='text' onChange={this.handleChange}  />
-                        <button onClick={this.save}>Import Data</button>
-                        <ImportData />
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{secondCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{thirdCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{fourthCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
+                        </div>
                     </div>
-                )
-            }
+                    <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                    <ImportData />
+                </div>
+            )
+        } else if (trainingCategories === 5) {
+            return (
+                <div className='import-page-display'>
+                    <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                    <div className='upload-outcome-container'>
+                        <div className='upload-data-categories'>Outcome</div>
+                        <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                    </div>
+                    <div className='upload-data-container'>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{firstCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{secondCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{thirdCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{fourthCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{fifthCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                        </div>
+                    </div>
+                    <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                    <ImportData />
+                </div>
+            )
+        } else {
+            return (
+                <div className='import-page-display'>
+                    <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                    <div className='upload-outcome-container'>
+                        <div className='upload-data-categories'>Outcome</div>
+                        <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                    </div>
+                    <div className='upload-data-container'>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{firstCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{secondCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{thirdCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{fourthCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{fifthCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                        </div>
+                        <div className='upload-category-input-box'>
+                            <div className='upload-data-categories'>{sixthCategory}</div>
+                            <input className='main-inputs upload-data-inputs' value={sixthCategoryValue} name='sixthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                        </div>
+                    </div>
+                    <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                    <ImportData />
+                </div>
+            )
+        }
     }
 }
 
