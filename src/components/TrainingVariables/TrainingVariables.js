@@ -290,7 +290,7 @@ class TrainingVariables extends Component {
                             <div className='variables-container'>
                                 <input className='main-inputs variable-inputs-one' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
                             </div>
-                            <div className='button-container'>
+                            <div className='new-button-container'>
                                 <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>
                                 <button className='main-button two-buttons' onClick={this.save}>Save Data</button>
                             </div>
@@ -324,7 +324,7 @@ class TrainingVariables extends Component {
                                 <div className='variables-container'>
                                     <div className='saved-inputs'>{firstCategory}</div>
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button two-buttons' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
@@ -359,7 +359,7 @@ class TrainingVariables extends Component {
                                     <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
                                     <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
@@ -395,7 +395,7 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{firstCategory}</div>
                                     <div className='saved-inputs saved-variables'>{secondCategory}</div>
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
@@ -432,7 +432,7 @@ class TrainingVariables extends Component {
                                     <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
                                     <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
@@ -469,7 +469,7 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{secondCategory}</div>
                                     <div className='saved-inputs saved-variables'>{thirdCategory}</div>
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
@@ -507,7 +507,7 @@ class TrainingVariables extends Component {
                                     <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
                                     <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
@@ -545,7 +545,7 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{thirdCategory}</div>
                                     <div className='saved-inputs saved-variables'>{fourthCategory}</div>
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
@@ -584,7 +584,7 @@ class TrainingVariables extends Component {
                                     <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
                                     <input className='main-inputs variable-inputs' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
@@ -623,7 +623,7 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{fourthCategory}</div>
                                     <div className='saved-inputs saved-variables'>{fifthCategory}</div>
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
                                     <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
@@ -663,7 +663,7 @@ class TrainingVariables extends Component {
                                     <input className='main-inputs variable-inputs' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
                                     <input className='main-inputs variable-inputs' value={sixthCategory} name='sixthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Nice Profile Pic' />
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button two-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button two-buttons' onClick={this.save}>Save Data</button>
                                 </div>
@@ -702,7 +702,7 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{fifthCategory}</div>
                                     <div className='saved-inputs saved-variables'>{sixthCategory}</div>
                                 </div>
-                                <div className='button-container'>
+                                <div className='new-button-container'>
                                     <button className='main-button two-buttons' onClick={this.delete}>Delete A Variable</button>
                                     <button className='main-button two-buttons' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
