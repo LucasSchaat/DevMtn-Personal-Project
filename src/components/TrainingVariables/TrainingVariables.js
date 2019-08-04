@@ -297,7 +297,7 @@ class TrainingVariables extends Component {
                         </div>
                     </div>
                     <div className='next-previous-button-box'>
-                        <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                        <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                     </div>
                 </div>
 
@@ -331,7 +331,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -367,7 +367,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -403,7 +403,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
     
@@ -440,7 +440,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -477,7 +477,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -515,7 +515,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -553,7 +553,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -592,7 +592,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
                     
@@ -631,7 +631,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
                     
@@ -670,7 +670,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
                     
@@ -709,7 +709,7 @@ class TrainingVariables extends Component {
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='create-variables-button next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='create-variables-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
             )}

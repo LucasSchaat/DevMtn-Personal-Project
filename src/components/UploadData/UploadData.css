@@ -1,6 +1,7 @@
 .testing-data-container {
     background-color: #FBFBFBce;
     color: black;
+    padding-bottom: 20px;
 }
 
 .import-page-display {
@@ -47,4 +48,19 @@
     margin-top: 15px;
     margin-bottom: 20px;
     width: 50%;
+}
+
+.previous-next-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.next-previous-buttons {
+    color: white;
+    background-color: #455465;
+    margin: 0 20px;
+    font-family: 'Judson', serif;
+    width: 90%;
 }

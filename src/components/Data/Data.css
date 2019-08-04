@@ -1,0 +1,98 @@
+.output-data-container {
+    display: flex;
+    align-items: center;
+    font-family: 'Judson', serif;
+}
+
+.output-data-display {
+    display: flex;
+    width: calc(100% - 60px);
+    justify-content: center;
+}
+
+.output-data-item {
+    font-size: 11px;
+}
+
+.output-data-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #727C8Dce;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 11px;
+    font-family: 'Judson', serif;
+}
+
+.output-data-input-small {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #727C8Dce;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Judson', serif;
+}
+
+.two-data-items {
+    margin: 0 10px;
+    width: 40%;
+    text-align: center;
+}
+
+.three-data-items {
+    margin: 0 10px;
+    width: 28%;
+    text-align: center;
+}
+
+.four-data-items {
+    margin: 0 8px;
+    width: 23%;
+    text-align: center;
+}
+
+.five-data-items {
+    margin: 0 6px;
+    width: 20%;
+    text-align: center;
+}
+
+.six-data-items {
+    margin: 0 4px;
+    width: 18%;
+    text-align: center;
+    font-size: 10px;
+}
+
+.seven-data-items {
+    margin: 0 2px;
+    width: 17%;
+    text-align: center;
+    font-size: 10px;
+}
+
+.output-edit-container {
+    width: 65px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.output-button {
+    color: white;
+    background-color: #455465;
+    font-family: 'Judson', serif;
+    width: 30px;
+    text-align: center;
+    font-size: 9px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 2.5px;
+}

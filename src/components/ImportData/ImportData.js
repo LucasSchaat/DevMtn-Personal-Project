@@ -26,7 +26,7 @@ class ImportData extends Component {
         if( trainingCategories === 1) {
             return(
                 <div className='import-divider'>
-                    <div className='import-title'>Model Training Data</div>
+                    <div className='import-title'>Imported Model Training Data</div>
                     <div className='data-import-container'>
                         <div className='training-data-titles two-column-titles'>Outcome</div>
                         <div className='training-data-titles two-column-titles'>{firstCategory}</div>
@@ -39,7 +39,7 @@ class ImportData extends Component {
         } else if( trainingCategories === 2) {
             return(
                 <div className='import-divider'>
-                    <div className='import-title'>Model Training Data</div>
+                    <div className='import-title'>Imported Model Training Data</div>
                     <div className='data-import-container'>
                         <div className='training-data-titles three-column-titles'>Outcome</div>
                         <div className='training-data-titles three-column-titles'>{firstCategory}</div>
@@ -53,7 +53,7 @@ class ImportData extends Component {
         } else if( trainingCategories === 3) {
             return(
                 <div className='import-divider'>
-                    <div className='import-title'>Model Training Data</div>
+                    <div className='import-title'>Imported Model Training Data</div>
                     <div className='data-import-container'>
                         <div className='training-data-titles four-column-titles'>Outcome</div>
                         <div className='training-data-titles four-column-titles'>{firstCategory}</div>
@@ -68,7 +68,7 @@ class ImportData extends Component {
         } else if( trainingCategories === 4) {
             return(
                 <div className='import-divider'>
-                    <div className='import-title'>Model Training Data</div>
+                    <div className='import-title'>Imported Model Training Data</div>
                     <div className='data-import-container'>
                         <div className='training-data-titles five-column-titles'>Outcome</div>
                         <div className='training-data-titles five-column-titles'>{firstCategory}</div>
@@ -84,7 +84,7 @@ class ImportData extends Component {
         } else if( trainingCategories === 5) {
             return(
                 <div className='import-divider'>
-                    <div className='import-title'>Model Training Data</div>
+                    <div className='import-title'>Imported Model Training Data</div>
                     <div className='data-import-container'>
                         <div className='training-data-titles six-column-titles'>Outcome</div>
                         <div className='training-data-titles six-column-titles'>{firstCategory}</div>
@@ -101,7 +101,7 @@ class ImportData extends Component {
         } else {
             return(
                 <div className='import-divider'>
-                    <div className='import-title'>Model Training Data</div>
+                    <div className='import-title'>Imported Model Training Data</div>
                     <div className='data-import-container'>
                         <div className='training-data-titles seven-column-titles'>Outcome</div>
                         <div className='training-data-titles seven-column-titles'>{firstCategory}</div>
