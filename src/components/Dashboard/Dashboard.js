@@ -23,7 +23,7 @@ class Dashboard extends Component {
                     <Link className='links' to='/dashboard/import_data'>Import Your Data</Link>
                 </div>
                 <div className='link-container'>
-                    <Link className='links' to='/dashboard/testModel'>Test Your Model</Link>
+                    <Link className='links' to='/dashboard/test_model'>Test Your Model</Link>
                 </div>
             </div> 
         )

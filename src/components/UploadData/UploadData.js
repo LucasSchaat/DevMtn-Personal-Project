@@ -101,8 +101,8 @@ class UploadData extends Component {
                     <ImportData />
                 </div>
                 <div className='previous-next-button-container'>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Create Model Variables</button>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/testModel')}>Test Your Model</button>
+                    <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                    <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
                 </div>
             </div>
             )
@@ -131,8 +131,8 @@ class UploadData extends Component {
                         <ImportData />
                     </div>
                     <div className='previous-next-button-container'>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Create Model Variables</button>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Test Your Model</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
                     </div>
                 </div>
             )
@@ -165,8 +165,8 @@ class UploadData extends Component {
                         <ImportData />
                     </div>
                     <div className='previous-next-button-container'>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Create Model Variables</button>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Test Your Model</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
                     </div>
                 </div>
             )
@@ -203,8 +203,8 @@ class UploadData extends Component {
                         <ImportData />
                     </div>
                     <div className='previous-next-button-container'>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Create Model Variables</button>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Test Your Model</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
                     </div>
                 </div>
             )
@@ -245,8 +245,8 @@ class UploadData extends Component {
                         <ImportData />
                     </div>
                     <div className='previous-next-button-container'>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Create Model Variables</button>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Test Your Model</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
                     </div>
                 </div>
             )
@@ -291,8 +291,8 @@ class UploadData extends Component {
                         <ImportData />
                     </div>
                     <div className='previous-next-button-container'>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Create Model Variables</button>
-                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/import_data')}>Test Your Model</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
                     </div>
                 </div>
             )

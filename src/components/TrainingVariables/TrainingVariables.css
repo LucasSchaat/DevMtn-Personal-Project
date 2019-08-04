@@ -113,3 +113,12 @@
     display: flex;
     justify-content: center;
 }
+
+.next-step-button {
+    color: white;
+    background-color: #455465;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Judson', serif;
+    width: 40%;
+}

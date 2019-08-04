@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { saveTestingData, runModel } from '../../redux/testingReducer'
+import './TestModel.css'
 
 class TestModel extends Component {
     constructor(props) {
@@ -62,79 +64,175 @@ class TestModel extends Component {
         if(trainingCategories === 1) {
             return(
                 <div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
+                    <div className='testing-data-container'>
+                        <div className='test-model-container'>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Test Parameters:</div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{firstCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                            </div>
+                        <button className='test-model-button' onClick={this.save}>Test the Model</button>
+                        </div>
+                    </div>
+                    <div className='back-to-input-button-container'>
+                        <button className='back-to-input-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Previous Step</button>
+                    </div>
                 </div>
             )
         } else if (trainingCategories === 2) {
             return(
                 <div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{secondCategory}</div>
-                    <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
+                    <div className='testing-data-container'>
+                        <div className='test-model-container'>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Test Parameters:</div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{firstCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{secondCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                            </div>
+                        <button className='test-model-button' onClick={this.save}>Test the Model</button>
+                        </div>
+                    </div>
+                    <div className='back-to-input-button-container'>
+                        <button className='back-to-input-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Previous Step</button>
+                    </div>
                 </div>
             )
         } else if (trainingCategories === 3) {
             return(
                 <div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{secondCategory}</div>
-                    <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{thirdCategory}</div>
-                    <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
+                    <div className='testing-data-container'>
+                        <div className='test-model-container'>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Test Parameters:</div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{firstCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{secondCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{thirdCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                            </div>
+                        <button className='test-model-button' onClick={this.save}>Test the Model</button>
+                        </div>
+                    </div>
+                    <div className='back-to-input-button-container'>
+                        <button className='back-to-input-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Previous Step</button>
+                    </div>
                 </div>
             )
         } else if (trainingCategories === 4) {
             return(
                 <div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{secondCategory}</div>
-                    <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{thirdCategory}</div>
-                    <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{fourthCategory}</div>
-                    <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
+                    <div className='testing-data-container'>
+                        <div className='test-model-container'>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Test Parameters:</div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{firstCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{secondCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{thirdCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{fourthCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
+                            </div>
+                        <button className='test-model-button' onClick={this.save}>Test the Model</button>
+                        </div>
+                    </div>
+                    <div className='back-to-input-button-container'>
+                        <button className='back-to-input-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Previous Step</button>
+                    </div>
                 </div>
             )
         } else if (trainingCategories === 5) {
             return(
                 <div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{secondCategory}</div>
-                    <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{thirdCategory}</div>
-                    <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{fourthCategory}</div>
-                    <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{fifthCategory}</div>
-                    <input value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
+                    <div className='testing-data-container'>
+                        <div className='test-model-container'>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Test Parameters:</div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{firstCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{secondCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{thirdCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{fourthCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{fifthCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                            </div>
+                        <button className='test-model-button' onClick={this.save}>Test the Model</button>
+                        </div>
+                    </div>
+                    <div className='back-to-input-button-container'>
+                        <button className='back-to-input-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Previous Step</button>
+                    </div>
                 </div>
             )
         } else {
             return(
                 <div>
-                    <div>{firstCategory}</div>
-                    <input value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{secondCategory}</div>
-                    <input value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{thirdCategory}</div>
-                    <input value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{fourthCategory}</div>
-                    <input value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{fifthCategory}</div>
-                    <input value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} />
-                    <div>{sixthCategory}</div>
-                    <input value={sixthCategoryValue} name='sixthCategoryValue' type='text' onChange={this.handleChange} />
-                    <button onClick={this.saveAndTest}>Save and Test the Model</button>
+                    <div className='testing-data-container'>
+                        <div className='test-model-container'>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Test Parameters:</div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{firstCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{secondCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{thirdCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{fourthCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{fifthCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                            </div>
+                            <div className='upload-category-input-box'>
+                                <div className='upload-data-categories'>{sixthCategory}</div>
+                                <input className='main-inputs upload-data-inputs' value={sixthCategoryValue} name='sixthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Great!' />
+                            </div>
+                        <button className='test-model-button' onClick={this.save}>Test the Model</button>
+                        </div>
+                    </div>
+                    <div className='back-to-input-button-container'>
+                        <button className='back-to-input-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Previous Step</button>
+                    </div>
                 </div>
             )
         }
@@ -145,4 +243,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, { saveTestingData, runModel })(TestModel)
+export default connect(mapStateToProps, { saveTestingData, runModel })(withRouter(TestModel))

@@ -1,0 +1,37 @@
+.test-model-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test-model-title-adj {
+    margin-bottom: 50px;
+}
+
+.scenario-title-adj {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.test-model-button {
+    color: white;
+    background-color: #FC8D0A;
+    font-family: 'Judson', serif;
+    margin-top: 25px;
+    width: 50%;
+}
+
+.back-to-input-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.back-to-input-button {
+    color: white;
+    background-color: #455465;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Judson', serif;
+    width: 40%;
+}

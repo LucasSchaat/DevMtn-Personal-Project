@@ -29,7 +29,7 @@ class routes extends Component {
                                     <Switch>
                                         <Route exact path='/dashboard' component={DashboardHome} />
                                         <Route path='/dashboard/training_variables' component={TrainingVariables} />
-                                        <Route path='/dashboard/testModel' component={TestModel} />
+                                        <Route path='/dashboard/test_model' component={TestModel} />
                                         <Route path='/dashboard/import_data' component={UploadData} />
                                     </Switch>
                                 </div>
