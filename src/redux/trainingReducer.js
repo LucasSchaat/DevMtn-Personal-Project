@@ -4,7 +4,8 @@ import {
     GET_DATA,
     SAVE_DATA,
     EDIT_DATA,
-    DELETE_DATA
+    DELETE_DATA,
+    LOGOUT_REDUX_1
 } from './actionTypes'
 
 const initialState = {
@@ -12,7 +13,6 @@ const initialState = {
     trainingData: [],
     error: false
 }
-
 
 export const saveCategories = (
     dataImports,
@@ -41,6 +41,13 @@ export const saveCategories = (
     return {
         type: SAVE_CATEGORIES,
         payload: categories 
+    }
+}
+
+export const logout = (initialState) => {
+    return {
+        type: LOGOUT_REDUX_1,
+        payload: initialState
     }
 }
 
@@ -149,6 +156,8 @@ export default function (state = initialState, action) {
             return { ...state, trainingData: payload, error: false }
         case DELETE_DATA + '_REJECTED':
             return { ...state, error: payload }
+        case LOGOUT_REDUX_1 + '_FULFILLED':
+            return { state: payload }
         default:
             return state
     }

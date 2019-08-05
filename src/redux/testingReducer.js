@@ -1,4 +1,4 @@
-import { SAVE_TESTING_DATA, RUN_MODEL } from './actionTypes'
+import { SAVE_TESTING_DATA, RUN_MODEL, LOGOUT_REDUX_2 } from './actionTypes'
 import axios from 'axios';
 
 const initialState = {
@@ -16,6 +16,13 @@ export function runModel (
     return {
         type: RUN_MODEL,
         payload: data
+    }
+}
+
+export const logout = (initialState) => {
+    return {
+        type: LOGOUT_REDUX_1,
+        payload: initialState
     }
 }
 
@@ -56,6 +63,8 @@ export default function (state = initialState, action) {
             return { ...state, result: payload, error: false }
         case RUN_MODEL + '_REJECTED':
             return { ...state, error: payload }
+        case LOGOUT_REDUX_1 + '_FULFILLED':
+            return { state: payload }
         default:
             return state
     }
