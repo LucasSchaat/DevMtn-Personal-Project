@@ -44,7 +44,7 @@ export const saveCategories = (
     }
 }
 
-export const logout = (initialState) => {
+export const firstReduxLogout = (initialState) => {
     return {
         type: LOGOUT_REDUX_1,
         payload: initialState

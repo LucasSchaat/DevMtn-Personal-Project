@@ -9,9 +9,18 @@ import TestModel from './components/TestModel/TestModel'
 import UploadData from './components/UploadData/UploadData'
 import DashboardHome from './components/DashboardHome/DashboardHome'
 import { connect } from 'react-redux'
-import { logout } from './redux/userReducer'
+import { userLogout } from './redux/userReducer'
+import { firstReduxLogout } from './redux/trainingReducer'
+import { secondReduxLogout } from './redux/testingReducer'
 
 class routes extends Component {
+    logout = async () => {
+        console.log(this.props)
+        await this.props.firstReduxLogout()
+        await this.props.secondReduxLogout()
+        await this.props.userLogout()
+    }
+    
     render(){
         return(
             <Switch>
@@ -22,7 +31,7 @@ class routes extends Component {
                             <div className='background-overlay'>
                                 <div className='nav-bar'>
                                     <div className='logo'>DevShop.js</div>
-                                    <button onClick={this.props.logout} className='logout-button'>Log Out</button>
+                                    <button onClick={this.logout} className='logout-button'>Log Out</button>
                                 </div>
                                 <div className='main-model-block'>
                                     <Dashboard/>
@@ -51,4 +60,4 @@ function mapStateToProps(state) {
     return state.user
 }
 
-export default connect(mapStateToProps,{ logout })(routes)
+export default connect(mapStateToProps,{ userLogout, firstReduxLogout, secondReduxLogout })(routes)

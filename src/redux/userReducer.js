@@ -23,7 +23,7 @@ export const signup = (username, password) => {
     }
 }
 
-export const logout = () => {
+export const userLogout = () => {
     return {
         type: LOGOUT,
         payload: axios.delete('/api/logout')

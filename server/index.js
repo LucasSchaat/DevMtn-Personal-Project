@@ -6,6 +6,7 @@ const uc = require('./controllers/userController')
 const tc = require('./controllers/trainingController')
 const testc = require('./controllers/testingController')
 const model = require('./tensorflowModel')
+const path = require('path')
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 const app = express()
@@ -19,6 +20,12 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 * 365
     }
 }))
+
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db',db)
