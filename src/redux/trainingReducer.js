@@ -9,7 +9,14 @@ import {
 } from './actionTypes'
 
 const initialState = {
-    categories: {},
+    categories: {
+        firstCategory: '',
+        secondCategory: '',
+        thirdCategory: '',
+        fourthCategory: '',
+        fifthCategory: '',
+        sixthCategory: ''
+    },
     trainingData: [],
     error: false
 }
@@ -44,7 +51,7 @@ export const saveCategories = (
     }
 }
 
-export const firstReduxLogout = (initialState) => {
+export const firstReduxLogout = () => {
     return {
         type: LOGOUT_REDUX_1,
         payload: initialState
@@ -156,8 +163,8 @@ export default function (state = initialState, action) {
             return { ...state, trainingData: payload, error: false }
         case DELETE_DATA + '_REJECTED':
             return { ...state, error: payload }
-        case LOGOUT_REDUX_1 + '_FULFILLED':
-            return { state: payload }
+        case LOGOUT_REDUX_1:
+            return { ...state, ...payload }
         default:
             return state
     }

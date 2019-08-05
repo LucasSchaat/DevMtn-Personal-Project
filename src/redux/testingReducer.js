@@ -19,7 +19,7 @@ export function runModel (
     }
 }
 
-export const secondReduxLogout = (initialState) => {
+export const secondReduxLogout = () => {
     return {
         type: LOGOUT_REDUX_2,
         payload: initialState
@@ -60,11 +60,11 @@ export default function (state = initialState, action) {
         case SAVE_TESTING_DATA + '_REJECTED':
             return { ...state, error: payload }
         case RUN_MODEL + '_FULFILLED':
-            return { ...state, result: payload, error: false }
+            return { ...state, result: [payload], error: false }
         case RUN_MODEL + '_REJECTED':
             return { ...state, error: payload }
-        case LOGOUT_REDUX_2 + '_FULFILLED':
-            return { state: payload }
+        case LOGOUT_REDUX_2:
+            return { ...state, ...payload }
         default:
             return state
     }

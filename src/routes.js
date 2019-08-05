@@ -14,11 +14,11 @@ import { firstReduxLogout } from './redux/trainingReducer'
 import { secondReduxLogout } from './redux/testingReducer'
 
 class routes extends Component {
-    logout = async () => {
+    logout = () => {
         console.log(this.props)
-        await this.props.firstReduxLogout()
-        await this.props.secondReduxLogout()
-        await this.props.userLogout()
+        this.props.firstReduxLogout()
+        this.props.secondReduxLogout()
+        this.props.userLogout()
     }
     
     render(){
