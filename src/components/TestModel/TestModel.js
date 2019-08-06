@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { saveTestingData, runModel } from '../../redux/testingReducer'
+import { setupDatabase, firstReduxLogout } from '../../redux/trainingReducer'
+import { saveTestingData, runModel, secondReduxLogout } from '../../redux/testingReducer'
 import './TestModel.css'
 
 class TestModel extends Component {
@@ -48,6 +49,13 @@ class TestModel extends Component {
         this.setState ({ result: this.props.testing.result })
     }
 
+    testNewModel = () => {
+        this.props.setupDatabase()
+        this.props.firstReduxLogout()
+        this.props.secondReduxLogout()
+        this.props.history.push('/dashboard')
+    }
+
     render() {
         let {
             trainingCategories,
@@ -67,7 +75,6 @@ class TestModel extends Component {
             sixthCategory
         } = this.props.training.categories
         let { result } = this.props.testing
-        console.log('this.props', this.props)
         if(trainingCategories === 1 && !result.length) {
             return(
                 <div>
@@ -265,7 +272,7 @@ class TestModel extends Component {
                     </div>
                     <div className='previous-next-button-container'>
                         <button className='outcome-buttons' onClick={() => this.retestModel()}>Test Another Scenario</button>
-                        <button className='outcome-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Train a New Model</button>
+                        <button className='outcome-buttons' onClick={() => this.testNewModel()}>Train a New Model</button>
                     </div>
                 </div>
             )
@@ -432,4 +439,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, { saveTestingData, runModel })(withRouter(TestModel))
+export default connect(mapStateToProps, { saveTestingData, runModel, setupDatabase, firstReduxLogout, secondReduxLogout })(withRouter(TestModel))

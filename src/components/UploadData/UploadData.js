@@ -40,7 +40,6 @@ class UploadData extends Component {
             this.props.training.categories.firstOutcome,
             this.props.training.categories.secondOutcome
             )
-        console.log(this.state.dataImports)
         this.props.user.user.dataImports += 1
         this.setState({
             dataImports: this.props.user.user.dataImports,
@@ -52,11 +51,6 @@ class UploadData extends Component {
             sixthCategoryValue: '',
             outcomeValue: '',
         })
-        console.log('Import Data Button Hit!')
-    }
-
-    delete = () => {
-        console.log('Delete Button Clicked')
     }
 
     render() {

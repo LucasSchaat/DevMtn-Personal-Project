@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { signup } from '../../redux/userReducer'
+import { setupDatabase } from '../../redux/trainingReducer'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
 import './Signup.css'
@@ -20,6 +21,7 @@ class Signup extends Component {
 
     signupUser = () => {
         this.props.signup(this.state.username, this.state.password)
+        this.props.setupDatabase()
     }
 
     render() {
@@ -61,4 +63,4 @@ function mapStatetoProps(state) {
      return state.user
 }
 
-export default connect(mapStatetoProps, { signup })(withRouter(Signup))
+export default connect(mapStatetoProps, { signup, setupDatabase })(withRouter(Signup))

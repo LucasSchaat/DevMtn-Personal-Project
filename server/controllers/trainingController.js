@@ -1,21 +1,24 @@
 module.exports = {
     async getData(req, res) {
-        console.log('hit get data')
         const db = req.app.get('db')
         let data = await db.get_training_data()
         res.send(data)
     },
 
+    async resetDatabase(req, res) {
+        const db = req.app.get('db')
+        let data = await db.delete_tables()
+        res.send(data)
+    },
+    
     async deleteData(req, res) {
         let { id } = req.params
-        console.log(id)
         const db = req.app.get('db')
         let data = await db.delete_data([+id])
         res.send(data)
     },
 
     async editData(req, res) {
-        console.log('hit edit data')
         const db = req.app.get('db')
         let { id } = req.params
         let { 
@@ -67,7 +70,6 @@ module.exports = {
             }
 
         } else if (trainingCategories === 3) {
-            console.log('trainingCategory 3')
             let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
             let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
             let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
@@ -109,7 +111,6 @@ module.exports = {
             }
 
         } else if (trainingCategories === 4) {
-            console.log('trainingCategory 4')
             let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
             let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
             let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
@@ -189,7 +190,6 @@ module.exports = {
             }
 
         } else if (trainingCategories === 5) {
-            console.log('trainingCategory 5')
             let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
             let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
             let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
@@ -351,7 +351,6 @@ module.exports = {
             }
 
         } else {
-            console.log('trainingCategory 6')
             let firstUniqueCheck = await db.check_unique_1var(newFirstCategoryValue)
             let secondUniqueCheck = await db.check_unique_2var(newSecondCategoryValue)
             let thirdUniqueCheck = await db.check_unique_3var(newThirdCategoryValue)
@@ -693,7 +692,6 @@ module.exports = {
     },
 
     async saveData(req, res) {
-        console.log('hit save data')
         const db = req.app.get('db')
         let { 
             dataImports,

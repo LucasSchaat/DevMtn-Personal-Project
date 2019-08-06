@@ -15,7 +15,6 @@ import { secondReduxLogout } from './redux/testingReducer'
 
 class routes extends Component {
     logout = () => {
-        console.log(this.props)
         this.props.firstReduxLogout()
         this.props.secondReduxLogout()
         this.props.userLogout()

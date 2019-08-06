@@ -5,7 +5,8 @@ import {
     SAVE_DATA,
     EDIT_DATA,
     DELETE_DATA,
-    LOGOUT_REDUX_1
+    LOGOUT_REDUX_1,
+    RESET_DB
 } from './actionTypes'
 
 const initialState = {
@@ -19,6 +20,14 @@ const initialState = {
     },
     trainingData: [],
     error: false
+}
+
+export function setupDatabase() {
+    let data = axios.delete('/api/reset_db').then(res => res.data)
+    return {
+        type: RESET_DB,
+        payload: data
+    }
 }
 
 export const saveCategories = (
@@ -145,7 +154,6 @@ export default function (state = initialState, action) {
         case SAVE_CATEGORIES:
             return { ...state, categories: payload}
         case GET_DATA + '_PENDING':
-            console.log('getData request pending on reducer')
             return { ...state}
         case GET_DATA + '_FULFILLED':
             return { ...state, trainingData: payload, error: false }
@@ -165,6 +173,8 @@ export default function (state = initialState, action) {
             return { ...state, error: payload }
         case LOGOUT_REDUX_1:
             return { ...state, ...payload }
+        case RESET_DB + '_FULFILLED':
+                return { ...state }
         default:
             return state
     }

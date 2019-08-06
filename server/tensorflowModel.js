@@ -12,8 +12,6 @@ module.exports = {
             let testingDataFromDB = await db.get_testing_data_for_model_1var()
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
-            console.log(training)
-            console.log(testing)
 
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [

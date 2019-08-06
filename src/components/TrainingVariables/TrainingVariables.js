@@ -266,8 +266,6 @@ class TrainingVariables extends Component {
             secondOutcome,
             editingCategories
         } = this.state
-
-        console.log(this.props)
         
         if (trainingCategories === 1 && editingCategories === true) {
             return (
