@@ -50,7 +50,27 @@ class UploadData extends Component {
             massDataArray: [],
             massPreppedData: [],
             massUploadCategories: 0,
-
+            uniqueOutcomeValues: [],
+            uniqueFirstCategoryValues: [],
+            uniqueSecondCategoryValues: [],
+            uniqueThirdCategoryValues: [],
+            uniqueFourthCategoryValues: [],
+            uniqueFifthCategoryValues: [],
+            uniqueSixthCategoryValues: []
+        }, () => {
+            this.props.saveBulkUpload(
+                this.state.massDataArray,
+                this.state.massDataUpload,
+                this.state.massPreppedData,
+                this.state.massUploadCategories,
+                this.state.uniqueOutcomeValues,
+                this.state.uniqueFirstCategoryValues,
+                this.state.uniqueSecondCategoryValues,
+                this.state.uniqueThirdCategoryValues,
+                this.state.uniqueFourthCategoryValues,
+                this.state.uniqueFifthCategoryValues,
+                this.state.uniqueSixthCategoryValues
+             )
         })
     }
     
@@ -60,7 +80,7 @@ class UploadData extends Component {
     
     saveMassUpload = () => {
         let { massDataArray } = this.state
-        let dataArray = JSON.parse(massDataArray)
+        const dataArray = JSON.parse(massDataArray)
         let categoryNames = Object.keys(dataArray[0])
         this.setState ({ massUploadCategories: categoryNames.length })
         let allValues = []
@@ -109,18 +129,301 @@ class UploadData extends Component {
                     this.state.uniqueSixthCategoryValues
                  )
              })
-
-            
         } else if (categoryNames.length === 3) {
             console.log('Save Mass Upload Button Hit at #2!')
+            let outcomeCategoryValues = allValues.map(data => data[0])
+            let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
+            
+            let firstCategoryValues = allValues.map(data => data[1])
+            let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
+            
+            let secondCategoryValues = allValues.map(data => data[1])
+            let uniqueSecondCategoryValuesArray = [...new Set(secondCategoryValues)]
+
+            let outcomeCategoryName = categoryNames[0]
+            let firstCategoryName = categoryNames[1]
+            let secondCategoryName = categoryNames[2]
+
+            let transformedData = []
+            for (let i=0; i<firstCategoryValues.length; i++) {
+                transformedData.push({
+                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
+                    [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i])
+                })
+            }
+            this.setState ({ 
+                massPreppedData: transformedData,
+                massUploadCategories: categoryNames.length - 1,
+                uniqueOutcomeValues: uniqueOutcomeCategoryValuesArray,
+                uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
+                uniqueSecondCategoryValues: uniqueSecondCategoryValuesArray,
+                massDataSaved: true
+             }, () => {
+                console.log('this.state', this.state)
+                
+                this.props.saveBulkUpload(
+                    this.state.massDataArray,
+                    this.state.massDataUpload,
+                    this.state.massPreppedData,
+                    this.state.massUploadCategories,
+                    this.state.uniqueOutcomeValues,
+                    this.state.uniqueFirstCategoryValues,
+                    this.state.uniqueSecondCategoryValues,
+                    this.state.uniqueThirdCategoryValues,
+                    this.state.uniqueFourthCategoryValues,
+                    this.state.uniqueFifthCategoryValues,
+                    this.state.uniqueSixthCategoryValues
+                 )
+             })
         } else if (categoryNames.length === 4) {
             console.log('Save Mass Upload Button Hit at #3!')
+            let outcomeCategoryValues = allValues.map(data => data[0])
+            let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
+            
+            let firstCategoryValues = allValues.map(data => data[1])
+            let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
+            
+            let secondCategoryValues = allValues.map(data => data[1])
+            let uniqueSecondCategoryValuesArray = [...new Set(secondCategoryValues)]
+            
+            let thirdCategoryValues = allValues.map(data => data[1])
+            let uniqueThirdCategoryValuesArray = [...new Set(thirdCategoryValues)]
+
+            let outcomeCategoryName = categoryNames[0]
+            let firstCategoryName = categoryNames[1]
+            let secondCategoryName = categoryNames[2]
+            let thirdCategoryName = categoryNames[3]
+
+            let transformedData = []
+            for (let i=0; i<firstCategoryValues.length; i++) {
+                transformedData.push({
+                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
+                    [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
+                    [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i])
+                })
+            }
+            this.setState ({ 
+                massPreppedData: transformedData,
+                massUploadCategories: categoryNames.length - 1,
+                uniqueOutcomeValues: uniqueOutcomeCategoryValuesArray,
+                uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
+                uniqueSecondCategoryValues: uniqueSecondCategoryValuesArray,
+                uniqueThirdCategoryValues: uniqueThirdCategoryValuesArray,
+                massDataSaved: true
+             }, () => {
+                console.log('this.state', this.state)
+                
+                this.props.saveBulkUpload(
+                    this.state.massDataArray,
+                    this.state.massDataUpload,
+                    this.state.massPreppedData,
+                    this.state.massUploadCategories,
+                    this.state.uniqueOutcomeValues,
+                    this.state.uniqueFirstCategoryValues,
+                    this.state.uniqueSecondCategoryValues,
+                    this.state.uniqueThirdCategoryValues,
+                    this.state.uniqueFourthCategoryValues,
+                    this.state.uniqueFifthCategoryValues,
+                    this.state.uniqueSixthCategoryValues
+                 )
+             })
         } else if (categoryNames.length === 5) {
             console.log('Save Mass Upload Button Hit at #4!')
+            let outcomeCategoryValues = allValues.map(data => data[0])
+            let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
+            
+            let firstCategoryValues = allValues.map(data => data[1])
+            let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
+            
+            let secondCategoryValues = allValues.map(data => data[1])
+            let uniqueSecondCategoryValuesArray = [...new Set(secondCategoryValues)]
+            
+            let thirdCategoryValues = allValues.map(data => data[1])
+            let uniqueThirdCategoryValuesArray = [...new Set(thirdCategoryValues)]
+            
+            let fourthCategoryValues = allValues.map(data => data[1])
+            let uniqueFourthCategoryValuesArray = [...new Set(fourthCategoryValues)]
+
+            let outcomeCategoryName = categoryNames[0]
+            let firstCategoryName = categoryNames[1]
+            let secondCategoryName = categoryNames[2]
+            let thirdCategoryName = categoryNames[3]
+            let fourthCategoryName = categoryNames[4]
+
+            let transformedData = []
+            for (let i=0; i<firstCategoryValues.length; i++) {
+                transformedData.push({
+                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
+                    [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
+                    [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i]),
+                    [fourthCategoryName]: uniqueFourthCategoryValuesArray.indexOf(fourthCategoryValues[i])
+                })
+            }
+            this.setState ({ 
+                massPreppedData: transformedData,
+                massUploadCategories: categoryNames.length - 1,
+                uniqueOutcomeValues: uniqueOutcomeCategoryValuesArray,
+                uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
+                uniqueSecondCategoryValues: uniqueSecondCategoryValuesArray,
+                uniqueThirdCategoryValues: uniqueThirdCategoryValuesArray,
+                uniqueFourthCategoryValues: uniqueFourthCategoryValuesArray,
+                massDataSaved: true
+             }, () => {
+                console.log('this.state', this.state)
+                
+                this.props.saveBulkUpload(
+                    this.state.massDataArray,
+                    this.state.massDataUpload,
+                    this.state.massPreppedData,
+                    this.state.massUploadCategories,
+                    this.state.uniqueOutcomeValues,
+                    this.state.uniqueFirstCategoryValues,
+                    this.state.uniqueSecondCategoryValues,
+                    this.state.uniqueThirdCategoryValues,
+                    this.state.uniqueFourthCategoryValues,
+                    this.state.uniqueFifthCategoryValues,
+                    this.state.uniqueSixthCategoryValues
+                 )
+             })
         } else if (categoryNames.length === 6) {
             console.log('Save Mass Upload Button Hit at #5!')
+            let outcomeCategoryValues = allValues.map(data => data[0])
+            let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
+            
+            let firstCategoryValues = allValues.map(data => data[1])
+            let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
+            
+            let secondCategoryValues = allValues.map(data => data[1])
+            let uniqueSecondCategoryValuesArray = [...new Set(secondCategoryValues)]
+            
+            let thirdCategoryValues = allValues.map(data => data[1])
+            let uniqueThirdCategoryValuesArray = [...new Set(thirdCategoryValues)]
+            
+            let fourthCategoryValues = allValues.map(data => data[1])
+            let uniqueFourthCategoryValuesArray = [...new Set(fourthCategoryValues)]
+            
+            let fifthCategoryValues = allValues.map(data => data[1])
+            let uniqueFifthCategoryValuesArray = [...new Set(fifthCategoryValues)]
+
+            let outcomeCategoryName = categoryNames[0]
+            let firstCategoryName = categoryNames[1]
+            let secondCategoryName = categoryNames[2]
+            let thirdCategoryName = categoryNames[3]
+            let fourthCategoryName = categoryNames[4]
+            let fifthCategoryName = categoryNames[5]
+
+            let transformedData = []
+            for (let i=0; i<firstCategoryValues.length; i++) {
+                transformedData.push({
+                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
+                    [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
+                    [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i]),
+                    [fourthCategoryName]: uniqueFourthCategoryValuesArray.indexOf(fourthCategoryValues[i]),
+                    [fifthCategoryName]: uniqueFifthCategoryValuesArray.indexOf(fifthCategoryValues[i])
+                })
+            }
+            this.setState ({ 
+                massPreppedData: transformedData,
+                massUploadCategories: categoryNames.length - 1,
+                uniqueOutcomeValues: uniqueOutcomeCategoryValuesArray,
+                uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
+                uniqueSecondCategoryValues: uniqueSecondCategoryValuesArray,
+                uniqueThirdCategoryValues: uniqueThirdCategoryValuesArray,
+                uniqueFourthCategoryValues: uniqueFourthCategoryValuesArray,
+                uniqueFifthCategoryValues: uniqueFifthCategoryValuesArray,
+                massDataSaved: true
+             }, () => {
+                console.log('this.state', this.state)
+                
+                this.props.saveBulkUpload(
+                    this.state.massDataArray,
+                    this.state.massDataUpload,
+                    this.state.massPreppedData,
+                    this.state.massUploadCategories,
+                    this.state.uniqueOutcomeValues,
+                    this.state.uniqueFirstCategoryValues,
+                    this.state.uniqueSecondCategoryValues,
+                    this.state.uniqueThirdCategoryValues,
+                    this.state.uniqueFourthCategoryValues,
+                    this.state.uniqueFifthCategoryValues,
+                    this.state.uniqueSixthCategoryValues
+                 )
+             })
         } else {
             console.log('Save Mass Upload Button Hit at #6!')
+            let outcomeCategoryValues = allValues.map(data => data[0])
+            let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
+            
+            let firstCategoryValues = allValues.map(data => data[1])
+            let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
+            
+            let secondCategoryValues = allValues.map(data => data[1])
+            let uniqueSecondCategoryValuesArray = [...new Set(secondCategoryValues)]
+            
+            let thirdCategoryValues = allValues.map(data => data[1])
+            let uniqueThirdCategoryValuesArray = [...new Set(thirdCategoryValues)]
+            
+            let fourthCategoryValues = allValues.map(data => data[1])
+            let uniqueFourthCategoryValuesArray = [...new Set(fourthCategoryValues)]
+            
+            let fifthCategoryValues = allValues.map(data => data[1])
+            let uniqueFifthCategoryValuesArray = [...new Set(fifthCategoryValues)]
+            
+            let sixthCategoryValues = allValues.map(data => data[1])
+            let uniqueSixthCategoryValuesArray = [...new Set(sixthCategoryValues)]
+
+            let outcomeCategoryName = categoryNames[0]
+            let firstCategoryName = categoryNames[1]
+            let secondCategoryName = categoryNames[2]
+            let thirdCategoryName = categoryNames[3]
+            let fourthCategoryName = categoryNames[4]
+            let fifthCategoryName = categoryNames[5]
+            let sixthCategoryName = categoryNames[6]
+
+            let transformedData = []
+            for (let i=0; i<firstCategoryValues.length; i++) {
+                transformedData.push({
+                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
+                    [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
+                    [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i]),
+                    [fourthCategoryName]: uniqueFourthCategoryValuesArray.indexOf(fourthCategoryValues[i]),
+                    [fifthCategoryName]: uniqueFifthCategoryValuesArray.indexOf(fifthCategoryValues[i]),
+                    [sixthCategoryName]: uniqueSixthCategoryValuesArray.indexOf(sixthCategoryValues[i])
+                })
+            }
+            this.setState ({ 
+                massPreppedData: transformedData,
+                massUploadCategories: categoryNames.length - 1,
+                uniqueOutcomeValues: uniqueOutcomeCategoryValuesArray,
+                uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
+                uniqueSecondCategoryValues: uniqueSecondCategoryValuesArray,
+                uniqueThirdCategoryValues: uniqueThirdCategoryValuesArray,
+                uniqueFourthCategoryValues: uniqueFourthCategoryValuesArray,
+                uniqueFifthCategoryValues: uniqueFifthCategoryValuesArray,
+                uniqueSixthCategoryValues: uniqueSixthCategoryValuesArray,
+                massDataSaved: true
+             }, () => {
+                console.log('this.state', this.state)
+                
+                this.props.saveBulkUpload(
+                    this.state.massDataArray,
+                    this.state.massDataUpload,
+                    this.state.massPreppedData,
+                    this.state.massUploadCategories,
+                    this.state.uniqueOutcomeValues,
+                    this.state.uniqueFirstCategoryValues,
+                    this.state.uniqueSecondCategoryValues,
+                    this.state.uniqueThirdCategoryValues,
+                    this.state.uniqueFourthCategoryValues,
+                    this.state.uniqueFifthCategoryValues,
+                    this.state.uniqueSixthCategoryValues
+                 )
+             })
         }
     }
 
@@ -180,7 +483,7 @@ class UploadData extends Component {
                     <div className='testing-data-container'>
                         <div className='import-page-display'>
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
-                            <div className='outcome-description upload-title-2'>Because This Will be a Mass Upload, Please Input the Data in JSON Format with the Outcome as the First Category Variable</div>
+                            <div className='outcome-description upload-title-2'>Because This Will be a Mass Upload, Please Paste the Data in JSON Format with the Outcome as the First Category Variable</div>
                             <div className='upload-outcome-container-2'>
                                 <textarea className='main-inputs upload-data-inputs-2' value={massDataArray} name='massDataArray' onChange={this.handleChange} placeholder='Make sure to input the data in JSON format and only includes up to six variables!' />
                             </div>

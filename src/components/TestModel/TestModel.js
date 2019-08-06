@@ -41,7 +41,17 @@ class TestModel extends Component {
             this.state.fifthCategoryValue,
             this.state.sixthCategoryValue
         )
-        await this.props.runModel(this.props.user.user.trainingCategories)
+        await this.props.runModel(
+            this.props.user.user.trainingCategories,
+            this.props.training.bulkDownload.bulkCategoryCount,
+            this.props.training.bulkDownload.bulkTrainingData,
+            this.props.training.bulkDownload.uniqueFirstCategoryValues,
+            this.props.training.bulkDownload.uniqueSecondCategoryValues,
+            this.props.training.bulkDownload.uniqueThirdCategoryValues,
+            this.props.training.bulkDownload.uniqueFourthCategoryValues,
+            this.props.training.bulkDownload.uniqueFifthCategoryValues,
+            this.props.training.bulkDownload.uniqueSixthCategoryValues
+        )
     }
 
     retestModel = () => {

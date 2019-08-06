@@ -3,7 +3,17 @@ require ("@tensorflow/tfjs-node")
 
 module.exports = {
     async runModel(req, res) {
-        let { trainingCategories } = req.body
+        let { 
+            trainingCategories
+            bulkCategoryCount,
+            bulkTrainingData,
+            uniqueFirstCategoryValues,
+            uniqueSecondCategoryValues,
+            uniqueThirdCategoryValues,
+            uniqueFourthCategoryValues,
+            uniqueFifthCategoryValues,
+            uniqueSixthCategoryValues
+        } = req.body
         const db = req.app.get('db')
         let training = []
         let testing = []
