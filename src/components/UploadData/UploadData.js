@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ImportData from '../ImportData/ImportData'
-import { saveData } from '../../redux/trainingReducer'
+import { saveData, saveBulkUpload } from '../../redux/trainingReducer'
 import './UploadData.css'
 
 class UploadData extends Component {
@@ -18,10 +18,18 @@ class UploadData extends Component {
             fifthCategoryValue: '',
             sixthCategoryValue: '',
             outcomeValue: '',
-            massDataUpload: false,
-            massUploadCategories: 0,
-            massDataArray:[],
-            massPreppedData: []
+            massDataUpload: props.training.bulkDownload.massDataUpload,
+            massUploadCategories: props.training.bulkDownload.bulkCategoryCount,
+            massDataArray: props.training.bulkDownload.bulkDataArray,
+            massPreppedData: props.training.bulkDownload.bulkTrainingData,
+            uniqueOutcomeValues: props.training.bulkDownload.uniqueOutcomeValues,
+            uniqueFirstCategoryValues: props.training.bulkDownload.uniqueFirstCategoryValues,
+            uniqueSecondCategoryValues: props.training.bulkDownload.uniqueSecondCategoryValues,
+            uniqueThirdCategoryValues: props.training.bulkDownload.uniqueThirdCategoryValues,
+            uniqueFourthCategoryValues: props.training.bulkDownload.uniqueFourthCategoryValues,
+            uniqueFifthCategoryValues: props.training.bulkDownload.uniqueFifthCategoryValues,
+            uniqueSixthCategoryValues: props.training.bulkDownload.uniqueSixthCategoryValues,
+            massDataSaved: false
         }
     }
 
@@ -40,47 +48,76 @@ class UploadData extends Component {
         this.setState ({
             massDataUpload: !this.state.massDataUpload,
             massDataArray: [],
-            massPreppedData: []
+            massPreppedData: [],
+            massUploadCategories: 0,
+
         })
     }
     
+    massUploadEditToggle = () => {
+        this.setState ({ massDataSaved: !this.state.massDataSaved })
+    }
+    
     saveMassUpload = () => {
-        let { massDataArray, massUploadCategories } = this.state
-
+        let { massDataArray } = this.state
         let dataArray = JSON.parse(massDataArray)
         let categoryNames = Object.keys(dataArray[0])
         this.setState ({ massUploadCategories: categoryNames.length })
         let allValues = []
-        for (let i=0; i<massDataArray.length; i++) {
-            allValues.push(Object.values(massDataArray[i]))
+        for (let i=0; i<dataArray.length; i++) {
+            allValues.push(Object.values(dataArray[i]))
         }
-
-        console.log('dataArray', dataArray)
-        console.log(categoryNames)
-        console.log(massUploadCategories)
-
-        if (massUploadCategories === 2) {
+        
+        if (categoryNames.length === 2) {
             console.log('Save Mass Upload Button Hit at #1!')
-            let firstCategoryValues = allValues.map(data => data[0])
-            let uniqueFirstCategoryValues = [...new Set(firstCategoryValues)]
-            let firstCategoryName = categoryNames[0]
+            let outcomeCategoryValues = allValues.map(data => data[0])
+            let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
+            
+            let firstCategoryValues = allValues.map(data => data[1])
+            let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
+
+            let outcomeCategoryName = categoryNames[0]
+            let firstCategoryName = categoryNames[1]
+
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [firstCategoryName]: firstCategoryValues.indexOf(firstCategoryValues[i])
+                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i])
                 })
             }
-            this.setState ({ massPreppedData: transformedData })
-            console.log(this.state)
-            console.log(this.massDataArray)
-            console.log(this.state.massPreppedData)
-        } else if (massUploadCategories === 3) {
+            this.setState ({ 
+                massPreppedData: transformedData,
+                massUploadCategories: categoryNames.length - 1,
+                uniqueOutcomeValues: uniqueOutcomeCategoryValuesArray,
+                uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
+                massDataSaved: true
+             }, () => {
+                console.log('this.state', this.state)
+                
+                this.props.saveBulkUpload(
+                    this.state.massDataArray,
+                    this.state.massDataUpload,
+                    this.state.massPreppedData,
+                    this.state.massUploadCategories,
+                    this.state.uniqueOutcomeValues,
+                    this.state.uniqueFirstCategoryValues,
+                    this.state.uniqueSecondCategoryValues,
+                    this.state.uniqueThirdCategoryValues,
+                    this.state.uniqueFourthCategoryValues,
+                    this.state.uniqueFifthCategoryValues,
+                    this.state.uniqueSixthCategoryValues
+                 )
+             })
+
+            
+        } else if (categoryNames.length === 3) {
             console.log('Save Mass Upload Button Hit at #2!')
-        } else if (massUploadCategories === 4) {
+        } else if (categoryNames.length === 4) {
             console.log('Save Mass Upload Button Hit at #3!')
-        } else if (massUploadCategories === 5) {
+        } else if (categoryNames.length === 5) {
             console.log('Save Mass Upload Button Hit at #4!')
-        } else if (massUploadCategories === 6) {
+        } else if (categoryNames.length === 6) {
             console.log('Save Mass Upload Button Hit at #5!')
         } else {
             console.log('Save Mass Upload Button Hit at #6!')
@@ -137,17 +174,38 @@ class UploadData extends Component {
             sixthCategory
         } = this.props.training.categories
 
-        if (massDataUpload === true) {
+        if (massDataUpload === true && this.state.massDataSaved === false) {
             return (
                 <div>
                     <div className='testing-data-container'>
                         <div className='import-page-display'>
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
-                            <div className='outcome-description upload-title-2'>Because This Will be a Mass Upload, Please Input the Data in JSON Format</div>
+                            <div className='outcome-description upload-title-2'>Because This Will be a Mass Upload, Please Input the Data in JSON Format with the Outcome as the First Category Variable</div>
                             <div className='upload-outcome-container-2'>
-                                <textarea className='main-inputs upload-data-inputs-2' value={massDataArray} name='massDataArray' onChange={this.handleChange} placeholder='Make sure to input the data in JSON format!' />
+                                <textarea className='main-inputs upload-data-inputs-2' value={massDataArray} name='massDataArray' onChange={this.handleChange} placeholder='Make sure to input the data in JSON format and only includes up to six variables!' />
                             </div>
                             <button className='main-button upload-data-button' onClick={this.saveMassUpload}>Import JSON Data</button>
+                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Individual Data Points</button>
+                        </div>
+                    </div>
+                    <div className='previous-next-button-container'>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/training_variables')}>Previous Step</button>
+                        <button className='next-previous-buttons' onClick={() => this.props.history.push('/dashboard/test_model')}>Test Your Model</button>
+                    </div>
+                </div>
+                )
+        } else if (massDataUpload === true && this.state.massDataSaved === true) {
+            return (
+                <div>
+                    <div className='testing-data-container'>
+                        <div className='import-page-display'>
+                            <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
+                            <div className='outcome-description upload-title-2'>Because This Will be a Mass Upload, Please Input the Data in JSON Format with the Outcome as the First Category Variable</div>
+                            <div className='upload-outcome-container-2'>
+                                <div className='outcome-description upload-title-3'>Data Saved!</div>
+                                <div className='outcome-description upload-title-3'>Press the "Test Your Model" button to continue</div>
+                            </div>
+                            <button className='main-button upload-data-button-3' onClick={this.massUploadEditToggle}>Edit Imported Data</button>
                             <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Individual Data Points</button>
                         </div>
                     </div>
@@ -382,4 +440,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, { saveData })(withRouter(UploadData))
+export default connect(mapStateToProps, { saveData, saveBulkUpload })(withRouter(UploadData))

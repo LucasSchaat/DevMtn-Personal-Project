@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
     SAVE_CATEGORIES,
     GET_DATA,
+    SAVE_BULK_DATA,
     SAVE_DATA,
     EDIT_DATA,
     DELETE_DATA,
@@ -19,6 +20,19 @@ const initialState = {
         sixthCategory: ''
     },
     trainingData: [],
+    bulkDownload: {
+        bulkDataArray: [],
+        massDataUpload: false,
+        bulkTrainingData: [],
+        bulkCategoryCount: 0,
+        uniqueOutcomeValues: [],
+        uniqueFirstCategoryValues: [],
+        uniqueSecondCategoryValues: [],
+        uniqueThirdCategoryValues: [],
+        uniqueFourthCategoryValues: [],
+        uniqueFifthCategoryValues: [],
+        uniqueSixthCategoryValues: [],
+    },
     error: false
 }
 
@@ -27,6 +41,39 @@ export function setupDatabase() {
     return {
         type: RESET_DB,
         payload: data
+    }
+}
+
+export const saveBulkUpload = (
+    bulkDataArray,
+    massDataUpload,
+    bulkTrainingData,
+    bulkCategoryCount,
+    uniqueOutcomeValues,
+    uniqueFirstCategoryValues,
+    uniqueSecondCategoryValues,
+    uniqueThirdCategoryValues,
+    uniqueFourthCategoryValues,
+    uniqueFifthCategoryValues,
+    uniqueSixthCategoryValues
+) => {
+    let bulkDownloadData = {
+        bulkDataArray,
+        massDataUpload,
+        bulkTrainingData,
+        bulkCategoryCount,
+        uniqueOutcomeValues,
+        uniqueFirstCategoryValues,
+        uniqueSecondCategoryValues,
+        uniqueThirdCategoryValues,
+        uniqueFourthCategoryValues,
+        uniqueFifthCategoryValues,
+        uniqueSixthCategoryValues
+    }
+    console.log('bulkDownloadData', bulkDownloadData)
+    return {
+        type: SAVE_BULK_DATA,
+        payload: bulkDownloadData
     }
 }
 
@@ -41,12 +88,12 @@ export const saveCategories = (
     sixthCategory,
     firstOutcome,
     secondOutcome
-    ) => {
-        let categories = {
-            dataImports,
-            outcome,
-            firstCategory,
-            secondCategory,
+) => {
+    let categories = {
+        dataImports,
+        outcome,
+        firstCategory,
+        secondCategory,
         thirdCategory,
         fourthCategory,
         fifthCategory,
@@ -153,6 +200,8 @@ export default function (state = initialState, action) {
     switch (type) {
         case SAVE_CATEGORIES:
             return { ...state, categories: payload}
+        case SAVE_BULK_DATA:
+            return { ...state, bulkDownload: payload}
         case GET_DATA + '_PENDING':
             return { ...state}
         case GET_DATA + '_FULFILLED':
@@ -174,7 +223,7 @@ export default function (state = initialState, action) {
         case LOGOUT_REDUX_1:
             return { ...state, ...payload }
         case RESET_DB + '_FULFILLED':
-                return { ...state }
+            return { ...state }
         default:
             return state
     }

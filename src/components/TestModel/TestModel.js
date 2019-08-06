@@ -75,6 +75,7 @@ class TestModel extends Component {
             sixthCategory
         } = this.props.training.categories
         let { result } = this.props.testing
+        console.log(this.props)
         if(trainingCategories === 1 && !result.length) {
             return(
                 <div>
