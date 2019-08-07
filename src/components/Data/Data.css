@@ -83,7 +83,6 @@
     display: flex;
     justify-content: space-between;
 }
-
 .output-button {
     color: white;
     background-color: #455465;
@@ -95,4 +94,58 @@
     padding-right: 0px;
     margin-left: 0px;
     margin-right: 2.5px;
+}
+
+@media(min-width: 725px) {
+    .import-divider {
+        margin-bottom: 10px;
+    }
+    .output-data-container {
+        margin-top: 8px;
+    }
+    .output-data-item {
+        font-size: 14px;
+    }
+    .output-edit-container {
+        width: 130px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .two-data-items {
+        margin-left: 0px;
+        font-size: 18px;
+    }
+    .three-data-items {
+        margin-left: 0px;
+        margin-right: 10px;
+        font-size: 18px;
+    }
+    .four-data-items {
+        margin-left: 0px;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    .five-data-items {
+        margin-left: 0px;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    .six-data-items {
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+    .seven-data-items {
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+    .next-previous-buttons {
+        font-size: 18px;
+    }
+    .output-button {
+        font-size: 14px;
+        width: 50px;
+    }
+    .output-edit-container {
+        margin-right: 10px;
+    }
 }

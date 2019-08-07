@@ -31,8 +31,8 @@ class TestModel extends Component {
         this.setState({ [name]: value })
     }
 
-    save = async () => {
-        await this.props.saveTestingData(
+    save = () => {
+        this.props.saveTestingData(
             this.props.user.user.trainingCategories,
             this.state.firstCategoryValue,
             this.state.secondCategoryValue,
@@ -41,17 +41,31 @@ class TestModel extends Component {
             this.state.fifthCategoryValue,
             this.state.sixthCategoryValue
         )
-        await this.props.runModel(
+        this.props.runModel(
             this.props.user.user.trainingCategories,
             this.props.training.bulkDownload.bulkCategoryCount,
             this.props.training.bulkDownload.bulkTrainingData,
+            this.props.training.categories.firstCategory,
+            this.props.training.categories.secondCategory,
+            this.props.training.categories.thirdCategory,
+            this.props.training.categories.fourthCategory,
+            this.props.training.categories.fifthCategory,
+            this.props.training.categories.sixthCategory,
+            this.state.firstCategoryValue,
+            this.state.secondCategoryValue,
+            this.state.thirdCategoryValue,
+            this.state.fourthCategoryValue,
+            this.state.fifthCategoryValue,
+            this.state.sixthCategoryValue,
             this.props.training.bulkDownload.uniqueFirstCategoryValues,
             this.props.training.bulkDownload.uniqueSecondCategoryValues,
             this.props.training.bulkDownload.uniqueThirdCategoryValues,
             this.props.training.bulkDownload.uniqueFourthCategoryValues,
             this.props.training.bulkDownload.uniqueFifthCategoryValues,
             this.props.training.bulkDownload.uniqueSixthCategoryValues
-        )
+            )
+        console.log('this.state', this.state)
+        console.log('this.props', this.props)
     }
 
     retestModel = () => {
@@ -267,8 +281,8 @@ class TestModel extends Component {
                         <div className='test-model-container'>
                             <div className='outcome-description upload-title scenario-title-adj-3'>So, {this.props.training.categories.outcome.charAt(0).toLowerCase() + this.props.training.categories.outcome.slice(1)}</div>
                             <div className='outcome-description upload-title scenario-title-adj-4'>Based on the below parameters:</div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{firstCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{firstCategory}</div>
                                 <div className='test-category-values'>{firstCategoryValue}</div>
                             </div>
                             <div className='outcome-description upload-title scenario-title-adj-5'>The model predicts</div>
@@ -294,12 +308,12 @@ class TestModel extends Component {
                         <div className='test-model-container'>
                             <div className='outcome-description upload-title scenario-title-adj-3'>So, {this.props.training.categories.outcome.charAt(0).toLowerCase() + this.props.training.categories.outcome.slice(1)}</div>
                             <div className='outcome-description upload-title scenario-title-adj-4'>Based on the below parameters:</div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{firstCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{firstCategory}</div>
                                 <div className='test-category-values'>{firstCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{secondCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{secondCategory}</div>
                                 <div className='test-category-values'>{secondCategoryValue}</div>
                             </div>
                             <div className='outcome-description upload-title scenario-title-adj-5'>The model predicts</div>
@@ -325,16 +339,16 @@ class TestModel extends Component {
                         <div className='test-model-container'>
                             <div className='outcome-description upload-title scenario-title-adj-3'>So, {this.props.training.categories.outcome.charAt(0).toLowerCase() + this.props.training.categories.outcome.slice(1)}</div>
                             <div className='outcome-description upload-title scenario-title-adj-4'>Based on the below parameters:</div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{firstCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{firstCategory}</div>
                                 <div className='test-category-values'>{firstCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{secondCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{secondCategory}</div>
                                 <div className='test-category-values'>{secondCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{thirdCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{thirdCategory}</div>
                                 <div className='test-category-values'>{thirdCategoryValue}</div>
                             </div>
                             <div className='outcome-description upload-title scenario-title-adj-5'>The model predicts</div>
@@ -360,20 +374,20 @@ class TestModel extends Component {
                         <div className='test-model-container'>
                             <div className='outcome-description upload-title scenario-title-adj-3'>So, {this.props.training.categories.outcome.charAt(0).toLowerCase() + this.props.training.categories.outcome.slice(1)}</div>
                             <div className='outcome-description upload-title scenario-title-adj-4'>Based on the below parameters:</div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{firstCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{firstCategory}</div>
                                 <div className='test-category-values'>{firstCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{secondCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{secondCategory}</div>
                                 <div className='test-category-values'>{secondCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{thirdCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{thirdCategory}</div>
                                 <div className='test-category-values'>{thirdCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{fourthCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{fourthCategory}</div>
                                 <div className='test-category-values'>{fourthCategoryValue}</div>
                             </div>
                             <div className='outcome-description upload-title scenario-title-adj-5'>The model predicts</div>
@@ -399,24 +413,24 @@ class TestModel extends Component {
                         <div className='test-model-container'>
                             <div className='outcome-description upload-title scenario-title-adj-3'>So, {this.props.training.categories.outcome.charAt(0).toLowerCase() + this.props.training.categories.outcome.slice(1)}</div>
                             <div className='outcome-description upload-title scenario-title-adj-4'>Based on the below parameters:</div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{firstCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{firstCategory}</div>
                                 <div className='test-category-values'>{firstCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{secondCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{secondCategory}</div>
                                 <div className='test-category-values'>{secondCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{thirdCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{thirdCategory}</div>
                                 <div className='test-category-values'>{thirdCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{fourthCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{fourthCategory}</div>
                                 <div className='test-category-values'>{fourthCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{fifthCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{fifthCategory}</div>
                                 <div className='test-category-values'>{fifthCategoryValue}</div>
                             </div>
                             <div className='outcome-description upload-title scenario-title-adj-5'>The model predicts</div>
@@ -442,28 +456,28 @@ class TestModel extends Component {
                         <div className='test-model-container'>
                             <div className='outcome-description upload-title scenario-title-adj-3'>So, {this.props.training.categories.outcome.charAt(0).toLowerCase() + this.props.training.categories.outcome.slice(1)}</div>
                             <div className='outcome-description upload-title scenario-title-adj-4'>Based on the below parameters:</div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{firstCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{firstCategory}</div>
                                 <div className='test-category-values'>{firstCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{secondCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{secondCategory}</div>
                                 <div className='test-category-values'>{secondCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{thirdCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{thirdCategory}</div>
                                 <div className='test-category-values'>{thirdCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{fourthCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{fourthCategory}</div>
                                 <div className='test-category-values'>{fourthCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{fifthCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{fifthCategory}</div>
                                 <div className='test-category-values'>{fifthCategoryValue}</div>
                             </div>
-                            <div className='upload-category-input-box'>
-                                <div className='upload-data-categories'>{sixthCategory}</div>
+                            <div className='upload-category-input-box test-parameter-display-adj'>
+                                <div className='test-category-display'>{sixthCategory}</div>
                                 <div className='test-category-values'>{sixthCategoryValue}</div>
                             </div>
                             <div className='outcome-description upload-title scenario-title-adj-5'>The model predicts</div>

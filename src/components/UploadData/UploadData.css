@@ -106,3 +106,39 @@
     font-family: 'Judson', serif;
     width: 90%;
 }
+
+@media(min-width: 725px) {
+    .upload-title {
+        width: 70%;
+    }
+    .upload-outcome-container {
+        display: flex;
+        justify-content: flex-start;
+        width: 60%;
+    }
+    .upload-data-container {
+        width: 60%;
+        margin-bottom: 30px;
+    }
+    .upload-data-categories {
+        margin-top: 20px;
+        font-size: 24px;
+        width: 150px;
+    }
+    .upload-data-button-2 {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    .upload-title {
+        font-size: 40px;
+    }
+    .upload-title-2 {
+        margin-top: 40px;
+        width: 70%;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .upload-title-3 {
+        width: 90%;
+    }
+  }

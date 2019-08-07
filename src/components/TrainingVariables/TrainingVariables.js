@@ -288,7 +288,7 @@ class TrainingVariables extends Component {
                         <div className='variables-display'>
                             <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                             <div className='variables-container'>
-                                <input className='main-inputs variable-inputs-one' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
                             </div>
                             <div className='new-button-container'>
                                 <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>

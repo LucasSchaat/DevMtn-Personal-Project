@@ -29,3 +29,12 @@
     font-family: 'Quando', serif;
     font-size: 20px;
 }
+
+@media(min-width: 725px) {
+    .logout-button {
+        font-size: 18px;
+    }
+    .links {
+        font-size: 24px;
+    }
+  }

@@ -80,6 +80,7 @@
     color: white;
     background-color: #FC8D0A;
     font-family: 'Judson', serif;
+    border: 2px solid white;
     margin: 0 10px;
 }
 
@@ -122,3 +123,48 @@
     font-family: 'Judson', serif;
     width: 40%;
 }
+
+@media(min-width: 725px) {
+    .outcome-description {
+        font-size: 40px;
+    }
+    .variables-description {
+        font-size: 30px;
+    }
+    .main-inputs {
+        margin: 20px 0;
+        font-size: 18px;
+    }
+    .outcome-description-input {
+        width: 70%;
+    }
+    .outcome-container {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .outcome-alternative {
+        margin: 30px 10px;
+        font-size: 24px;
+        width: 50%;
+    }
+    .main-button {
+        font-size: 18px;
+        margin: 30px 20px 20px 20px;
+    }
+    .next-step-button {
+        font-size: 18px;
+    }
+    .variable-inputs {
+        width: 300px;
+        margin: 20px 17px 10px 17px;
+    }
+    .saved-inputs {
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .saved-variables {
+        width: 300px;
+    }
+  }

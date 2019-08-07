@@ -8,10 +8,52 @@ const initialState = {
 }
 
 export function runModel (
-    trainingCategories
+    trainingCategories,
+    bulkCategoryCount,
+    bulkTrainingData,
+    firstCategory,
+    secondCategory,
+    thirdCategory,
+    fourthCategory,
+    fifthCategory,
+    sixthCategory,
+    firstCategoryValue,
+    secondCategoryValue,
+    thirdCategoryValue,
+    fourthCategoryValue,
+    fifthCategoryValue,
+    sixthCategoryValue,
+    uniqueFirstCategoryValues,
+    uniqueSecondCategoryValues,
+    uniqueThirdCategoryValues,
+    uniqueFourthCategoryValues,
+    uniqueFifthCategoryValues,
+    uniqueSixthCategoryValues
 ) {
     let data = axios
-        .post('/api/run', {trainingCategories})
+        .post('/api/run', {
+            trainingCategories,
+            bulkCategoryCount,
+            bulkTrainingData,
+            firstCategory,
+            secondCategory,
+            thirdCategory,
+            fourthCategory,
+            fifthCategory,
+            sixthCategory,
+            firstCategoryValue,
+            secondCategoryValue,
+            thirdCategoryValue,
+            fourthCategoryValue,
+            fifthCategoryValue,
+            sixthCategoryValue,
+            uniqueFirstCategoryValues,
+            uniqueSecondCategoryValues,
+            uniqueThirdCategoryValues,
+            uniqueFourthCategoryValues,
+            uniqueFifthCategoryValues,
+            uniqueSixthCategoryValues
+        })
         .then(res => res.data)
     return {
         type: RUN_MODEL,

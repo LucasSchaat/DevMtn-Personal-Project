@@ -114,3 +114,21 @@
     color: white;
     font-size: 12px;
   }
+
+  @media(min-width: 725px) {
+    .home-intro {
+      font-size: 70px;
+    }
+    .home-content {
+      font-size: 30px;
+    }
+    .tf-logo {
+      width: 400px;
+    }
+    .nav-button {
+      font-size: 18px;
+    }
+    .footer-container {
+      font-size: 14px;
+    }
+  }

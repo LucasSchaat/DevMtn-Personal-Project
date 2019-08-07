@@ -43,3 +43,23 @@
     font-family: 'Judson', serif;
     width: 225px;
 }
+
+@media(min-width: 725px) {
+    .signup-box {
+        height: 300px;
+    }
+    .signup-main {
+        font-size: 40px;
+    }
+    .signup-title {
+        margin-top: 10px;
+    }
+    .signup-input {
+        font-size: 16px;
+        width: 300px;
+    }
+    .submit-signup-button {
+        width: 300px;
+        font-size: 18px;
+    }
+}

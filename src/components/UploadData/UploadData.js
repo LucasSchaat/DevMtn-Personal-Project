@@ -96,13 +96,12 @@ class UploadData extends Component {
             let firstCategoryValues = allValues.map(data => data[1])
             let uniqueFirstCategoryValuesArray = [...new Set(firstCategoryValues)]
 
-            let outcomeCategoryName = categoryNames[0]
-            let firstCategoryName = categoryNames[1]
+            let firstCategoryName = this.props.training.categories.firstCategory
 
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    outcome: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
                     [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i])
                 })
             }
@@ -113,8 +112,6 @@ class UploadData extends Component {
                 uniqueFirstCategoryValues: uniqueFirstCategoryValuesArray,
                 massDataSaved: true
              }, () => {
-                console.log('this.state', this.state)
-                
                 this.props.saveBulkUpload(
                     this.state.massDataArray,
                     this.state.massDataUpload,
@@ -140,14 +137,13 @@ class UploadData extends Component {
             let secondCategoryValues = allValues.map(data => data[1])
             let uniqueSecondCategoryValuesArray = [...new Set(secondCategoryValues)]
 
-            let outcomeCategoryName = categoryNames[0]
-            let firstCategoryName = categoryNames[1]
-            let secondCategoryName = categoryNames[2]
+            let firstCategoryName = this.props.training.categories.firstCategory
+            let secondCategoryName = this.props.training.categories.secondCategory
 
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    outcome: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
                     [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
                     [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i])
                 })
@@ -160,8 +156,6 @@ class UploadData extends Component {
                 uniqueSecondCategoryValues: uniqueSecondCategoryValuesArray,
                 massDataSaved: true
              }, () => {
-                console.log('this.state', this.state)
-                
                 this.props.saveBulkUpload(
                     this.state.massDataArray,
                     this.state.massDataUpload,
@@ -190,15 +184,14 @@ class UploadData extends Component {
             let thirdCategoryValues = allValues.map(data => data[1])
             let uniqueThirdCategoryValuesArray = [...new Set(thirdCategoryValues)]
 
-            let outcomeCategoryName = categoryNames[0]
-            let firstCategoryName = categoryNames[1]
-            let secondCategoryName = categoryNames[2]
-            let thirdCategoryName = categoryNames[3]
+            let firstCategoryName = this.props.training.categories.firstCategory
+            let secondCategoryName = this.props.training.categories.secondCategory
+            let thirdCategoryName = this.props.training.categories.thirdCategory
 
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    outcome: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
                     [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
                     [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
                     [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i])
@@ -213,8 +206,6 @@ class UploadData extends Component {
                 uniqueThirdCategoryValues: uniqueThirdCategoryValuesArray,
                 massDataSaved: true
              }, () => {
-                console.log('this.state', this.state)
-                
                 this.props.saveBulkUpload(
                     this.state.massDataArray,
                     this.state.massDataUpload,
@@ -246,16 +237,15 @@ class UploadData extends Component {
             let fourthCategoryValues = allValues.map(data => data[1])
             let uniqueFourthCategoryValuesArray = [...new Set(fourthCategoryValues)]
 
-            let outcomeCategoryName = categoryNames[0]
-            let firstCategoryName = categoryNames[1]
-            let secondCategoryName = categoryNames[2]
-            let thirdCategoryName = categoryNames[3]
-            let fourthCategoryName = categoryNames[4]
+            let firstCategoryName = this.props.training.categories.firstCategory
+            let secondCategoryName = this.props.training.categories.secondCategory
+            let thirdCategoryName = this.props.training.categories.thirdCategory
+            let fourthCategoryName = this.props.training.categories.fourthCategory
 
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    outcome: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
                     [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
                     [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
                     [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i]),
@@ -272,8 +262,6 @@ class UploadData extends Component {
                 uniqueFourthCategoryValues: uniqueFourthCategoryValuesArray,
                 massDataSaved: true
              }, () => {
-                console.log('this.state', this.state)
-                
                 this.props.saveBulkUpload(
                     this.state.massDataArray,
                     this.state.massDataUpload,
@@ -308,17 +296,16 @@ class UploadData extends Component {
             let fifthCategoryValues = allValues.map(data => data[1])
             let uniqueFifthCategoryValuesArray = [...new Set(fifthCategoryValues)]
 
-            let outcomeCategoryName = categoryNames[0]
-            let firstCategoryName = categoryNames[1]
-            let secondCategoryName = categoryNames[2]
-            let thirdCategoryName = categoryNames[3]
-            let fourthCategoryName = categoryNames[4]
-            let fifthCategoryName = categoryNames[5]
+            let firstCategoryName = this.props.training.categories.firstCategory
+            let secondCategoryName = this.props.training.categories.secondCategory
+            let thirdCategoryName = this.props.training.categories.thirdCategory
+            let fourthCategoryName = this.props.training.categories.fourthCategory
+            let fifthCategoryName = this.props.training.categories.fifthCategory
 
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    outcome: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
                     [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
                     [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
                     [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i]),
@@ -337,8 +324,6 @@ class UploadData extends Component {
                 uniqueFifthCategoryValues: uniqueFifthCategoryValuesArray,
                 massDataSaved: true
              }, () => {
-                console.log('this.state', this.state)
-                
                 this.props.saveBulkUpload(
                     this.state.massDataArray,
                     this.state.massDataUpload,
@@ -376,18 +361,17 @@ class UploadData extends Component {
             let sixthCategoryValues = allValues.map(data => data[1])
             let uniqueSixthCategoryValuesArray = [...new Set(sixthCategoryValues)]
 
-            let outcomeCategoryName = categoryNames[0]
-            let firstCategoryName = categoryNames[1]
-            let secondCategoryName = categoryNames[2]
-            let thirdCategoryName = categoryNames[3]
-            let fourthCategoryName = categoryNames[4]
-            let fifthCategoryName = categoryNames[5]
-            let sixthCategoryName = categoryNames[6]
+            let firstCategoryName = this.props.training.categories.firstCategory
+            let secondCategoryName = this.props.training.categories.secondCategory
+            let thirdCategoryName = this.props.training.categories.thirdCategory
+            let fourthCategoryName = this.props.training.categories.fourthCategory
+            let fifthCategoryName = this.props.training.categories.fifthCategory
+            let sixthCategoryName = this.props.training.categories.sixthCategory
 
             let transformedData = []
             for (let i=0; i<firstCategoryValues.length; i++) {
                 transformedData.push({
-                    [outcomeCategoryName]: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
+                    outcome: uniqueOutcomeCategoryValuesArray.indexOf(outcomeCategoryValues[i]),
                     [firstCategoryName]: uniqueFirstCategoryValuesArray.indexOf(firstCategoryValues[i]),
                     [secondCategoryName]: uniqueSecondCategoryValuesArray.indexOf(secondCategoryValues[i]),
                     [thirdCategoryName]: uniqueThirdCategoryValuesArray.indexOf(thirdCategoryValues[i]),
@@ -408,8 +392,6 @@ class UploadData extends Component {
                 uniqueSixthCategoryValues: uniqueSixthCategoryValuesArray,
                 massDataSaved: true
              }, () => {
-                console.log('this.state', this.state)
-                
                 this.props.saveBulkUpload(
                     this.state.massDataArray,
                     this.state.massDataUpload,
@@ -483,7 +465,7 @@ class UploadData extends Component {
                     <div className='testing-data-container'>
                         <div className='import-page-display'>
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
-                            <div className='outcome-description upload-title-2'>Because This Will be a Mass Upload, Please Paste the Data in JSON Format with the Outcome as the First Category Variable</div>
+                            <div className='outcome-description upload-title-2'>Because this will be a bulk data upload, please paste the data in JSON format with Outcome as the first category variable</div>
                             <div className='upload-outcome-container-2'>
                                 <textarea className='main-inputs upload-data-inputs-2' value={massDataArray} name='massDataArray' onChange={this.handleChange} placeholder='Make sure to input the data in JSON format and only includes up to six variables!' />
                             </div>
@@ -566,6 +548,7 @@ class UploadData extends Component {
                                 </div>
                             </div>
                             <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -600,6 +583,7 @@ class UploadData extends Component {
                                 </div>
                             </div>
                             <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -638,6 +622,7 @@ class UploadData extends Component {
                                 </div>
                             </div>
                             <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -680,6 +665,7 @@ class UploadData extends Component {
                                 </div>
                             </div>
                             <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -726,6 +712,7 @@ class UploadData extends Component {
                                 </div>
                             </div>
                             <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
