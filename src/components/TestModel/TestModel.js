@@ -105,8 +105,8 @@ class TestModel extends Component {
                 <div>
                     <div className='testing-data-container'>
                         <div className='test-model-container'>
-                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
-                            <div className='outcome-description upload-title scenario-title-adj'>Scenario Parameters</div>
+                            <div className='test-model-title-adj'>Now Let's Use the Model to Test a Sample Scenario and Find the Probability of Achieving the Desired Outcome</div>
+                            <div className='scenario-title-adj'>Scenario Parameters</div>
                             <div className='upload-category-input-box'>
                                 <div className='upload-data-categories'>{firstCategory}</div>
                                 <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
@@ -124,7 +124,7 @@ class TestModel extends Component {
                 <div>
                     <div className='testing-data-container'>
                         <div className='test-model-container'>
-                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model to Test a Sample Scenario and Find the Probability of Achieving the Desired Outcome</div>
                             <div className='outcome-description upload-title scenario-title-adj'>Scenario Parameters:</div>
                             <div className='upload-category-input-box'>
                                 <div className='upload-data-categories'>{firstCategory}</div>
@@ -147,7 +147,7 @@ class TestModel extends Component {
                 <div>
                     <div className='testing-data-container'>
                         <div className='test-model-container'>
-                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model to Test a Sample Scenario and Find the Probability of Achieving the Desired Outcome</div>
                             <div className='outcome-description upload-title scenario-title-adj'>Scenario Parameters:</div>
                             <div className='upload-category-input-box'>
                                 <div className='upload-data-categories'>{firstCategory}</div>
@@ -174,7 +174,7 @@ class TestModel extends Component {
                 <div>
                     <div className='testing-data-container'>
                         <div className='test-model-container'>
-                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model to Test a Sample Scenario and Find the Probability of Achieving the Desired Outcome</div>
                             <div className='outcome-description upload-title scenario-title-adj'>Scenario Parameters:</div>
                             <div className='upload-category-input-box'>
                                 <div className='upload-data-categories'>{firstCategory}</div>
@@ -205,7 +205,7 @@ class TestModel extends Component {
                 <div>
                     <div className='testing-data-container'>
                         <div className='test-model-container'>
-                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model to Test a Sample Scenario and Find the Probability of Achieving the Desired Outcome</div>
                             <div className='outcome-description upload-title scenario-title-adj'>Scenario Parameters:</div>
                             <div className='upload-category-input-box'>
                                 <div className='upload-data-categories'>{firstCategory}</div>
@@ -240,7 +240,7 @@ class TestModel extends Component {
                 <div>
                     <div className='testing-data-container'>
                         <div className='test-model-container'>
-                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model in a Sample Scenario to Find the Probability of the Occurrence of a Desired Outcome</div>
+                            <div className='outcome-description upload-title test-model-title-adj'>Now Let's Use the Model to Test a Sample Scenario and Find the Probability of Achieving the Desired Outcome</div>
                             <div className='outcome-description upload-title scenario-title-adj'>Scenario Parameters:</div>
                             <div className='upload-category-input-box'>
                                 <div className='upload-data-categories'>{firstCategory}</div>

@@ -745,13 +745,14 @@ module.exports = {
                     [fifthCategory]: fifthIndex,
                     [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1) {    
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {    
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
                 })
             } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1) {    
                 testing.push({
