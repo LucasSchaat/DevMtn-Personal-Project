@@ -745,6 +745,15 @@ module.exports = {
                     [fifthCategory]: fifthIndex,
                     [sixthCategory]: sixthIndex
                 })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {    
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
             } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {    
                 testing.push({
                     [firstCategory]: firstIndex,
@@ -754,237 +763,545 @@ module.exports = {
                     [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
                     [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1) {    
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {    
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex !== -1 & thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1) {
+            } else if (firstIndex !== -1 && secondIndex !== -1 & thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex === -1 & thirdIndex !== -1 && fourthIndex !== -1  && fifthIndex !== -1) {
+            } else if (firstIndex !== -1 && secondIndex === -1 & thirdIndex !== -1 && fourthIndex !== -1  && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex === -1 && secondIndex !== -1 & thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1) {
+            } else if (firstIndex === -1 && secondIndex !== -1 & thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex,
                 })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1) {
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1) {
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1) {
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1) {
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1) {
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1) {
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1) {
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
                 })
-            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
-                })
-            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: thirdIndex,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: fourthIndex,
-                    [fifthCategory]: fifthIndex
-                })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: thirdIndex,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
-                })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: thirdIndex,
-                    [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
-                })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: thirdIndex,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
-                })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: secondIndex,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1) {
-                testing.push({
-                    [firstCategory]: firstIndex,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: thirdIndex,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
-                })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1) {
-                testing.push({
-                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
-                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
-                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
-                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: fifthIndex
-                })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1) {
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
                     [fourthCategory]: fourthIndex,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1) {
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: thirdIndex,
                     [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1) {
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: +uniqueFirstCategoryValues.length + 1,
                     [secondCategory]: secondIndex,
                     [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
                     [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
                 })
-            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1) {
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
                 testing.push({
                     [firstCategory]: firstIndex,
                     [secondCategory]: +uniqueSecondCategoryValues.length + 1,
                     [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
                     [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
-                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex !== -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: sixthIndex
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex !== -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: fifthIndex,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex !== -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: fourthIndex,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex === -1 && thirdIndex !== -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: thirdIndex,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex === -1 && secondIndex !== -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: +uniqueFirstCategoryValues.length + 1,
+                    [secondCategory]: secondIndex,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
+                })
+            } else if (firstIndex !== -1 && secondIndex === -1 && thirdIndex === -1 && fourthIndex === -1 && fifthIndex === -1 && sixthIndex === -1) {
+                testing.push({
+                    [firstCategory]: firstIndex,
+                    [secondCategory]: +uniqueSecondCategoryValues.length + 1,
+                    [thirdCategory]: +uniqueThirdCategoryValues.length + 1,
+                    [fourthCategory]: +uniqueFourthCategoryValues.length + 1,
+                    [fifthCategory]: +uniqueFifthCategoryValues.length + 1,
+                    [sixthCategory]: +uniqueSixthCategoryValues.length + 1
                 })
             } else {
                 testing.push({
