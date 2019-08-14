@@ -35,8 +35,8 @@ class Login extends Component {
                         <div className='nav-bar'>
                             <div className='logo'>DevShop.js</div>
                             <div className='button-container'>
-                                <button className='nav-button'>Login</button>
-                                <button onClick={() => this.props.history.push('/signup')} className='nav-button'>Sign Up</button>
+                                <button className='nav-button login-button'>Login</button>
+                                <button onClick={() => this.props.history.push('/signup')} className='nav-button signup-button'>Sign Up</button>
                             </div>
                         </div>
                         <div className='main-block'>
@@ -44,8 +44,8 @@ class Login extends Component {
                                 <div className='login-container'>
                                     <div className='login-box'>
                                         <div className='login-title'>User Login</div>
-                                        <input className='login-input' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
-                                        <input className='login-input' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
+                                        <input className='login-input login-username' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
+                                        <input className='login-input login-password' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
                                         <button className='submit-login-button' onClick={this.loginUser}>Login</button>
                                     </div>
                                 </div>

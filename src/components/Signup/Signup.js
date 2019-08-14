@@ -34,8 +34,8 @@ class Signup extends Component {
                     <div className='nav-bar'>
                         <div className='logo'>DevShop.js</div>
                         <div className='button-container'>
-                            <button onClick={() => this.props.history.push('/login')} className='nav-button'>Login</button>
-                            <button className='nav-button'>Sign Up</button>
+                            <button onClick={() => this.props.history.push('/login')} className='nav-button login-button'>Login</button>
+                            <button className='nav-button signup-button'>Sign Up</button>
                         </div>
                     </div>
                     <div className='main-block'> 
@@ -43,8 +43,8 @@ class Signup extends Component {
                             <div className='signup-container'>
                                 <div className='signup-box'>
                                     <div className='signup-title'>Create New User</div>
-                                    <input className='signup-input' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
-                                    <input className='signup-input' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
+                                    <input className='signup-input signup-username' type='text' value={username} name='username' onChange={this.handleChange} placeholder='Username' />
+                                    <input className='signup-input signup-password' type='password' value={password} name='password' onChange={this.handleChange} placeholder='Password' />
                                     <button className='submit-signup-button' onClick={this.signupUser}>Sign Up</button>
                                 </div>
                             </div>
