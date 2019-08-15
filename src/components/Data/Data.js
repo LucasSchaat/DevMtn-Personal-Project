@@ -76,11 +76,11 @@ class Data extends Component {
              return(
                  <div className='output-data-container'>
                      <div className='output-data-display'>
-                        <div className='output-data-item two-data-items'>{outcome}</div>
-                        <div className='output-data-item two-data-items'>{first_category}</div>
+                        <div className='output-data-item two-data-items outcome-training-display'>{outcome}</div>
+                        <div className='output-data-item two-data-items first-training-value-display'>{first_category}</div>
                      </div>
                      <div className='output-edit-container'>
-                        <button className='output-button' onClick={this.flipEdit}>Edit</button>
+                        <button className='output-button edit-training-data-button' onClick={this.flipEdit}>Edit</button>
                      </div>
                  </div>
              )
@@ -88,8 +88,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                     <div className='output-data-display'>
-                        <input className='output-data-input two-data-items' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
-                        <input className='output-data-input two-data-items' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
+                        <input className='output-data-input two-data-items edit-training-outcome-input' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
+                        <input className='output-data-input two-data-items edit-training-first-input' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                     </div>
                     <div className='output-edit-container'>
                         <button className='output-button' onClick={this.saveUpdate}>Save</button>
@@ -101,12 +101,12 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                      <div className='output-data-display'>
-                        <div className='output-data-item three-data-items'>{outcome}</div>
-                        <div className='output-data-item three-data-items'>{first_category}</div>
+                        <div className='output-data-item three-data-items outcome-training-display'>{outcome}</div>
+                        <div className='output-data-item three-data-items first-training-value-display'>{first_category}</div>
                         <div className='output-data-item three-data-items'>{second_category}</div>
                      </div>
                      <div className='output-edit-container'>
-                        <button className='output-button' onClick={this.flipEdit}>Edit</button>
+                        <button className='output-button edit-training-data-button' onClick={this.flipEdit}>Edit</button>
                      </div>
                  </div>
             )
@@ -114,8 +114,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                     <div className='output-data-display'>
-                        <input className='output-data-input three-data-items' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
-                        <input className='output-data-input three-data-items' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
+                        <input className='output-data-input three-data-items edit-training-outcome-input' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
+                        <input className='output-data-input three-data-items edit-training-first-input' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input three-data-items' value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                     </div>
                     <div className='output-edit-container'>
@@ -128,13 +128,13 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                      <div className='output-data-display'>
-                        <div className='output-data-item four-data-items'>{outcome}</div>
-                        <div className='output-data-item four-data-items'>{first_category}</div>
+                        <div className='output-data-item four-data-items outcome-training-display'>{outcome}</div>
+                        <div className='output-data-item four-data-items first-training-value-display'>{first_category}</div>
                         <div className='output-data-item four-data-items'>{second_category}</div>
                         <div className='output-data-item four-data-items'>{third_category}</div>
                      </div>
                      <div className='output-edit-container'>
-                        <button className='output-button' onClick={this.flipEdit}>Edit</button>
+                        <button className='output-button edit-training-data-button' onClick={this.flipEdit}>Edit</button>
                      </div>
                  </div>
             )
@@ -142,8 +142,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                     <div className='output-data-display'>
-                        <input className='output-data-input four-data-items' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
-                        <input className='output-data-input four-data-items' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
+                        <input className='output-data-input four-data-items edit-training-outcome-input' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
+                        <input className='output-data-input four-data-items edit-training-first-input' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input four-data-items' value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input four-data-items' value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
                     </div>
@@ -157,14 +157,14 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                      <div className='output-data-display'>
-                        <div className='output-data-item five-data-items'>{outcome}</div>
-                        <div className='output-data-item five-data-items'>{first_category}</div>
+                        <div className='output-data-item five-data-items outcome-training-display'>{outcome}</div>
+                        <div className='output-data-item five-data-items first-training-value-display'>{first_category}</div>
                         <div className='output-data-item five-data-items'>{second_category}</div>
                         <div className='output-data-item five-data-items'>{third_category}</div>
                         <div className='output-data-item five-data-items'>{fourth_category}</div>
                      </div>
                      <div className='output-edit-container'>
-                        <button className='output-button' onClick={this.flipEdit}>Edit</button>
+                        <button className='output-button edit-training-data-button' onClick={this.flipEdit}>Edit</button>
                      </div>
                  </div>
             )
@@ -172,8 +172,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                     <div className='output-data-display'>
-                        <input className='output-data-input five-data-items' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
-                        <input className='output-data-input five-data-items' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
+                        <input className='output-data-input five-data-items edit-training-outcome-input' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
+                        <input className='output-data-input five-data-items edit-training-first-input' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input five-data-items' value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input five-data-items' value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input five-data-items' value={newFourthCategoryValue} name='newFourthCategoryValue' onChange={this.handleChange} />
@@ -188,15 +188,15 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                      <div className='output-data-display'>
-                        <div className='output-data-item six-data-items'>{outcome}</div>
-                        <div className='output-data-item six-data-items'>{first_category}</div>
+                        <div className='output-data-item six-data-items outcome-training-display'>{outcome}</div>
+                        <div className='output-data-item six-data-items first-training-value-display'>{first_category}</div>
                         <div className='output-data-item six-data-items'>{second_category}</div>
                         <div className='output-data-item six-data-items'>{third_category}</div>
                         <div className='output-data-item six-data-items'>{fourth_category}</div>
                         <div className='output-data-item six-data-items'>{fifth_category}</div>
                      </div>
                      <div className='output-edit-container'>
-                        <button className='output-button' onClick={this.flipEdit}>Edit</button>
+                        <button className='output-button edit-training-data-button' onClick={this.flipEdit}>Edit</button>
                      </div>
                  </div>
             )
@@ -204,8 +204,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                     <div className='output-data-display'>
-                        <input className='output-data-input-small six-data-items' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
-                        <input className='output-data-input-small six-data-items' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
+                        <input className='output-data-input-small six-data-items edit-training-outcome-input' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
+                        <input className='output-data-input-small six-data-items edit-training-first-input' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input-small six-data-items' value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input-small six-data-items' value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input-small six-data-items' value={newFourthCategoryValue} name='newFourthCategoryValue' onChange={this.handleChange} />
@@ -221,8 +221,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                      <div className='output-data-display'>
-                        <div className='output-data-item seven-data-items'>{outcome}</div>
-                        <div className='output-data-item seven-data-items'>{first_category}</div>
+                        <div className='output-data-item seven-data-items outcome-training-display'>{outcome}</div>
+                        <div className='output-data-item seven-data-items first-training-value-display'>{first_category}</div>
                         <div className='output-data-item seven-data-items'>{second_category}</div>
                         <div className='output-data-item seven-data-items'>{third_category}</div>
                         <div className='output-data-item seven-data-items'>{fourth_category}</div>
@@ -230,7 +230,7 @@ class Data extends Component {
                         <div className='output-data-item seven-data-items'>{sixth_category}</div>
                      </div>
                      <div className='output-edit-container'>
-                        <button className='output-button' onClick={this.flipEdit}>Edit</button>
+                        <button className='output-button edit-training-data-button' onClick={this.flipEdit}>Edit</button>
                      </div>
                  </div>
             )
@@ -238,8 +238,8 @@ class Data extends Component {
             return(
                 <div className='output-data-container'>
                     <div className='output-data-display'>
-                        <input className='output-data-input-small seven-data-items' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
-                        <input className='output-data-input-small seven-data-items' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
+                        <input className='output-data-input-small seven-data-items edit-training-outcome-input' value={newOutcomeValue} name='newOutcomeValue' onChange={this.handleChange} />
+                        <input className='output-data-input-small seven-data-items edit-training-first-input' value={newFirstCategoryValue} name='newFirstCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input-small seven-data-items' value={newSecondCategoryValue} name='newSecondCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input-small seven-data-items' value={newThirdCategoryValue} name='newThirdCategoryValue' onChange={this.handleChange} />
                         <input className='output-data-input-small seven-data-items' value={newFourthCategoryValue} name='newFourthCategoryValue' onChange={this.handleChange} />

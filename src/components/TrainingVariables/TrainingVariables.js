@@ -277,27 +277,27 @@ class TrainingVariables extends Component {
                             <div className='outcome-container'>
                                 <div className='outcome-alternative'>
                                     <div>Desired Outcome:</div>
-                                    <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                    <input className='main-inputs outcome-inputs first-outcome-input' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                 </div>
                                 <div className='outcome-alternative'>
                                     <div>Alternative Outcome:</div>
-                                    <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                    <input className='main-inputs outcome-inputs second-outcome-input' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
                                 </div>
                             </div>    
                         </div>
                         <div className='variables-display'>
                             <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                             <div className='variables-container'>
-                                <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                <input className='main-inputs variable-inputs first-variable-input' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
                             </div>
                             <div className='new-button-container'>
-                                <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>
-                                <button className='main-button two-buttons' onClick={this.save}>Save Data</button>
+                                <button className='main-button two-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                <button className='main-button two-buttons save-variables-button' onClick={this.save}>Save Data</button>
                             </div>
                         </div>
                     </div>
                     <div className='next-previous-button-box'>
-                        <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                        <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                     </div>
                 </div>
 
@@ -325,13 +325,13 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs'>{firstCategory}</div>
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button two-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button two-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                                    <button className='main-button two-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button two-buttons edit-variables-button' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -345,29 +345,29 @@ class TrainingVariables extends Component {
                                 <div className='outcome-container'>
                                     <div className='outcome-alternative'>
                                         <div>Desired Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                        <input className='main-inputs outcome-inputs first-outcome-input' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                     </div>
                                     <div className='outcome-alternative'>
                                         <div>Alternative Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                        <input className='main-inputs outcome-inputs second-outcome-input' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
                                     </div>
                                 </div>    
                             </div>
                             <div className='variables-display'>
                                 <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                                 <div className='variables-container'>
-                                    <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
-                                    <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                    <input className='main-inputs variable-inputs first-variable-input' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                    <input className='main-inputs variable-inputs second-variable-input' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons save-variables-button' onClick={this.save}>Save Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -396,14 +396,14 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{secondCategory}</div>
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons edit-variables-button' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
     
@@ -417,30 +417,30 @@ class TrainingVariables extends Component {
                                 <div className='outcome-container'>
                                     <div className='outcome-alternative'>
                                         <div>Desired Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                        <input className='main-inputs outcome-inputs first-outcome-input' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                     </div>
                                     <div className='outcome-alternative'>
                                         <div>Alternative Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                        <input className='main-inputs outcome-inputs second-outcome-input' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
                                     </div>
                                 </div>    
                             </div>
                             <div className='variables-display'>
                                 <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                                 <div className='variables-container'>
-                                    <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
-                                    <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
-                                    <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                    <input className='main-inputs variable-inputs first-variable-input' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                    <input className='main-inputs variable-inputs second-variable-input' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                    <input className='main-inputs variable-inputs third-variable-input' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons save-variables-button' onClick={this.save}>Save Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -470,14 +470,14 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{thirdCategory}</div>
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons edit-variables-button' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -491,31 +491,31 @@ class TrainingVariables extends Component {
                                 <div className='outcome-container'>
                                     <div className='outcome-alternative'>
                                         <div>Desired Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                        <input className='main-inputs outcome-inputs first-outcome-input' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                     </div>
                                     <div className='outcome-alternative'>
                                         <div>Alternative Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                        <input className='main-inputs outcome-inputs second-outcome-input' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
                                     </div>
                                 </div>    
                             </div>
                             <div className='variables-display'>
                                 <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                                 <div className='variables-container'>
-                                    <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
-                                    <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
-                                    <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
-                                    <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
+                                    <input className='main-inputs variable-inputs first-variable-input' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                    <input className='main-inputs variable-inputs second-variable-input' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                    <input className='main-inputs variable-inputs third-variable-input' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                    <input className='main-inputs variable-inputs fourth-variable-input' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons save-variables-button' onClick={this.save}>Save Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -546,14 +546,14 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{fourthCategory}</div>
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons edit-variables-button' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
 
@@ -567,32 +567,32 @@ class TrainingVariables extends Component {
                                 <div className='outcome-container'>
                                     <div className='outcome-alternative'>
                                         <div>Desired Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                        <input className='main-inputs outcome-inputs first-outcome-input' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                     </div>
                                     <div className='outcome-alternative'>
                                         <div>Alternative Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                        <input className='main-inputs outcome-inputs second-outcome-input' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
                                     </div>
                                 </div>    
                             </div>
                             <div className='variables-display'>
                                 <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                                 <div className='variables-container'>
-                                    <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
-                                    <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
-                                    <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
-                                    <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
-                                    <input className='main-inputs variable-inputs' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
+                                    <input className='main-inputs variable-inputs first-variable-input' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                    <input className='main-inputs variable-inputs second-variable-input' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                    <input className='main-inputs variable-inputs third-variable-input' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                    <input className='main-inputs variable-inputs fourth-variable-input' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
+                                    <input className='main-inputs variable-inputs fifth-variable-input' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.save}>Save Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons save-variables-button' onClick={this.save}>Save Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
                     
@@ -624,14 +624,14 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{fifthCategory}</div>
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button three-buttons' onClick={this.addCategory}>Add Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button three-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                                    <button className='main-button three-buttons add-variable-button' onClick={this.addCategory}>Add Variable</button>
+                                    <button className='main-button three-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button three-buttons edit-variables-button' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
                     
@@ -645,32 +645,32 @@ class TrainingVariables extends Component {
                                 <div className='outcome-container'>
                                     <div className='outcome-alternative'>
                                         <div>Desired Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                        <input className='main-inputs outcome-inputs first-outcome-input' value={firstOutcome} name='firstOutcome' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                     </div>
                                     <div className='outcome-alternative'>
                                         <div>Alternative Outcome:</div>
-                                        <input className='main-inputs outcome-inputs' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
+                                        <input className='main-inputs outcome-inputs second-outcome-input' value={secondOutcome} name='secondOutcome' type='text' onChange={this.handleChange} placeholder='Ex: No' />
                                     </div>
                                 </div>    
                             </div>
                             <div className='variables-display'>
                                 <div className='outcome-description variables-description'>What Variable(s) Do You Want to Test?</div>
                                 <div className='variables-container'>
-                                    <input className='main-inputs variable-inputs' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
-                                    <input className='main-inputs variable-inputs' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
-                                    <input className='main-inputs variable-inputs' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
-                                    <input className='main-inputs variable-inputs' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
-                                    <input className='main-inputs variable-inputs' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
-                                    <input className='main-inputs variable-inputs' value={sixthCategory} name='sixthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Nice Profile Pic' />
+                                    <input className='main-inputs variable-inputs first-variable-input' value={firstCategory} name='firstCategory' type='text' onChange={this.handleChange} placeholder='Ex: Age' />
+                                    <input className='main-inputs variable-inputs second-variable-input' value={secondCategory} name='secondCategory' type='text' onChange={this.handleChange} placeholder='Ex: Hair Color' />
+                                    <input className='main-inputs variable-inputs third-variable-input' value={thirdCategory} name='thirdCategory' type='text' onChange={this.handleChange} placeholder='Ex: Eye Color' />
+                                    <input className='main-inputs variable-inputs fourth-variable-input' value={fourthCategory} name='fourthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Height' />
+                                    <input className='main-inputs variable-inputs fifth-variable-input' value={fifthCategory} name='fifthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Good Kisser' />
+                                    <input className='main-inputs variable-inputs sixth-variable-input' value={sixthCategory} name='sixthCategory' type='text' onChange={this.handleChange} placeholder='Ex: Nice Profile Pic' />
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button two-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button two-buttons' onClick={this.save}>Save Data</button>
+                                    <button className='main-button two-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button two-buttons save-variables-button' onClick={this.save}>Save Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
                     
@@ -703,13 +703,13 @@ class TrainingVariables extends Component {
                                     <div className='saved-inputs saved-variables'>{sixthCategory}</div>
                                 </div>
                                 <div className='new-button-container'>
-                                    <button className='main-button two-buttons' onClick={this.delete}>Delete A Variable</button>
-                                    <button className='main-button two-buttons' onClick={this.flipEditCategories}>Edit Data</button>
+                                    <button className='main-button two-buttons delete-variable-button' onClick={this.delete}>Delete A Variable</button>
+                                    <button className='main-button two-buttons edit-variables-button' onClick={this.flipEditCategories}>Edit Data</button>
                                 </div>
                             </div>
                         </div>
                         <div className='next-previous-button-box'>
-                            <button className='next-step-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
+                            <button className='next-step-button import-data-button' onClick={() => this.props.history.push('/dashboard/import_data')}>Import Your Data</button>
                         </div>
                     </div>
             )}

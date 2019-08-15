@@ -469,8 +469,8 @@ class UploadData extends Component {
                             <div className='upload-outcome-container-2'>
                                 <textarea className='main-inputs upload-data-inputs-2' value={massDataArray} name='massDataArray' onChange={this.handleChange} placeholder='Make sure to input the data in JSON format and only includes up to six variables!' />
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.saveMassUpload}>Import JSON Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Individual Data Points</button>
+                            <button className='main-button upload-data-button mass-training-save-button' onClick={this.saveMassUpload}>Import JSON Data</button>
+                            <button className='main-button upload-data-button-2 import-training-method-toggle' onClick={this.massUploadToggle}>Import Individual Data Points</button>
                         </div>
                     </div>
                     <div className='previous-next-button-container'>
@@ -491,7 +491,7 @@ class UploadData extends Component {
                                 <div className='outcome-description upload-title-3'>Press the "Test Your Model" button to continue</div>
                             </div>
                             <button className='main-button upload-data-button-3' onClick={this.massUploadEditToggle}>Edit Imported Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Individual Data Points</button>
+                            <button className='main-button upload-data-button-2 import-training-method-toggle' onClick={this.massUploadToggle}>Import Individual Data Points</button>
                         </div>
                     </div>
                     <div className='previous-next-button-container'>
@@ -508,16 +508,16 @@ class UploadData extends Component {
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
                             <div className='upload-outcome-container'>
                                 <div className='upload-data-categories'>Outcome</div>
-                                <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                <input className='main-inputs upload-data-inputs outcome-training-input' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                             </div>
                             <div className='upload-data-container'>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{firstCategory}</div>
-                                    <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                                    <input className='main-inputs upload-data-inputs first-category-training-input' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                                 </div>
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
+                            <button className='main-button upload-data-button save-training-input-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2 mass-training-import-button' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -535,20 +535,20 @@ class UploadData extends Component {
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
                             <div className='upload-outcome-container'>
                                 <div className='upload-data-categories'>Outcome</div>
-                                <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                <input className='main-inputs upload-data-inputs outcome-training-input' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                             </div>
                             <div className='upload-data-container'>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{firstCategory}</div>
-                                    <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                                    <input className='main-inputs upload-data-inputs first-category-training-input' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                                 </div>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{secondCategory}</div>
                                     <input className='main-inputs upload-data-inputs' value={secondCategoryValue} name='secondCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Brown' />
                                 </div>
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
+                            <button className='main-button upload-data-button save-training-input-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2 mass-training-import-button' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -566,12 +566,12 @@ class UploadData extends Component {
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
                             <div className='upload-outcome-container'>
                                 <div className='upload-data-categories'>Outcome</div>
-                                <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                <input className='main-inputs upload-data-inputs outcome-training-input' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                             </div>
                             <div className='upload-data-container'>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{firstCategory}</div>
-                                    <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                                    <input className='main-inputs upload-data-inputs first-category-training-input' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                                 </div>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{secondCategory}</div>
@@ -582,8 +582,8 @@ class UploadData extends Component {
                                     <input className='main-inputs upload-data-inputs' value={thirdCategoryValue} name='thirdCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Blue' />
                                 </div>
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
+                            <button className='main-button upload-data-button save-training-input-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2 mass-training-import-button' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -601,12 +601,12 @@ class UploadData extends Component {
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
                             <div className='upload-outcome-container'>
                                 <div className='upload-data-categories'>Outcome</div>
-                                <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                <input className='main-inputs upload-data-inputs outcome-training-input' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                             </div>
                             <div className='upload-data-container'>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{firstCategory}</div>
-                                    <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                                    <input className='main-inputs upload-data-inputs first-category-training-input' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                                 </div>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{secondCategory}</div>
@@ -621,8 +621,8 @@ class UploadData extends Component {
                                     <input className='main-inputs upload-data-inputs' value={fourthCategoryValue} name='fourthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Short' />
                                 </div>
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
+                            <button className='main-button upload-data-button save-training-input-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2 mass-training-import-button' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -640,12 +640,12 @@ class UploadData extends Component {
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
                             <div className='upload-outcome-container'>
                                 <div className='upload-data-categories'>Outcome</div>
-                                <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                <input className='main-inputs upload-data-inputs outcome-training-input' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                             </div>
                             <div className='upload-data-container'>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{firstCategory}</div>
-                                    <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                                    <input className='main-inputs upload-data-inputs first-category-training-input' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                                 </div>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{secondCategory}</div>
@@ -664,8 +664,8 @@ class UploadData extends Component {
                                     <input className='main-inputs upload-data-inputs' value={fifthCategoryValue} name='fifthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                 </div>
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
+                            <button className='main-button upload-data-button save-training-input-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2 mass-training-import-button' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>
@@ -683,12 +683,12 @@ class UploadData extends Component {
                             <div className='outcome-description upload-title'>Now Let's Import Some Data for Use in Training the Model</div>
                             <div className='upload-outcome-container'>
                                 <div className='upload-data-categories'>Outcome</div>
-                                <input className='main-inputs upload-data-inputs' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
+                                <input className='main-inputs upload-data-inputs outcome-training-input' value={outcomeValue} name='outcomeValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                             </div>
                             <div className='upload-data-container'>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{firstCategory}</div>
-                                    <input className='main-inputs upload-data-inputs' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
+                                    <input className='main-inputs upload-data-inputs first-category-training-input' value={firstCategoryValue} name='firstCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: 26' />
                                 </div>
                                 <div className='upload-category-input-box'>
                                     <div className='upload-data-categories'>{secondCategory}</div>
@@ -711,8 +711,8 @@ class UploadData extends Component {
                                     <input className='main-inputs upload-data-inputs' value={sixthCategoryValue} name='sixthCategoryValue' type='text' onChange={this.handleChange} placeholder='Ex: Yes' />
                                 </div>
                             </div>
-                            <button className='main-button upload-data-button' onClick={this.save}>Import Data</button>
-                            <button className='main-button upload-data-button-2' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
+                            <button className='main-button upload-data-button save-training-input-button' onClick={this.save}>Import Data</button>
+                            <button className='main-button upload-data-button-2 mass-training-import-button' onClick={this.massUploadToggle}>Import Data Using a JSON File</button>
                         </div>
                         <ImportData />
                     </div>

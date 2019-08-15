@@ -52,11 +52,46 @@ describe('Landing Page functionality', () => {
         .type(password)
         .should('have.value', password)
 
+        cy.server()
+        cy.route('POST', '/api/login').as('Login')
+        
         cy.get('.submit-login-button')
         .should('exist')
         .click()
 
+        cy.wait('@Login', {timeout: 10000})
+
         cy.get('.logout-button')
+        .should('exist')
+        .click()
+    })
+
+    it('Login to homepage and proceed to the Create Variables step', () => {
+        cy.get('.login-button')
+        .should('exist')
+        .click()
+
+        cy.get('.login-username')
+        .type(username)
+        .should('have.value', username)
+
+        cy.get('.login-password')
+        .type(password)
+        .should('have.value', password)
+
+        cy.server()
+        cy.route('POST', '/api/login').as('Login')
+        
+        cy.get('.submit-login-button')
+        .should('exist')
+        .click()
+
+        cy.wait('@Login', {timeout: 10000})
+
+        cy.get('.dashboardHome-main')
+        .should('exist')
+
+        cy.get('.create-variables-button')
         .should('exist')
         .click()
     })

@@ -17,13 +17,13 @@ class Dashboard extends Component {
         return (
             <div className='step-nav-box'>
                 <div className='link-container'>
-                    <Link className='links' to='/dashboard/training_variables'>Create Model Variables</Link>
+                    <Link className='links create-model-variables-link' to='/dashboard/training_variables'>Create Model Variables</Link>
                 </div>
                 <div className='link-container'>
-                    <Link className='links' to='/dashboard/import_data'>Import Your Data</Link>
+                    <Link className='links import-data-link' to='/dashboard/import_data'>Import Your Data</Link>
                 </div>
                 <div className='link-container'>
-                    <Link className='links' to='/dashboard/test_model'>Test Your Model</Link>
+                    <Link className='links test-model-link' to='/dashboard/test_model'>Test Your Model</Link>
                 </div>
             </div> 
         )
