@@ -16,6 +16,7 @@ module.exports = {
                 trainingCategories: 1,
                 dataImports: 1,
             }
+            console.log(req.session.user)
             res.send(req.session.user)
         } else res.status(401).send('Incorrect Username or Password')
     },

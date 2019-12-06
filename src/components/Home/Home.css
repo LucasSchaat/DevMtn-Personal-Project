@@ -45,9 +45,9 @@
   
   .logo {
     color: white;
-    font-size: 20px;
-    margin: 0 10px;
-    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
+    margin: 5px 0 0 10px;
+    font-family: 'Bebas Neue', cursive;
   }
   
   .button-container {
@@ -89,10 +89,12 @@
     height: 150px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .tf-logo {
-    width: 300px;
+    height: 40%;
+    width: auto;
   }
 
   img {
@@ -122,9 +124,6 @@
     }
     .home-content {
       font-size: 30px;
-    }
-    .tf-logo {
-      width: 400px;
     }
     .nav-button {
       font-size: 18px;

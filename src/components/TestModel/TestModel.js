@@ -32,7 +32,9 @@ class TestModel extends Component {
     }
 
     save = () => {
+        console.log('hitting Test Model function in TestModel')
         this.props.saveTestingData(
+            this.props.user.user.id,
             this.props.user.user.trainingCategories,
             this.state.firstCategoryValue,
             this.state.secondCategoryValue,
@@ -42,6 +44,32 @@ class TestModel extends Component {
             this.state.sixthCategoryValue
         )
         this.props.runModel(
+            this.props.user.user.id,
+            this.props.user.user.trainingCategories,
+            this.props.training.bulkDownload.bulkCategoryCount,
+            this.props.training.bulkDownload.bulkTrainingData,
+            this.props.training.categories.firstCategory,
+            this.props.training.categories.secondCategory,
+            this.props.training.categories.thirdCategory,
+            this.props.training.categories.fourthCategory,
+            this.props.training.categories.fifthCategory,
+            this.props.training.categories.sixthCategory,
+            this.state.firstCategoryValue,
+            this.state.secondCategoryValue,
+            this.state.thirdCategoryValue,
+            this.state.fourthCategoryValue,
+            this.state.fifthCategoryValue,
+            this.state.sixthCategoryValue,
+            this.props.training.bulkDownload.uniqueFirstCategoryValues,
+            this.props.training.bulkDownload.uniqueSecondCategoryValues,
+            this.props.training.bulkDownload.uniqueThirdCategoryValues,
+            this.props.training.bulkDownload.uniqueFourthCategoryValues,
+            this.props.training.bulkDownload.uniqueFifthCategoryValues,
+            this.props.training.bulkDownload.uniqueSixthCategoryValues
+            )
+        // Test is run a second time because there seems to be a postgreSQL DB error that breaks the code from running the first time, but not the second    
+        this.props.runModel(
+            this.props.user.user.id,
             this.props.user.user.trainingCategories,
             this.props.training.bulkDownload.bulkCategoryCount,
             this.props.training.bulkDownload.bulkTrainingData,
@@ -74,7 +102,7 @@ class TestModel extends Component {
     }
 
     testNewModel = () => {
-        this.props.setupDatabase()
+        this.props.setupDatabase(this.props.user.user.id)
         this.props.firstReduxLogout()
         this.props.secondReduxLogout()
         this.props.history.push('/dashboard')

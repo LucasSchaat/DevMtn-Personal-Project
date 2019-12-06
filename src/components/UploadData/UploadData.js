@@ -411,6 +411,7 @@ class UploadData extends Component {
 
     save = () => {
         this.props.saveData(
+            this.props.user.user.id,
             this.state.dataImports,
             this.state.trainingCategories,
             this.state.outcomeValue,

@@ -36,8 +36,8 @@ const initialState = {
     error: false
 }
 
-export function setupDatabase() {
-    let data = axios.delete('/api/reset_db').then(res => res.data)
+export function setupDatabase(user_id) {
+    let data = axios.delete(`/api/reset_db/${user_id}`).then(res => res.data)
     return {
         type: RESET_DB,
         payload: data
@@ -114,16 +114,16 @@ export const firstReduxLogout = () => {
     }
 }
 
-export function getData() {
-    let data = axios.get('/api/training_data').then(res => res.data)
+export function getData(user_id, trainingCategories) {
+    let data = axios.get(`/api/training_data/${user_id}/${trainingCategories}`).then(res => res.data)
     return {
         type: GET_DATA,
         payload: data
     }
 }
 
-export function deleteData (id) {
-    let data = axios.delete(`/api/delete/${id}`).then(res => res.data)
+export function deleteData (user_id, trainingCategories, id) {
+    let data = axios.delete(`/api/delete/${user_id}/${trainingCategories}/${id}`).then(res => res.data)
     return {
         type: DELETE_DATA,
         payload: data
@@ -131,6 +131,7 @@ export function deleteData (id) {
 }
 
 export function saveData(
+    user_id, 
     dataImports,
     trainingCategories,
     outcomeValue,
@@ -144,7 +145,7 @@ export function saveData(
     secondOutcome
 ) {
     let data = axios
-        .post('/api/save_data',{
+        .post(`/api/save_data/${user_id}`,{
             dataImports,
             trainingCategories,
             outcomeValue,
@@ -165,6 +166,7 @@ export function saveData(
 }
 
 export function editData (
+    user_id,
     reference_id,
     id,
     trainingCategories,
@@ -177,7 +179,7 @@ export function editData (
     newSixthCategoryValue
 ) {
     let data = axios
-        .put(`/api/edit_data/${id}`, {
+        .put(`/api/edit_data/${user_id}/${id}`, {
             reference_id,
             trainingCategories,
             newOutcomeValue,

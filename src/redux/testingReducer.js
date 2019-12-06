@@ -8,6 +8,7 @@ const initialState = {
 }
 
 export function runModel (
+    user_id,
     trainingCategories,
     bulkCategoryCount,
     bulkTrainingData,
@@ -31,7 +32,7 @@ export function runModel (
     uniqueSixthCategoryValues
 ) {
     let data = axios
-        .post('/api/run', {
+        .post(`/api/run/${user_id}`, {
             trainingCategories,
             bulkCategoryCount,
             bulkTrainingData,
@@ -54,7 +55,8 @@ export function runModel (
             uniqueFifthCategoryValues,
             uniqueSixthCategoryValues
         })
-        .then(res => res.data)
+        .then(res => {
+            return res.data})
     return {
         type: RUN_MODEL,
         payload: data
@@ -69,6 +71,7 @@ export const secondReduxLogout = () => {
 }
 
 export function saveTestingData (
+    user_id,
     trainingCategories,
     firstCategoryValue,
     secondCategoryValue,
@@ -78,7 +81,7 @@ export function saveTestingData (
     sixthCategoryValue
 ) {
     let data = axios
-        .post('/api/save_testing_data', {
+        .post(`/api/save_testing_data/${user_id}`, {
             trainingCategories,
             firstCategoryValue,
             secondCategoryValue,

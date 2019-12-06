@@ -19,9 +19,9 @@ class Login extends Component {
         this.setState ({ [name]: value })
     }
 
-    loginUser = () => {
-        this.props.login(this.state.username, this.state.password)
-        this.props.setupDatabase()
+    loginUser = async () => {
+        await this.props.login(this.state.username, this.state.password)
+        this.props.setupDatabase(this.props.user.id)
     }
 
     render() {
@@ -33,7 +33,7 @@ class Login extends Component {
                <div className='background-container'>
                     <div className='background-overlay'>
                         <div className='nav-bar'>
-                            <div className='logo'>DevShop.js</div>
+                            <div className='logo'>Prediktion</div>
                             <div className='button-container'>
                                 <button className='nav-button login-button'>Login</button>
                                 <button onClick={() => this.props.history.push('/signup')} className='nav-button signup-button'>Sign Up</button>
@@ -52,7 +52,7 @@ class Login extends Component {
                             </div>
                         </div>
                         <div className='footer-container'>
-                            <div>DevShop.js Copyright 2019</div>
+                            <div>Prediktion Copyright 2019</div>
                         </div>
                     </div>
                </div>

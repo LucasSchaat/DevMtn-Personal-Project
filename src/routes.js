@@ -29,7 +29,7 @@ class routes extends Component {
                         <div className='background-container'>
                             <div className='background-overlay'>
                                 <div className='nav-bar'>
-                                    <div className='logo'>DevShop.js</div>
+                                    <div className='logo'>Prediktion</div>
                                     <button onClick={this.logout} className='logout-button'>Log Out</button>
                                 </div>
                                 <div className='main-model-block'>
@@ -42,7 +42,7 @@ class routes extends Component {
                                     </Switch>
                                 </div>
                                 <div className='footer-container'>
-                                    <div>DevShop.js Copyright 2019</div>
+                                    <div>Prediktion Copyright 2019</div>
                                 </div>
                             </div>
                         </div>

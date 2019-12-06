@@ -19,9 +19,9 @@ class Signup extends Component {
         this.setState({ [name]: value })
     }
 
-    signupUser = () => {
-        this.props.signup(this.state.username, this.state.password)
-        this.props.setupDatabase()
+    signupUser = async () => {
+        await this.props.signup(this.state.username, this.state.password)
+        this.props.setupDatabase(this.props.user.id)
     }
 
     render() {
@@ -32,7 +32,7 @@ class Signup extends Component {
             <div className='background-container'>
                 <div className='background-overlay'>
                     <div className='nav-bar'>
-                        <div className='logo'>DevShop.js</div>
+                        <div className='logo'>Prediktion</div>
                         <div className='button-container'>
                             <button onClick={() => this.props.history.push('/login')} className='nav-button login-button'>Login</button>
                             <button className='nav-button signup-button'>Sign Up</button>
@@ -51,7 +51,7 @@ class Signup extends Component {
                     </div>
                     </div>
                     <div className='footer-container'>
-                        <div>DevShop.js Copyright 2019</div>
+                        <div>Prediktion Copyright 2019</div>
                     </div>
                 </div>
             </div>

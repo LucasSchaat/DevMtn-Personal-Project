@@ -3,6 +3,7 @@ require ("@tensorflow/tfjs-node")
 
 module.exports = {
     async runModel(req, res) {
+        console.log('hit runModel')
         let { 
             trainingCategories,
             bulkCategoryCount,
@@ -26,6 +27,7 @@ module.exports = {
             uniqueFifthCategoryValues,
             uniqueSixthCategoryValues
         } = req.body
+        const {user_id} = req.params
         const db = req.app.get('db')
         let training = []
         let testing = []
@@ -1361,8 +1363,8 @@ module.exports = {
                 })
 
         } else if (trainingCategories === 1) {
-            let trainingDataFromDB = await db.get_training_data_for_model_1var()
-            let testingDataFromDB = await db.get_testing_data_for_model_1var()
+            let trainingDataFromDB = await db.get_training_data_for_model_1var(+user_id)
+            let testingDataFromDB = await db.get_testing_data_for_model_1var(+user_id)
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
 
@@ -1406,8 +1408,8 @@ module.exports = {
                 })
 
         } else if (trainingCategories === 2) {
-            let trainingDataFromDB = await db.get_training_data_for_model_2var()
-            let testingDataFromDB = await db.get_testing_data_for_model_2var()
+            let trainingDataFromDB = await db.get_training_data_for_model_2var(+user_id)
+            let testingDataFromDB = await db.get_testing_data_for_model_2var(+user_id)
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
@@ -1453,8 +1455,8 @@ module.exports = {
                 })
 
         } else if (trainingCategories === 3) {
-            let trainingDataFromDB = await db.get_training_data_for_model_3var()
-            let testingDataFromDB = await db.get_testing_data_for_model_3var()
+            let trainingDataFromDB = await db.get_training_data_for_model_3var(+user_id)
+            let testingDataFromDB = await db.get_testing_data_for_model_3var(+user_id)
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
             // CONVERT / SETUP DATA
@@ -1501,8 +1503,8 @@ module.exports = {
                 })
 
         } else if (trainingCategories === 4) {
-            let trainingDataFromDB = await db.get_training_data_for_model_4var()
-            let testingDataFromDB = await db.get_testing_data_for_model_4var()
+            let trainingDataFromDB = await db.get_training_data_for_model_4var(+user_id)
+            let testingDataFromDB = await db.get_testing_data_for_model_4var(+user_id)
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
@@ -1552,8 +1554,8 @@ module.exports = {
                 })
 
         } else if (trainingCategories === 5) {
-            let trainingDataFromDB = await db.get_training_data_for_model_5var()
-            let testingDataFromDB = await db.get_testing_data_for_model_5var()
+            let trainingDataFromDB = await db.get_training_data_for_model_5var(+user_id)
+            let testingDataFromDB = await db.get_testing_data_for_model_5var(+user_id)
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     
@@ -1605,8 +1607,8 @@ module.exports = {
                 })
 
         } else {
-            let trainingDataFromDB = await db.get_training_data_for_model_6var()
-            let testingDataFromDB = await db.get_testing_data_for_model_6var()
+            let trainingDataFromDB = await db.get_training_data_for_model_6var(+user_id)
+            let testingDataFromDB = await db.get_testing_data_for_model_6var(+user_id)
             training = JSON.parse([JSON.stringify(trainingDataFromDB)])
             testing = JSON.parse([JSON.stringify(testingDataFromDB)])
     

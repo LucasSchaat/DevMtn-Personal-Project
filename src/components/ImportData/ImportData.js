@@ -8,7 +8,7 @@ class ImportData extends Component {
     componentDidMount() {
         let { getData } = this.props
         if (!this.props.training.trainingData) {
-            getData()
+            getData(this.props.user.user.id, this.props.user.user.trainingCategories)
         }
     }
     

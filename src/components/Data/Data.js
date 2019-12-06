@@ -28,8 +28,10 @@ class Data extends Component {
     flipEdit = () => this.setState({ editing: !this.state.editing })
 
     saveUpdate = () => {
-        let { reference_id, id } = this.props
+        let { reference_id, id, user } = this.props
+        console.log(this.props)
         this.props.editData(
+            user.user.id,
             reference_id,
             id,
             this.state.trainingCategories,
@@ -46,7 +48,7 @@ class Data extends Component {
 
     delete = () => {
         let { id, deleteData } = this.props
-        deleteData(id)
+        deleteData(this.props.user.user.id, this.props.user.user.trainingCategories, id)
         this.flipEdit()
     }
 

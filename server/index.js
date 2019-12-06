@@ -21,6 +21,8 @@ app.use(session({
     }
 }))
 
+// TOP LEVEL MIDDLEWARE
+
 app.use(express.static(__dirname + '/../build'))
 
 app.get('*', (req, res) => {
@@ -39,12 +41,12 @@ app.post('/api/signup', uc.signup)
 app.delete('/api/logout', uc.logout)
 
 // DATA TRAINING ENDPOINTS
-app.delete('/api/reset_db', tc.resetDatabase)
-app.post('/api/save_data', tc.saveData)
-app.get('/api/training_data', tc.getData)
-app.put('/api/edit_data/:id', tc.editData)
-app.delete('/api/delete/:id', tc.deleteData)
+app.delete('/api/reset_db/:user_id', tc.resetDatabase)
+app.post('/api/save_data/:user_id', tc.saveData)
+app.get('/api/training_data/:user_id/:trainingCategories', tc.getData)
+app.put('/api/edit_data/:user_id/:id', tc.editData)
+app.delete('/api/delete/:user_id/:trainingCategories/:id', tc.deleteData)
 
 // DATA TESTING ENDPOINTS
-app.post('/api/save_testing_data', testc.saveTestData)
-app.post('/api/run', model.runModel)
+app.post('/api/save_testing_data/:user_id', testc.saveTestData)
+app.post('/api/run/:user_id', model.runModel)
