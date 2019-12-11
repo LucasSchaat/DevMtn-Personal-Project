@@ -3,7 +3,6 @@ require ("@tensorflow/tfjs-node")
 
 module.exports = {
     async runModel(req, res) {
-        console.log('hit runModel')
         let { 
             trainingCategories,
             bulkCategoryCount,
@@ -34,7 +33,6 @@ module.exports = {
 
         if (bulkTrainingData.length && trainingCategories === 1) {
             let firstIndex = uniqueFirstCategoryValues.indexOf(firstCategoryValue)
-            console.log('firstIndex', firstIndex)
             if (firstIndex !== -1) {    
                 testing.push({
                     [firstCategory]: firstIndex
@@ -45,12 +43,6 @@ module.exports = {
                 })
             }
             training = bulkTrainingData
-
-            console.log('firstCategoryValue', firstCategoryValue)
-            console.log('uniqueFirstCategoryValues', uniqueFirstCategoryValues)
-            console.log('data point', uniqueFirstCategoryValues.indexOf(firstCategoryValue))
-            console.log('testing', testing)
-            console.log('training', training)
 
             // CONVERT / SETUP DATA
             const trainingData = tf.tensor2d(training.map(data => [
@@ -88,7 +80,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (bulkTrainingData.length && trainingCategories === 2) {
@@ -155,7 +146,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (bulkTrainingData.length && trainingCategories === 3) {
@@ -253,7 +243,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (bulkTrainingData.length && trainingCategories === 4) {
@@ -418,7 +407,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (bulkTrainingData.length && trainingCategories === 5) {
@@ -728,7 +716,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (bulkTrainingData.length && trainingCategories === 6) {
@@ -1359,7 +1346,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (trainingCategories === 1) {
@@ -1404,7 +1390,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (trainingCategories === 2) {
@@ -1451,7 +1436,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (trainingCategories === 3) {
@@ -1499,7 +1483,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (trainingCategories === 4) {
@@ -1550,7 +1533,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else if (trainingCategories === 5) {
@@ -1603,7 +1585,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
 
         } else {
@@ -1659,7 +1640,6 @@ module.exports = {
                     let result = await model.predict(testingData).data()
                     model.predict(testingData).print()
                     res.send(result)
-                    console.log(result)
                 })
         }
     }

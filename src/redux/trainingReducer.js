@@ -70,7 +70,6 @@ export const saveBulkUpload = (
         uniqueFifthCategoryValues,
         uniqueSixthCategoryValues
     }
-    console.log('bulkDownloadData', bulkDownloadData)
     return {
         type: SAVE_BULK_DATA,
         payload: bulkDownloadData

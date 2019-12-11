@@ -89,7 +89,6 @@ class UploadData extends Component {
         }
         
         if (categoryNames.length === 2) {
-            console.log('Save Mass Upload Button Hit at #1!')
             let outcomeCategoryValues = allValues.map(data => data[0])
             let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
             
@@ -127,7 +126,6 @@ class UploadData extends Component {
                  )
              })
         } else if (categoryNames.length === 3) {
-            console.log('Save Mass Upload Button Hit at #2!')
             let outcomeCategoryValues = allValues.map(data => data[0])
             let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
             
@@ -171,7 +169,6 @@ class UploadData extends Component {
                  )
              })
         } else if (categoryNames.length === 4) {
-            console.log('Save Mass Upload Button Hit at #3!')
             let outcomeCategoryValues = allValues.map(data => data[0])
             let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
             
@@ -221,7 +218,6 @@ class UploadData extends Component {
                  )
              })
         } else if (categoryNames.length === 5) {
-            console.log('Save Mass Upload Button Hit at #4!')
             let outcomeCategoryValues = allValues.map(data => data[0])
             let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
             
@@ -277,7 +273,6 @@ class UploadData extends Component {
                  )
              })
         } else if (categoryNames.length === 6) {
-            console.log('Save Mass Upload Button Hit at #5!')
             let outcomeCategoryValues = allValues.map(data => data[0])
             let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
             
@@ -339,7 +334,6 @@ class UploadData extends Component {
                  )
              })
         } else {
-            console.log('Save Mass Upload Button Hit at #6!')
             let outcomeCategoryValues = allValues.map(data => data[0])
             let uniqueOutcomeCategoryValuesArray = [this.props.training.categories.secondOutcome, this.props.training.categories.firstOutcome]
             

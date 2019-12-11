@@ -29,7 +29,6 @@ class Data extends Component {
 
     saveUpdate = () => {
         let { reference_id, id, user } = this.props
-        console.log(this.props)
         this.props.editData(
             user.user.id,
             reference_id,

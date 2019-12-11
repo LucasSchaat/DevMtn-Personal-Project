@@ -32,7 +32,6 @@ class TestModel extends Component {
     }
 
     save = () => {
-        console.log('hitting Test Model function in TestModel')
         this.props.saveTestingData(
             this.props.user.user.id,
             this.props.user.user.trainingCategories,
@@ -92,8 +91,6 @@ class TestModel extends Component {
             this.props.training.bulkDownload.uniqueFifthCategoryValues,
             this.props.training.bulkDownload.uniqueSixthCategoryValues
             )
-        console.log('this.state', this.state)
-        console.log('this.props', this.props)
     }
 
     retestModel = () => {
@@ -127,7 +124,6 @@ class TestModel extends Component {
             sixthCategory
         } = this.props.training.categories
         let { result } = this.props.testing
-        console.log(this.props)
         if(trainingCategories === 1 && !result.length) {
             return(
                 <div>
